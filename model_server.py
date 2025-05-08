@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import pymysql
 import joblib
+import requests
 
 app = Flask(__name__)
 model = joblib.load("random_forest_model.pkl")
@@ -14,6 +15,31 @@ def get_risk_level(score):
     else:
         return "Low", "Stable condition."
 
+def generate_llm_reasoning(patient_id, risk_score, risk_level, top_features):
+    features_text = "\n".join(
+        [f"{f['ranking']}: score {f['score']}" for f in top_features]
+    )
+    prompt = f"""
+Patient ID: {patient_id}
+Risk Score: {risk_score}
+Risk Level: {risk_level}
+Top Risk-Contributing Features:
+{features_text}
+
+Explain in 5 lines why the patient might be at {risk_level} risk level based on these features.
+    """
+
+    try:
+        response = requests.post(
+            "http://localhost:11434/api/generate",
+            json={"model": "mistral", "prompt": prompt, "stream": False},
+            timeout=30
+        )
+        result = response.json()
+        return result.get("response", "LLM reasoning unavailable.")
+    except Exception as e:
+        return f"Error getting reasoning: {e}"
+
 @app.route("/risk_score", methods=["POST"])
 def get_risk_score():
     try:
@@ -22,8 +48,8 @@ def get_risk_score():
         # Connect to MySQL
         conn = pymysql.connect(
             host="localhost",
-            user="reddy",
-            password="pwdreddy",
+            user="root",
+            password="root",
             database="pcori_dashboard",
             cursorclass=pymysql.cursors.DictCursor
         )
@@ -51,11 +77,14 @@ def get_risk_score():
             for row in rows[:5]
         ]
 
+        llm_reasoning = generate_llm_reasoning(patient_id, prediction_prob, risk_level, top_features)
+
         return jsonify({
             "risk_score": round(float(prediction_prob), 2),
             "risk_level": risk_level,
             "explanation": explanation,
-            "top_features": top_features
+            "top_features": top_features,
+            "llm_reasoning": llm_reasoning
         })
 
     except Exception as e:
