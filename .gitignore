@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code and system files
+.vscode/
+.DS_Store
+
+# Python virtual environments
+.env/
+.venv/
+env/
+venv/
+tabpy_env/
+
+# Log and database files
+*.log
+*.sqlite3
+
+# OS or IDE metadata
+*.swp
+*.swo
+*.zip
+*.tar.gz
+
+# Notebook outputs or temp files
+*.nbconvert.ipynb
+Untitled*.ipynb
+
+# Any other download files
+*.app.zip
+
+# Ignore personal configuration files (zsh, kube, docker etc.)
+../../.*
+
+# Mac OS Spotlight or indexing files
+*.Spotlight-V100
+*.Trashes

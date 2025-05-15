@@ -3,9 +3,13 @@ import pandas as pd
 import pymysql
 import joblib
 import requests
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 model = joblib.load("random_forest_model.pkl")
+
+CORS(app)
 
 def get_risk_level(score):
     if score > 0.7:
@@ -89,6 +93,55 @@ def get_risk_score():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+    
+@app.route("/all_patient_details", methods=["GET"])
+def get_all_patient_details():
+    try:
+        # Connect to MySQL
+        conn = pymysql.connect(
+            host="127.0.0.1",    # localhost
+            port=3307,           # forwarded port
+            user="sankeer",      # your database username
+            password="pwdsankeer",  # your database password
+            database="pcori_dashboard", # database name
+            cursorclass=pymysql.cursors.DictCursor
+        )
+
+        with conn.cursor() as cursor:
+            query = """
+                SELECT tp.patient_id, tp.patient_sk, tp.race, tp.gender, tp.marital_status,
+                       tm.encounter_id, tm.mme_score, tm.encounter_date
+                FROM t_patient tp
+                LEFT JOIN t_MME tm ON tp.patient_id = tm.patient_id
+            """
+            cursor.execute(query)
+            all_patients = cursor.fetchall()
+
+        if not all_patients:
+            return jsonify({"error": "No patient data found"}), 404
+
+        clean_data = []
+        for row in all_patients:
+            clean_data.append({
+                "patient_id": str(row["patient_id"]),
+                "patient_sk": str(row["patient_sk"]),
+                "race": row["race"],
+                "gender": row["gender"],
+                "marital_status": row["marital_status"],
+                "encounter_id": row["encounter_id"],
+                "mme_score": row["mme_score"],
+                "encounter_date": row["encounter_date"].strftime("%Y-%m-%d") if row["encounter_date"] else None
+            })
+
+
+        return jsonify(clean_data)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 
 if __name__ == "__main__":
     app.run(port=5006)

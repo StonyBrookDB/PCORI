@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient WDC</title>
+  <script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js"></script>
+</head>
+<body>
+  <h3>Patient Data from Flask API</h3>
+  <button id="getDataButton">Load Data into Tableau</button>
+
+  <script>
+    // Create the connector object
+    const connector = tableau.makeConnector();
+
+    // Schema function
+    connector.getSchema = function (schemaCallback) {
+      const cols = [
+        { id: "patient_id", dataType: tableau.dataTypeEnum.string },
+        { id: "patient_sk", dataType: tableau.dataTypeEnum.string },
+        { id: "race", dataType: tableau.dataTypeEnum.string },
+        { id: "gender", dataType: tableau.dataTypeEnum.string },
+        { id: "marital_status", dataType: tableau.dataTypeEnum.string },
+        { id: "encounter_id", dataType: "int" },    
+        { id: "mme_score", dataType: "float" },
+        { id: "encounter_date", dataType: "date" }  
+      ];
+
+      schemaCallback([{
+        id: "patientData",
+        alias: "Patient Details from Flask API",
+        columns: cols
+      }]);
+    };
+
+    // Data fetch function
+    connector.getData = function (table, doneCallback) {
+  fetch("http://localhost:5006/all_patient_details")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+        const tableData = data.map(row => ({
+            patient_id: row.patient_id,
+            patient_sk: row.patient_sk,
+            race: row.race,
+            gender: row.gender,
+            marital_status: row.marital_status,
+            encounter_id: row.encounter_id,
+            mme_score: row.mme_score,
+            encounter_date: row.encounter_date
+        }));
+
+        table.appendRows(tableData);
+        doneCallback();
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+      tableau.abortWithError('Error fetching data: ' + error.message);
+    });
+};
+
+
+
+    // Register the connector
+    tableau.registerConnector(connector);
+
+    // When button is clicked, submit to Tableau
+    document.getElementById("getDataButton").addEventListener("click", function () {
+      tableau.connectionName = "Patient Data Connector";
+      tableau.submit();
+    });
+  </script>
+</body>
+</html>
