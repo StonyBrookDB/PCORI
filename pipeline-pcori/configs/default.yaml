@@ -1,0 +1,21 @@
+# data and path
+data_root: "./data"           # point to the boarding output directory
+runs_root: "./runs"           # Training products
+
+# Time series sampling contract（default）
+seq_len: 5
+history_window_days: 365
+min_gap_days: 14
+padding_policy: repeat_last
+
+# which model this time
+model: logreg                  #baseline, can change
+
+# hyperparameters（baseline param/default）
+seed: 42
+batch_size: 128
+max_epochs: 5
+learning_rate: 0.001
+
+# evaluation metrics
+metrics: [auroc, auprc, f1]
