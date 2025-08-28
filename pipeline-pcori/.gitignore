@@ -1,0 +1,27 @@
+
+# Python caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+
+# Envs
+.venv/
+venv/
+env/
+
+# Editors/OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Outputs
+runs/*
+!runs/.gitkeep
+!runs/run.md
+
+# Data (keep only README)
+data/*
+!data/data.md
