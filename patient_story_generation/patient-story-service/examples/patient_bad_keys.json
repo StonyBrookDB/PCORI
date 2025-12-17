@@ -1,0 +1,25 @@
+{
+  "patient_id": "P_BAD_KEYS",
+  "name": "Alice Example",
+  "phone": "555-555-1212",
+  "age": 40,
+  "sex": "female",
+  "encounters": [
+    {
+      "date": "2024-05-05",
+      "type": "outpatient",
+      "diagnoses": ["ankle sprain"],
+      "medications": [],
+      "labs": [],
+      "notes": "Sprained ankle while running."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.2,
+    "risk_level": "low",
+    "risk_factors": []
+  },
+  "language": "en",
+  "prompt_version": "v1",
+  "schema_version": "v1"
+}

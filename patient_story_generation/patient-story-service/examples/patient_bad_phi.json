@@ -1,0 +1,23 @@
+{
+  "patient_id": "P_BAD_PHI",
+  "age": 50,
+  "sex": "female",
+  "encounters": [
+    {
+      "date": "2024-01-01",
+      "type": "outpatient",
+      "diagnoses": ["headache"],
+      "medications": [],
+      "labs": [],
+      "notes": "Patient email is test@example.com and phone 555-999-1234."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.3,
+    "risk_level": "low",
+    "risk_factors": []
+  },
+  "language": "en",
+  "prompt_version": "v1",
+  "schema_version": "v1"
+}

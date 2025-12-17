@@ -1,0 +1,40 @@
+{
+  "patient_id": "P0003",
+  "age": 67,
+  "sex": "female",
+  "encounters": [
+    {
+      "date": "2024-02-15",
+      "type": "outpatient",
+      "diagnoses": ["knee osteoarthritis", "type 2 diabetes"],
+      "medications": [
+        {"name": "tramadol", "dose": "50mg", "frequency": "TID"},
+        {"name": "metformin", "dose": "1000mg", "frequency": "BID"}
+      ],
+      "labs": [
+        {"name": "HbA1c", "value": 7.4, "unit": "%"}
+      ],
+      "notes": "Uses tramadol regularly; reports trouble sleeping."
+    },
+    {
+      "date": "2024-07-20",
+      "type": "outpatient",
+      "diagnoses": ["knee osteoarthritis"],
+      "medications": [
+        {"name": "acetaminophen", "dose": "650mg", "frequency": "q6h prn"}
+      ],
+      "labs": [],
+      "notes": "Discussed tapering opioids and using non-opioid options."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.55,
+    "risk_level": "medium",
+    "risk_factors": [
+      "age > 65",
+      "long-term opioid therapy"
+    ]
+  },
+  "language": "en",
+  "prompt_version": "v1"
+}

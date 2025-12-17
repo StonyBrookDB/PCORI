@@ -1,0 +1,24 @@
+{
+  "patient_id": "P0004",
+  "age": 29,
+  "sex": "male",
+  "encounters": [
+    {
+      "date": "2024-03-10",
+      "type": "outpatient",
+      "diagnoses": ["low back strain"],
+      "medications": [
+        {"name": "naproxen", "dose": "500mg", "frequency": "BID"}
+      ],
+      "labs": [],
+      "notes": "Works in manual labor; no opioid prescriptions."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.10,
+    "risk_level": "low",
+    "risk_factors": []
+  },
+  "language": "en",
+  "prompt_version": "v1"
+}

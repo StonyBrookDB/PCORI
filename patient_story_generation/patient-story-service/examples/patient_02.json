@@ -1,0 +1,34 @@
+{
+  "patient_id": "P0002",
+  "age": 43,
+  "sex": "female",
+  "encounters": [
+    {
+      "date": "2024-09-05",
+      "type": "emergency",
+      "diagnoses": ["ankle fracture"],
+      "medications": [
+        {"name": "hydrocodone-acetaminophen", "dose": "5-325mg", "frequency": "q6h prn"}
+      ],
+      "labs": [],
+      "notes": "Short-term opioid prescription after injury."
+    },
+    {
+      "date": "2024-10-01",
+      "type": "followup",
+      "diagnoses": ["ankle fracture, healing"],
+      "medications": [
+        {"name": "ibuprofen", "dose": "400mg", "frequency": "q8h prn"}
+      ],
+      "labs": [],
+      "notes": "Opioids discontinued."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.18,
+    "risk_level": "low",
+    "risk_factors": []
+  },
+  "language": "en",
+  "prompt_version": "v1"
+}

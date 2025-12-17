@@ -1,0 +1,23 @@
+{
+  "patient_id": "P_BAD_NAME_PHONE",
+  "age": 52,
+  "sex": "male",
+  "encounters": [
+    {
+      "date": "2024-04-04",
+      "type": "outpatient",
+      "diagnoses": ["knee pain"],
+      "medications": [],
+      "labs": [],
+      "notes": "Patient name John Doe, phone 555-321-7890, complains of knee pain."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.35,
+    "risk_level": "low",
+    "risk_factors": []
+  },
+  "language": "en",
+  "prompt_version": "v1",
+  "schema_version": "v1"
+}

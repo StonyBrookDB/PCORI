@@ -1,0 +1,45 @@
+﻿{
+    "patient_id":  "P00056",
+    "age":  58,
+    "sex":  "male",
+    "encounters":  [
+                       {
+                           "date":  "2024-10-12",
+                           "type":  "outpatient",
+                           "diagnoses":  [
+                                             "chronic low back pain",
+                                             "hypertension"
+                                         ],
+                           "medications":  [
+                                               {
+                                                   "name":  "oxycodone",
+                                                   "dose":  "10mg",
+                                                   "frequency":  "BID"
+                                               },
+                                               {
+                                                   "name":  "lisinopril",
+                                                   "dose":  "20mg",
+                                                   "frequency":  "OD"
+                                               }
+                                           ],
+                           "labs":  [
+                                        {
+                                            "name":  "eGFR",
+                                            "value":  60,
+                                            "unit":  "mL/min/1.73m2"
+                                        }
+                                    ],
+                           "notes":  "Pain improved with PT; tapering oxycodone."
+                       }
+                   ],
+    "opioid_risk":  {
+                        "risk_score":  0.82,
+                        "risk_level":  "high",
+                        "risk_factors":  [
+                                             "daily opioid use \u003e 3 months",
+                                             "history of depression"
+                                         ]
+                    },
+    "language":  "en",
+    "prompt_version":  "v1"
+}

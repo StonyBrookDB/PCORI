@@ -1,0 +1,23 @@
+{
+  "patient_id": "P_BAD_RISK",
+  "age": 60,
+  "sex": "male",
+  "encounters": [
+    {
+      "date": "2024-02-02",
+      "type": "outpatient",
+      "diagnoses": ["chronic pain"],
+      "medications": [],
+      "labs": [],
+      "notes": "No PHI here."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 1.5,
+    "risk_level": "high",
+    "risk_factors": ["long-term opioid use"]
+  },
+  "language": "en",
+  "prompt_version": "v1",
+  "schema_version": "v1"
+}

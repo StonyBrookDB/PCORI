@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PatientStoryRequest",
+  "type": "object",
+  "required": ["patient_id", "age", "sex", "encounters", "opioid_risk"],
+  "properties": {
+    "patient_id": { "type": ["string", "number"] },
+    "age": { "type": ["number", "string"] },
+    "sex": { "type": ["string", "number"] },
+    "race": { "type": ["string", "null"] },
+    "marital_status": { "type": ["string", "null"] },
+    "language": { "type": ["string", "null"], "default": "en" },
+    "prompt_version": { "type": ["string", "null"], "default": "v1" },
+    "opioid_risk": {
+      "type": "object",
+      "required": ["risk_score", "risk_level"],
+      "properties": {
+        "risk_score": { "type": ["number", "string", "null"] },
+        "risk_level": { "type": ["string", "null"] },
+        "risk_factors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "prediction_od": { "type": ["integer", "number", "string", "null"] },
+        "mme_scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "encounter_id": { "type": ["integer", "number", "string", "null"] },
+              "encounter_date": { "type": ["string", "null"] },
+              "mme": { "type": ["number", "string", "null"] }
+            },
+            "additionalProperties": true
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": true
+    },
+    "encounters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "type"],
+        "properties": {
+          "date": { "type": ["string", "null"] },
+          "type": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] },
+          "diagnoses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": { "type": ["string", "number", "null"] },
+                "description": { "type": ["string", "null"] },
+                "priority": { "type": ["integer", "number", "string", "null"] },
+                "type": { "type": ["string", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          },
+          "medications": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": ["string", "null"] },
+                "dose": { "type": ["string", "null"] },
+                "frequency": { "type": ["string", "null"] },
+                "start": { "type": ["string", "null"] },
+                "stop": { "type": ["string", "null"] },
+                "ndc": { "type": ["string", "number", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          },
+          "labs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": { "type": ["integer", "number", "string", "null"] },
+                "value": { "type": ["number", "string", "null"] },
+                "low": { "type": ["number", "string", "null"] },
+                "high": { "type": ["number", "string", "null"] },
+                "indicator": { "type": ["string", "null"] },
+                "time": { "type": ["string", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": { "type": ["string", "null"] },
+                "value": { "type": ["number", "string", "null"] },
+                "time": { "type": ["string", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          },
+          "procedures": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": { "type": ["string", "null"] },
+                "description": { "type": ["string", "null"] },
+                "type": { "type": ["string", "null"] },
+                "time": { "type": ["string", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          },
+          "microbiology": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "site": { "type": ["string", "null"] },
+                "time": { "type": ["string", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "default": []
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

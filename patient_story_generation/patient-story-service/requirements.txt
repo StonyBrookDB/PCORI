@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pydantic
+google-generativeai
+httpx
+mysql-connector-python

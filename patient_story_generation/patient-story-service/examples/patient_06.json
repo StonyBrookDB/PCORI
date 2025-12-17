@@ -1,0 +1,28 @@
+{
+  "patient_id": "P0006",
+  "age": 63,
+  "sex": "male",
+  "encounters": [
+    {
+      "date": "2024-05-02",
+      "type": "inpatient",
+      "diagnoses": ["pancreatic cancer"],
+      "medications": [
+        {"name": "morphine", "dose": "15mg", "frequency": "q4h"},
+        {"name": "ondansetron", "dose": "4mg", "frequency": "q8h prn"}
+      ],
+      "labs": [],
+      "notes": "Palliative care; high opioid doses for severe pain."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.70,
+    "risk_level": "high",
+    "risk_factors": [
+      "high-dose opioid therapy",
+      "multiple comorbidities"
+    ]
+  },
+  "language": "en",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,28 @@
+{
+  "patient_id": "P0005",
+  "age": 51,
+  "sex": "female",
+  "encounters": [
+    {
+      "date": "2024-01-18",
+      "type": "outpatient",
+      "diagnoses": ["fibromyalgia", "generalized anxiety disorder"],
+      "medications": [
+        {"name": "oxycodone", "dose": "5mg", "frequency": "BID"},
+        {"name": "alprazolam", "dose": "0.5mg", "frequency": "qhs"}
+      ],
+      "labs": [],
+      "notes": "Reports using extra doses on stressful days."
+    }
+  ],
+  "opioid_risk": {
+    "risk_score": 0.76,
+    "risk_level": "high",
+    "risk_factors": [
+      "concurrent benzodiazepine use",
+      "mental health condition"
+    ]
+  },
+  "language": "en",
+  "prompt_version": "v1"
+}
