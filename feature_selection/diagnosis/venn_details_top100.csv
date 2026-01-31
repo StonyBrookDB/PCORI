@@ -1,0 +1,218 @@
+feature,description,n_methods,methods
+B18,Chronic viral hepatitis,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+B19,Unspecified viral hepatitis,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+D57,Sickle-cell disorders,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F10,Alcohol related disorders,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F11,Opioid related disorders,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F14,Cocaine related disorders,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F17,Nicotine dependence,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F19,Other psychoactive substance related disorders,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F31,Bipolar disorder,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F32,"Major depressive disorder, single episode",4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+F55,Abuse of non-dependence-producing substances,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+G89,"Pain, not elsewhere classified",4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+O99,"Other maternal diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium",4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+R45,Symptoms and signs involving emotional state,4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+T40,"Poisoning by, adverse effect of and underdosing of narcotics and psychodysleptics [hallucinogens]",4,Elastic Net & LightGBM & NTK & Recurrence Enrichment
+E66,Overweight and obesity,3,LightGBM & NTK & Recurrence Enrichment
+F41,Other anxiety disorders,3,LightGBM & NTK & Recurrence Enrichment
+J44,Other chronic obstructive pulmonary disease,3,LightGBM & NTK & Recurrence Enrichment
+J45,Asthma,3,LightGBM & NTK & Recurrence Enrichment
+K21,Gastro-esophageal reflux disease,3,LightGBM & NTK & Recurrence Enrichment
+L03,Cellulitis and acute lymphangitis,3,LightGBM & NTK & Recurrence Enrichment
+M54,Dorsalgia,3,LightGBM & NTK & Recurrence Enrichment
+M79,"Other and unspecified soft tissue disorders, not elsewhere classified",3,LightGBM & NTK & Recurrence Enrichment
+R00,Abnormalities of heart beat,3,LightGBM & NTK & Recurrence Enrichment
+R06,Abnormalities of breathing,3,LightGBM & NTK & Recurrence Enrichment
+R07,Pain in throat and chest,3,LightGBM & NTK & Recurrence Enrichment
+R10,Abdominal and pelvic pain,3,LightGBM & NTK & Recurrence Enrichment
+R11,Nausea and vomiting,3,LightGBM & NTK & Recurrence Enrichment
+R41,Other symptoms and signs involving cognitive functions and awareness,3,LightGBM & NTK & Recurrence Enrichment
+Y92,Place of occurrence of the external cause,3,LightGBM & NTK & Recurrence Enrichment
+Z68,Body mass index [BMI],3,LightGBM & NTK & Recurrence Enrichment
+Z79,Long term (current) drug therapy,3,LightGBM & NTK & Recurrence Enrichment
+Z86,Personal history of certain other diseases,3,LightGBM & NTK & Recurrence Enrichment
+Z88,"Allergy status to drugs, medicaments and biological substances",3,LightGBM & NTK & Recurrence Enrichment
+Z91,"Personal risk factors, not elsewhere classified",3,LightGBM & NTK & Recurrence Enrichment
+E78,Disorders of lipoprotein metabolism and other lipidemias,3,Elastic Net & LightGBM & NTK
+I48,Atrial fibrillation and flutter,3,Elastic Net & LightGBM & NTK
+K57,Diverticular disease of intestine,3,Elastic Net & LightGBM & NTK
+K80,Cholelithiasis,3,Elastic Net & LightGBM & NTK
+N20,Calculus of kidney and ureter,3,Elastic Net & LightGBM & NTK
+Z01,"Encounter for other special examination without complaint, suspected or reported diagnosis",3,Elastic Net & LightGBM & NTK
+Z12,Encounter for screening for malignant neoplasms,3,Elastic Net & LightGBM & NTK
+Z37,Outcome of delivery,3,Elastic Net & LightGBM & NTK
+Z3A,Weeks of gestation,3,Elastic Net & LightGBM & NTK
+B20,Human immunodeficiency virus [HIV] disease,3,Elastic Net & LightGBM & Recurrence Enrichment
+K86,Other diseases of pancreas,3,Elastic Net & LightGBM & Recurrence Enrichment
+Z76,Persons encountering health services in other circumstances,3,Elastic Net & LightGBM & Recurrence Enrichment
+A02,Other salmonella infections,2,Elastic Net & LightGBM
+C50,Malignant neoplasm of breast,2,Elastic Net & LightGBM
+D25,Leiomyoma of uterus,2,Elastic Net & LightGBM
+F02,Dementia in other diseases classified elsewhere,2,Elastic Net & LightGBM
+F03,Unspecified dementia,2,Elastic Net & LightGBM
+H25,Age-related cataract,2,Elastic Net & LightGBM
+H26,Other cataract,2,Elastic Net & LightGBM
+H65,Nonsuppurative otitis media,2,Elastic Net & LightGBM
+I21,ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction,2,Elastic Net & LightGBM
+I65,"Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction",2,Elastic Net & LightGBM
+I70,Atherosclerosis,2,Elastic Net & LightGBM
+J35,Chronic diseases of tonsils and adenoids,2,Elastic Net & LightGBM
+K08,Other disorders of teeth and supporting structures,2,Elastic Net & LightGBM
+K35,Acute appendicitis,2,Elastic Net & LightGBM
+K40,Inguinal hernia,2,Elastic Net & LightGBM
+K64,Hemorrhoids and perianal venous thrombosis,2,Elastic Net & LightGBM
+N47,Disorders of prepuce,2,Elastic Net & LightGBM
+N83,"Noninflammatory disorders of ovary, fallopian tube and broad ligament",2,Elastic Net & LightGBM
+N84,Polyp of female genital tract,2,Elastic Net & LightGBM
+N92,"Excessive, frequent and irregular menstruation",2,Elastic Net & LightGBM
+O09,Supervision of high risk pregnancy,2,Elastic Net & LightGBM
+O70,Perineal laceration during delivery,2,Elastic Net & LightGBM
+S42,Fracture of shoulder and upper arm,2,Elastic Net & LightGBM
+S52,Fracture of forearm,2,Elastic Net & LightGBM
+S62,Fracture at wrist and hand level,2,Elastic Net & LightGBM
+S83,Dislocation and sprain of joints and ligaments of knee,2,Elastic Net & LightGBM
+Z02,Encounter for administrative examination,2,Elastic Net & LightGBM
+Z30,Encounter for contraceptive management,2,Elastic Net & LightGBM
+Z53,"Persons encountering health services for specific procedures and treatment, not carried out",2,Elastic Net & LightGBM
+Z66,Do not resuscitate,2,Elastic Net & LightGBM
+A41,Other sepsis,2,NTK & Recurrence Enrichment
+D50,Iron deficiency anemia,2,NTK & Recurrence Enrichment
+D63,Anemia in chronic diseases classified elsewhere,2,NTK & Recurrence Enrichment
+D64,Other anemias,2,NTK & Recurrence Enrichment
+D69,Purpura and other hemorrhagic conditions,2,NTK & Recurrence Enrichment
+D72,Other disorders of white blood cells,2,NTK & Recurrence Enrichment
+E83,Disorders of mineral metabolism,2,NTK & Recurrence Enrichment
+E86,Volume depletion,2,NTK & Recurrence Enrichment
+E87,"Other disorders of fluid, electrolyte and acid-base balance",2,NTK & Recurrence Enrichment
+F12,Cannabis related disorders,2,NTK & Recurrence Enrichment
+F43,"Reaction to severe stress, and adjustment disorders",2,NTK & Recurrence Enrichment
+G40,Epilepsy and recurrent seizures,2,NTK & Recurrence Enrichment
+G43,Migraine,2,NTK & Recurrence Enrichment
+G47,Sleep disorders,2,NTK & Recurrence Enrichment
+G93,Other disorders of brain,2,NTK & Recurrence Enrichment
+I95,Hypotension,2,NTK & Recurrence Enrichment
+J18,"Pneumonia, unspecified organism",2,NTK & Recurrence Enrichment
+J96,"Respiratory failure, not elsewhere classified",2,NTK & Recurrence Enrichment
+K59,Other functional intestinal disorders,2,NTK & Recurrence Enrichment
+M47,Spondylosis,2,NTK & Recurrence Enrichment
+M51,"Thoracic, thoracolumbar, and lumbosacral intervertebral disc disorders",2,NTK & Recurrence Enrichment
+N17,Acute kidney failure,2,NTK & Recurrence Enrichment
+Z72,Problems related to lifestyle,2,NTK & Recurrence Enrichment
+Z87,Personal history of other diseases and conditions,2,NTK & Recurrence Enrichment
+Z99,"Dependence on enabling machines and devices, not elsewhere classified",2,NTK & Recurrence Enrichment
+E03,Other hypothyroidism,2,LightGBM & NTK
+E13,Other specified diabetes mellitus,2,LightGBM & NTK
+I10,Essential (primary) hypertension,2,LightGBM & NTK
+I12,Hypertensive chronic kidney disease,2,LightGBM & NTK
+I25,Chronic ischemic heart disease,2,LightGBM & NTK
+M25,"Other joint disorder, not elsewhere classified",2,LightGBM & NTK
+R50,Fever of other and unknown origin,2,LightGBM & NTK
+R94,Abnormal results of function studies,2,LightGBM & NTK
+Z51,Encounter for other aftercare and medical care,2,LightGBM & NTK
+Z82,Family history of certain disabilities and chronic diseases (leading to disablement),2,LightGBM & NTK
+Z85,Personal history of malignant neoplasm,2,LightGBM & NTK
+Z95,Presence of cardiac and vascular implants and grafts,2,LightGBM & NTK
+F13,"Sedative, hypnotic, or anxiolytic related disorders",2,Elastic Net & Recurrence Enrichment
+F15,Other stimulant related disorders,2,Elastic Net & Recurrence Enrichment
+F33,"Major depressive disorder, recurrent",2,Elastic Net & Recurrence Enrichment
+F34,Persistent mood [affective] disorders,2,Elastic Net & Recurrence Enrichment
+F39,Unspecified mood [affective] disorder,2,Elastic Net & Recurrence Enrichment
+K31,Other diseases of stomach and duodenum,2,Elastic Net & Recurrence Enrichment
+K50,Crohn's disease [regional enteritis],2,Elastic Net & Recurrence Enrichment
+A05,"Other bacterial foodborne intoxications, not elsewhere classified",1,Elastic Net
+B17,Other acute viral hepatitis,1,Elastic Net
+C54,Malignant neoplasm of corpus uteri,1,Elastic Net
+D17,Benign lipomatous neoplasm,1,Elastic Net
+E04,Other nontoxic goiter,1,Elastic Net
+E10,Type 1 diabetes mellitus,1,Elastic Net
+F69,Unspecified disorder of adult personality and behaviour,1,Elastic Net
+G30,Alzheimer's disease,1,Elastic Net
+G82,Paraplegia (paraparesis) and quadriplegia (quadriparesis),1,Elastic Net
+G91,Hydrocephalus,1,Elastic Net
+H66,Suppurative and unspecified otitis media,1,Elastic Net
+H90,Conductive and sensorineural hearing loss,1,Elastic Net
+J03,Acute tonsillitis,1,Elastic Net
+J34,Other and unspecified disorders of nose and nasal sinuses,1,Elastic Net
+K42,Umbilical hernia,1,Elastic Net
+K81,Cholecystitis,1,Elastic Net
+M20,Acquired deformities of fingers and toes,1,Elastic Net
+M23,Internal derangement of knee,1,Elastic Net
+M65,Synovitis and tenosynovitis,1,Elastic Net
+M67,Other disorders of synovium and tendon,1,Elastic Net
+M75,Shoulder lesions,1,Elastic Net
+M96,"Intraoperative and postprocedural complications and disorders of musculoskeletal system, not elsewhere classified",1,Elastic Net
+N60,Benign mammary dysplasia,1,Elastic Net
+N81,Female genital prolapse,1,Elastic Net
+N93,Other abnormal uterine and vaginal bleeding,1,Elastic Net
+O02,Other abnormal products of conception,1,Elastic Net
+O35,Maternal care for known or suspected fetal abnormality and damage,1,Elastic Net
+S43,Dislocation and sprain of joints and ligaments of shoulder girdle,1,Elastic Net
+S59,Other and unspecified injuries of elbow and forearm,1,Elastic Net
+S82,"Fracture of lower leg, including ankle",1,Elastic Net
+V85,Occupant of special construction vehicle injured in transport accident,1,Elastic Net
+W21,Striking against or struck by sports equipment,1,Elastic Net
+Z09,Encounter for follow-up examination after completed treatment for conditions other than malignant neoplasm,1,Elastic Net
+Z39,Encounter for maternal postpartum care and examination,1,Elastic Net
+Z45,Encounter for adjustment and management of implanted device,1,Elastic Net
+Z47,Orthopedic aftercare,1,Elastic Net
+B37,Candidiasis,1,Recurrence Enrichment
+B95,"Streptococcus, Staphylococcus, and Enterococcus as the cause of diseases classified elsewhere",1,Recurrence Enrichment
+B96,Other bacterial agents as the cause of diseases classified elsewhere,1,Recurrence Enrichment
+F20,Schizophrenia,1,Recurrence Enrichment
+F25,Schizoaffective disorders,1,Recurrence Enrichment
+F29,Unspecified psychosis not due to a substance or known physiological condition,1,Recurrence Enrichment
+F60,Specific personality disorders,1,Recurrence Enrichment
+F90,Attention-deficit hyperactivity disorders,1,Recurrence Enrichment
+G92,Toxic encephalopathy,1,Recurrence Enrichment
+J69,Pneumonitis due to solids and liquids,1,Recurrence Enrichment
+K70,Alcoholic liver disease,1,Recurrence Enrichment
+K74,Fibrosis and cirrhosis of liver,1,Recurrence Enrichment
+K76,Other diseases of liver,1,Recurrence Enrichment
+K85,Acute pancreatitis,1,Recurrence Enrichment
+L02,"Cutaneous abscess, furuncle and carbuncle",1,Recurrence Enrichment
+L97,"Non-pressure chronic ulcer of lower limb, not elsewhere classified",1,Recurrence Enrichment
+L98,"Other disorders of skin and subcutaneous tissue, not elsewhere classified",1,Recurrence Enrichment
+M06,Other rheumatoid arthritis,1,Recurrence Enrichment
+M62,Other disorders of muscle,1,Recurrence Enrichment
+R40,"Somnolence, stupor and coma",1,Recurrence Enrichment
+R52,"Pain, unspecified",1,Recurrence Enrichment
+R56,"Convulsions, not elsewhere classified",1,Recurrence Enrichment
+R65,Symptoms and signs specifically associated with systemic inflammation and infection,1,Recurrence Enrichment
+R69,Unknown and unspecified causes of morbidity,1,Recurrence Enrichment
+R74,Abnormal serum enzyme levels,1,Recurrence Enrichment
+R78,"Findings of drugs and other substances, not normally found in blood",1,Recurrence Enrichment
+T42,"Poisoning by, adverse effect of and underdosing of antiepileptic, sedative- hypnotic and antiparkinsonism drugs",1,Recurrence Enrichment
+T43,"Poisoning by, adverse effect of and underdosing of psychotropic drugs, not elsewhere classified",1,Recurrence Enrichment
+T50,"Poisoning by, adverse effect of and underdosing of diuretics and other and unspecified drugs, medicaments and biological substances",1,Recurrence Enrichment
+Z59,Problems related to housing and economic circumstances,1,Recurrence Enrichment
+E11,Type 2 diabetes mellitus,1,NTK
+I50,Heart failure,1,NTK
+I73,Other peripheral vascular diseases,1,NTK
+J98,Other respiratory disorders,1,NTK
+K29,Gastritis and duodenitis,1,NTK
+K92,Other diseases of digestive system,1,NTK
+M19,Other and unspecified osteoarthritis,1,NTK
+N18,Chronic kidney disease (CKD),1,NTK
+N39,Other disorders of urinary system,1,NTK
+R05,Cough,1,NTK
+R09,Other symptoms and signs involving the circulatory and respiratory system,1,NTK
+R19,Other symptoms and signs involving the digestive system and abdomen,1,NTK
+R51,Headache,1,NTK
+R53,Malaise and fatigue,1,NTK
+R55,Syncope and collapse,1,NTK
+Z34,Encounter for supervision of normal pregnancy,1,NTK
+Z90,"Acquired absence of organs, not elsewhere classified",1,NTK
+Z96,Presence of other functional implants,1,NTK
+Z98,Other postprocedural states,1,NTK
+D62,Acute posthaemorrhagic anaemia,1,LightGBM
+I44,Atrioventricular and left bundle-branch block,1,LightGBM
+I49,Other cardiac arrhythmias,1,LightGBM
+K63,Other diseases of intestine,1,LightGBM
+N13,Obstructive and reflux uropathy,1,LightGBM
+N40,Hyperplasia of prostate,1,LightGBM
+O80,Encounter for full-term uncomplicated delivery,1,LightGBM
+S72,Fracture of femur,1,LightGBM
+Y83,"Surgical operation and other surgical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure",1,LightGBM
+Y99,External cause status,1,LightGBM
+Z80,Family history of primary malignant neoplasm,1,LightGBM

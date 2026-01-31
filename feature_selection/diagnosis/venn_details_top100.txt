@@ -1,0 +1,279 @@
+Detailed breakdown of top 100 features by intersection
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+[4 methods] Elastic Net ∩ LightGBM ∩ NTK ∩ Recurrence Enrichment
+Count: 15
+────────────────────────────────────────────────────────────────────────────────
+  B18: Chronic viral hepatitis
+  B19: Unspecified viral hepatitis
+  D57: Sickle-cell disorders
+  F10: Alcohol related disorders
+  F11: Opioid related disorders
+  F14: Cocaine related disorders
+  F17: Nicotine dependence
+  F19: Other psychoactive substance related disorders
+  F31: Bipolar disorder
+  F32: Major depressive disorder, single episode
+  F55: Abuse of non-dependence-producing substances
+  G89: Pain, not elsewhere classified
+  O99: Other maternal diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium
+  R45: Symptoms and signs involving emotional state
+  T40: Poisoning by, adverse effect of and underdosing of narcotics and psychodysleptics [hallucinogens]
+
+────────────────────────────────────────────────────────────────────────────────
+[3 methods] LightGBM ∩ NTK ∩ Recurrence Enrichment
+Count: 20
+────────────────────────────────────────────────────────────────────────────────
+  E66: Overweight and obesity
+  F41: Other anxiety disorders
+  J44: Other chronic obstructive pulmonary disease
+  J45: Asthma
+  K21: Gastro-esophageal reflux disease
+  L03: Cellulitis and acute lymphangitis
+  M54: Dorsalgia
+  M79: Other and unspecified soft tissue disorders, not elsewhere classified
+  R00: Abnormalities of heart beat
+  R06: Abnormalities of breathing
+  R07: Pain in throat and chest
+  R10: Abdominal and pelvic pain
+  R11: Nausea and vomiting
+  R41: Other symptoms and signs involving cognitive functions and awareness
+  Y92: Place of occurrence of the external cause
+  Z68: Body mass index [BMI]
+  Z79: Long term (current) drug therapy
+  Z86: Personal history of certain other diseases
+  Z88: Allergy status to drugs, medicaments and biological substances
+  Z91: Personal risk factors, not elsewhere classified
+
+────────────────────────────────────────────────────────────────────────────────
+[3 methods] Elastic Net ∩ LightGBM ∩ NTK
+Count: 9
+────────────────────────────────────────────────────────────────────────────────
+  E78: Disorders of lipoprotein metabolism and other lipidemias
+  I48: Atrial fibrillation and flutter
+  K57: Diverticular disease of intestine
+  K80: Cholelithiasis
+  N20: Calculus of kidney and ureter
+  Z01: Encounter for other special examination without complaint, suspected or reported diagnosis
+  Z12: Encounter for screening for malignant neoplasms
+  Z37: Outcome of delivery
+  Z3A: Weeks of gestation
+
+────────────────────────────────────────────────────────────────────────────────
+[3 methods] Elastic Net ∩ LightGBM ∩ Recurrence Enrichment
+Count: 3
+────────────────────────────────────────────────────────────────────────────────
+  B20: Human immunodeficiency virus [HIV] disease
+  K86: Other diseases of pancreas
+  Z76: Persons encountering health services in other circumstances
+
+────────────────────────────────────────────────────────────────────────────────
+[2 methods] Elastic Net ∩ LightGBM
+Count: 30
+────────────────────────────────────────────────────────────────────────────────
+  A02: Other salmonella infections
+  C50: Malignant neoplasm of breast
+  D25: Leiomyoma of uterus
+  F02: Dementia in other diseases classified elsewhere
+  F03: Unspecified dementia
+  H25: Age-related cataract
+  H26: Other cataract
+  H65: Nonsuppurative otitis media
+  I21: ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction
+  I65: Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction
+  I70: Atherosclerosis
+  J35: Chronic diseases of tonsils and adenoids
+  K08: Other disorders of teeth and supporting structures
+  K35: Acute appendicitis
+  K40: Inguinal hernia
+  K64: Hemorrhoids and perianal venous thrombosis
+  N47: Disorders of prepuce
+  N83: Noninflammatory disorders of ovary, fallopian tube and broad ligament
+  N84: Polyp of female genital tract
+  N92: Excessive, frequent and irregular menstruation
+  O09: Supervision of high risk pregnancy
+  O70: Perineal laceration during delivery
+  S42: Fracture of shoulder and upper arm
+  S52: Fracture of forearm
+  S62: Fracture at wrist and hand level
+  S83: Dislocation and sprain of joints and ligaments of knee
+  Z02: Encounter for administrative examination
+  Z30: Encounter for contraceptive management
+  Z53: Persons encountering health services for specific procedures and treatment, not carried out
+  Z66: Do not resuscitate
+
+────────────────────────────────────────────────────────────────────────────────
+[2 methods] NTK ∩ Recurrence Enrichment
+Count: 25
+────────────────────────────────────────────────────────────────────────────────
+  A41: Other sepsis
+  D50: Iron deficiency anemia
+  D63: Anemia in chronic diseases classified elsewhere
+  D64: Other anemias
+  D69: Purpura and other hemorrhagic conditions
+  D72: Other disorders of white blood cells
+  E83: Disorders of mineral metabolism
+  E86: Volume depletion
+  E87: Other disorders of fluid, electrolyte and acid-base balance
+  F12: Cannabis related disorders
+  F43: Reaction to severe stress, and adjustment disorders
+  G40: Epilepsy and recurrent seizures
+  G43: Migraine
+  G47: Sleep disorders
+  G93: Other disorders of brain
+  I95: Hypotension
+  J18: Pneumonia, unspecified organism
+  J96: Respiratory failure, not elsewhere classified
+  K59: Other functional intestinal disorders
+  M47: Spondylosis
+  M51: Thoracic, thoracolumbar, and lumbosacral intervertebral disc disorders
+  N17: Acute kidney failure
+  Z72: Problems related to lifestyle
+  Z87: Personal history of other diseases and conditions
+  Z99: Dependence on enabling machines and devices, not elsewhere classified
+
+────────────────────────────────────────────────────────────────────────────────
+[2 methods] LightGBM ∩ NTK
+Count: 12
+────────────────────────────────────────────────────────────────────────────────
+  E03: Other hypothyroidism
+  E13: Other specified diabetes mellitus
+  I10: Essential (primary) hypertension
+  I12: Hypertensive chronic kidney disease
+  I25: Chronic ischemic heart disease
+  M25: Other joint disorder, not elsewhere classified
+  R50: Fever of other and unknown origin
+  R94: Abnormal results of function studies
+  Z51: Encounter for other aftercare and medical care
+  Z82: Family history of certain disabilities and chronic diseases (leading to disablement)
+  Z85: Personal history of malignant neoplasm
+  Z95: Presence of cardiac and vascular implants and grafts
+
+────────────────────────────────────────────────────────────────────────────────
+[2 methods] Elastic Net ∩ Recurrence Enrichment
+Count: 7
+────────────────────────────────────────────────────────────────────────────────
+  F13: Sedative, hypnotic, or anxiolytic related disorders
+  F15: Other stimulant related disorders
+  F33: Major depressive disorder, recurrent
+  F34: Persistent mood [affective] disorders
+  F39: Unspecified mood [affective] disorder
+  K31: Other diseases of stomach and duodenum
+  K50: Crohn's disease [regional enteritis]
+
+────────────────────────────────────────────────────────────────────────────────
+[1 methods] Elastic Net
+Count: 36
+────────────────────────────────────────────────────────────────────────────────
+  A05: Other bacterial foodborne intoxications, not elsewhere classified
+  B17: Other acute viral hepatitis
+  C54: Malignant neoplasm of corpus uteri
+  D17: Benign lipomatous neoplasm
+  E04: Other nontoxic goiter
+  E10: Type 1 diabetes mellitus
+  F69: Unspecified disorder of adult personality and behaviour
+  G30: Alzheimer's disease
+  G82: Paraplegia (paraparesis) and quadriplegia (quadriparesis)
+  G91: Hydrocephalus
+  H66: Suppurative and unspecified otitis media
+  H90: Conductive and sensorineural hearing loss
+  J03: Acute tonsillitis
+  J34: Other and unspecified disorders of nose and nasal sinuses
+  K42: Umbilical hernia
+  K81: Cholecystitis
+  M20: Acquired deformities of fingers and toes
+  M23: Internal derangement of knee
+  M65: Synovitis and tenosynovitis
+  M67: Other disorders of synovium and tendon
+  M75: Shoulder lesions
+  M96: Intraoperative and postprocedural complications and disorders of musculoskeletal system, not elsewhere classified
+  N60: Benign mammary dysplasia
+  N81: Female genital prolapse
+  N93: Other abnormal uterine and vaginal bleeding
+  O02: Other abnormal products of conception
+  O35: Maternal care for known or suspected fetal abnormality and damage
+  S43: Dislocation and sprain of joints and ligaments of shoulder girdle
+  S59: Other and unspecified injuries of elbow and forearm
+  S82: Fracture of lower leg, including ankle
+  V85: Occupant of special construction vehicle injured in transport accident
+  W21: Striking against or struck by sports equipment
+  Z09: Encounter for follow-up examination after completed treatment for conditions other than malignant neoplasm
+  Z39: Encounter for maternal postpartum care and examination
+  Z45: Encounter for adjustment and management of implanted device
+  Z47: Orthopedic aftercare
+
+────────────────────────────────────────────────────────────────────────────────
+[1 methods] Recurrence Enrichment
+Count: 30
+────────────────────────────────────────────────────────────────────────────────
+  B37: Candidiasis
+  B95: Streptococcus, Staphylococcus, and Enterococcus as the cause of diseases classified elsewhere
+  B96: Other bacterial agents as the cause of diseases classified elsewhere
+  F20: Schizophrenia
+  F25: Schizoaffective disorders
+  F29: Unspecified psychosis not due to a substance or known physiological condition
+  F60: Specific personality disorders
+  F90: Attention-deficit hyperactivity disorders
+  G92: Toxic encephalopathy
+  J69: Pneumonitis due to solids and liquids
+  K70: Alcoholic liver disease
+  K74: Fibrosis and cirrhosis of liver
+  K76: Other diseases of liver
+  K85: Acute pancreatitis
+  L02: Cutaneous abscess, furuncle and carbuncle
+  L97: Non-pressure chronic ulcer of lower limb, not elsewhere classified
+  L98: Other disorders of skin and subcutaneous tissue, not elsewhere classified
+  M06: Other rheumatoid arthritis
+  M62: Other disorders of muscle
+  R40: Somnolence, stupor and coma
+  R52: Pain, unspecified
+  R56: Convulsions, not elsewhere classified
+  R65: Symptoms and signs specifically associated with systemic inflammation and infection
+  R69: Unknown and unspecified causes of morbidity
+  R74: Abnormal serum enzyme levels
+  R78: Findings of drugs and other substances, not normally found in blood
+  T42: Poisoning by, adverse effect of and underdosing of antiepileptic, sedative- hypnotic and antiparkinsonism drugs
+  T43: Poisoning by, adverse effect of and underdosing of psychotropic drugs, not elsewhere classified
+  T50: Poisoning by, adverse effect of and underdosing of diuretics and other and unspecified drugs, medicaments and biological substances
+  Z59: Problems related to housing and economic circumstances
+
+────────────────────────────────────────────────────────────────────────────────
+[1 methods] NTK
+Count: 19
+────────────────────────────────────────────────────────────────────────────────
+  E11: Type 2 diabetes mellitus
+  I50: Heart failure
+  I73: Other peripheral vascular diseases
+  J98: Other respiratory disorders
+  K29: Gastritis and duodenitis
+  K92: Other diseases of digestive system
+  M19: Other and unspecified osteoarthritis
+  N18: Chronic kidney disease (CKD)
+  N39: Other disorders of urinary system
+  R05: Cough
+  R09: Other symptoms and signs involving the circulatory and respiratory system
+  R19: Other symptoms and signs involving the digestive system and abdomen
+  R51: Headache
+  R53: Malaise and fatigue
+  R55: Syncope and collapse
+  Z34: Encounter for supervision of normal pregnancy
+  Z90: Acquired absence of organs, not elsewhere classified
+  Z96: Presence of other functional implants
+  Z98: Other postprocedural states
+
+────────────────────────────────────────────────────────────────────────────────
+[1 methods] LightGBM
+Count: 11
+────────────────────────────────────────────────────────────────────────────────
+  D62: Acute posthaemorrhagic anaemia
+  I44: Atrioventricular and left bundle-branch block
+  I49: Other cardiac arrhythmias
+  K63: Other diseases of intestine
+  N13: Obstructive and reflux uropathy
+  N40: Hyperplasia of prostate
+  O80: Encounter for full-term uncomplicated delivery
+  S72: Fracture of femur
+  Y83: Surgical operation and other surgical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure
+  Y99: External cause status
+  Z80: Family history of primary malignant neoplasm

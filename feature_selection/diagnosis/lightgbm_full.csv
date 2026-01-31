@@ -1,0 +1,1908 @@
+rank,feature,mean_abs_shap,DIAGNOSIS_DESCRIPTION
+1,F17,0.0852852314710617,Nicotine dependence
+2,E78,0.0819820165634155,Disorders of lipoprotein metabolism and other lipidemias
+3,G89,0.0787092968821525,"Pain, not elsewhere classified"
+4,Z37,0.0770911499857902,Outcome of delivery
+5,F11,0.0596277825534343,Opioid related disorders
+6,M54,0.0585430227220058,Dorsalgia
+7,F41,0.0380193963646888,Other anxiety disorders
+8,J44,0.0378303453326225,Other chronic obstructive pulmonary disease
+9,I48,0.0325392708182334,Atrial fibrillation and flutter
+10,R10,0.0324647352099418,Abdominal and pelvic pain
+11,Z12,0.0296949911862611,Encounter for screening for malignant neoplasms
+12,F32,0.0289320852607488,"Major depressive disorder, single episode"
+13,I25,0.0239198692142963,Chronic ischemic heart disease
+14,J35,0.0226308219134807,Chronic diseases of tonsils and adenoids
+15,M79,0.0220222771167755,"Other and unspecified soft tissue disorders, not elsewhere classified"
+16,R11,0.0215735528618097,Nausea and vomiting
+17,I10,0.0204697344452142,Essential (primary) hypertension
+18,K21,0.0202273335307836,Gastro-esophageal reflux disease
+19,K57,0.0198869369924068,Diverticular disease of intestine
+20,K80,0.0194757580757141,Cholelithiasis
+21,N20,0.0160366166383028,Calculus of kidney and ureter
+22,F10,0.0150877824053168,Alcohol related disorders
+23,K35,0.0148897934705019,Acute appendicitis
+24,Z86,0.0145290987566113,Personal history of certain other diseases
+25,F31,0.0143496822565793,Bipolar disorder
+26,L03,0.013933970592916,Cellulitis and acute lymphangitis
+27,E66,0.0134386280551552,Overweight and obesity
+28,Z66,0.0127723831683397,Do not resuscitate
+29,Z85,0.0121390270069241,Personal history of malignant neoplasm
+30,K64,0.011933502741158,Hemorrhoids and perianal venous thrombosis
+31,F03,0.0117183299735188,Unspecified dementia
+32,Z82,0.0114620579406619,Family history of certain disabilities and chronic diseases (leading to disablement)
+33,B19,0.0113547537475824,Unspecified viral hepatitis
+34,Z79,0.0108229415491223,Long term (current) drug therapy
+35,O99,0.0106953242793679,"Other maternal diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium"
+36,Z01,0.0104804961010813,"Encounter for other special examination without complaint, suspected or reported diagnosis"
+37,N40,0.0102742314338684,Hyperplasia of prostate
+38,Z3A,0.009829718619585,Weeks of gestation
+39,D62,0.0092303715646266,Acute posthaemorrhagic anaemia
+40,B18,0.0092066871002316,Chronic viral hepatitis
+41,Z30,0.0084213968366384,Encounter for contraceptive management
+42,Z68,0.0083509786054492,Body mass index [BMI]
+43,O70,0.0082933260127902,Perineal laceration during delivery
+44,R06,0.0082591632381081,Abnormalities of breathing
+45,Z95,0.008254581131041,Presence of cardiac and vascular implants and grafts
+46,R94,0.0081347543746232,Abnormal results of function studies
+47,E03,0.0081187551841139,Other hypothyroidism
+48,S42,0.008079576306045,Fracture of shoulder and upper arm
+49,F55,0.0080450167879462,Abuse of non-dependence-producing substances
+50,J45,0.00796923879534,Asthma
+51,C50,0.0079623935744166,Malignant neoplasm of breast
+52,R07,0.0079428683966398,Pain in throat and chest
+53,S83,0.0078070135787129,Dislocation and sprain of joints and ligaments of knee
+54,N92,0.0077070188708603,"Excessive, frequent and irregular menstruation"
+55,E13,0.0070500657893717,Other specified diabetes mellitus
+56,Z91,0.0069823111407458,"Personal risk factors, not elsewhere classified"
+57,D57,0.0068011786788702,Sickle-cell disorders
+58,I65,0.0066100959666073,"Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction"
+59,S52,0.0065965661779046,Fracture of forearm
+60,Z80,0.0062902453355491,Family history of primary malignant neoplasm
+61,K63,0.0062350532971322,Other diseases of intestine
+62,I70,0.0061160326004028,Atherosclerosis
+63,F19,0.0060970522463321,Other psychoactive substance related disorders
+64,O09,0.0059970305301249,Supervision of high risk pregnancy
+65,R45,0.005932793021202,Symptoms and signs involving emotional state
+66,D25,0.0059186527505517,Leiomyoma of uterus
+67,Y92,0.0058711506426334,Place of occurrence of the external cause
+68,K08,0.0058669527061283,Other disorders of teeth and supporting structures
+69,N13,0.005588861182332,Obstructive and reflux uropathy
+70,Z53,0.0054356702603399,"Persons encountering health services for specific procedures and treatment, not carried out"
+71,N83,0.0054135136306285,"Noninflammatory disorders of ovary, fallopian tube and broad ligament"
+72,Z76,0.0054133958183228,Persons encountering health services in other circumstances
+73,I49,0.0051754070445895,Other cardiac arrhythmias
+74,H26,0.0051389564760029,Other cataract
+75,I12,0.0050414251163601,Hypertensive chronic kidney disease
+76,N84,0.0050266250036656,Polyp of female genital tract
+77,Z51,0.004898780491203,Encounter for other aftercare and medical care
+78,I44,0.0048578428104519,Atrioventricular and left bundle-branch block
+79,K40,0.0047876853495836,Inguinal hernia
+80,Y99,0.0047425497323274,External cause status
+81,O80,0.004716950468719,Encounter for full-term uncomplicated delivery
+82,M25,0.004706872627139,"Other joint disorder, not elsewhere classified"
+83,H65,0.0046586799435317,Nonsuppurative otitis media
+84,H25,0.0046409489586949,Age-related cataract
+85,R50,0.0046310601755976,Fever of other and unknown origin
+86,F02,0.0044889161363244,Dementia in other diseases classified elsewhere
+87,I21,0.0044743330217897,ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction
+88,K86,0.0044656069949269,Other diseases of pancreas
+89,T40,0.0044221309944987,"Poisoning by, adverse effect of and underdosing of narcotics and psychodysleptics [hallucinogens]"
+90,A02,0.0044145942665636,Other salmonella infections
+91,B20,0.0044086356647312,Human immunodeficiency virus [HIV] disease
+92,R41,0.0042660534381866,Other symptoms and signs involving cognitive functions and awareness
+93,R00,0.0042613954283297,Abnormalities of heart beat
+94,F14,0.0042322385124862,Cocaine related disorders
+95,Z02,0.0040669306181371,Encounter for administrative examination
+96,S62,0.0040164398960769,Fracture at wrist and hand level
+97,Y83,0.003977149259299,"Surgical operation and other surgical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure"
+98,S72,0.0039442875422537,Fracture of femur
+99,Z88,0.0039133979007601,"Allergy status to drugs, medicaments and biological substances"
+100,N47,0.0039094937965273,Disorders of prepuce
+101,F34,0.003724485868588,Persistent mood [affective] disorders
+102,Z39,0.0037162047810852,Encounter for maternal postpartum care and examination
+103,S82,0.0037061935290694,"Fracture of lower leg, including ankle"
+104,Y93,0.0036880257539451,Activity codes
+105,K31,0.0036567577626556,Other diseases of stomach and duodenum
+106,Z72,0.0036208371166139,Problems related to lifestyle
+107,Z34,0.003599650459364,Encounter for supervision of normal pregnancy
+108,Z09,0.0035662318114191,Encounter for follow-up examination after completed treatment for conditions other than malignant neoplasm
+109,Z45,0.0035318012814968,Encounter for adjustment and management of implanted device
+110,N39,0.0034996478352695,Other disorders of urinary system
+111,K44,0.0033878509420901,Diaphragmatic hernia
+112,L97,0.003386900993064,"Non-pressure chronic ulcer of lower limb, not elsewhere classified"
+113,Z47,0.003383802017197,Orthopedic aftercare
+114,I46,0.0033834639471024,Cardiac arrest
+115,H66,0.0033739830832928,Suppurative and unspecified otitis media
+116,K81,0.003324439516291,Cholecystitis
+117,D12,0.0033209540415555,"Benign neoplasm of colon, rectum, anus and anal canal"
+118,K50,0.0033181896433234,Crohn's disease [regional enteritis]
+119,R60,0.0033178455196321,"Edema, not elsewhere classified"
+120,I34,0.0032876499462872,Nonrheumatic mitral valve disorders
+121,J02,0.003261073725298,Acute pharyngitis
+122,J32,0.0032296699937433,Chronic sinusitis
+123,J34,0.0031916100997477,Other and unspecified disorders of nose and nasal sinuses
+124,I35,0.0031915835570544,Nonrheumatic aortic valve disorders
+125,E04,0.0031614669132977,Other nontoxic goiter
+126,R62,0.0031277993693947,Lack of expected normal physiological development in childhood and adults
+127,C61,0.003116836072877,Malignant neoplasm of prostate
+128,K42,0.0030973111279308,Umbilical hernia
+129,H90,0.0030810628086328,Conductive and sensorineural hearing loss
+130,I22,0.0030745810363441,Subsequent ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction
+131,G47,0.0030709239654242,Sleep disorders
+132,C18,0.0030455312225967,Malignant neoplasm of colon
+133,M10,0.0030387297738343,Gout
+134,G43,0.0030255555175244,Migraine
+135,F43,0.0030199694447219,"Reaction to severe stress, and adjustment disorders"
+136,N17,0.0030040219426155,Acute kidney failure
+137,H40,0.0029760266188532,Glaucoma
+138,M75,0.0029593545477837,Shoulder lesions
+139,L98,0.0029366523958742,"Other disorders of skin and subcutaneous tissue, not elsewhere classified"
+140,F33,0.0029302190523594,"Major depressive disorder, recurrent"
+141,I71,0.0028960818890482,Aortic aneurysm and dissection
+142,N99,0.0028710009064525,"Intraoperative and postprocedural complications and disorders of genitourinary system, not elsewhere classified"
+143,C34,0.0028355855029076,Malignant neoplasm of bronchus and lung
+144,J91,0.0028186088893562,Pleural effusion in conditions classified elsewhere
+145,S43,0.002811609301716,Dislocation and sprain of joints and ligaments of shoulder girdle
+146,O48,0.0027986548375338,Late pregnancy
+147,R42,0.0027688471600413,Dizziness and giddiness
+148,R56,0.0027532924432307,"Convulsions, not elsewhere classified"
+149,M06,0.0027520526200532,Other rheumatoid arthritis
+150,Z89,0.0027430972550064,Acquired absence of limb
+151,C78,0.0027430460322648,Secondary malignant neoplasm of respiratory and digestive organs
+152,G30,0.0027334780897945,Alzheimer's disease
+153,M65,0.0027309383731335,Synovitis and tenosynovitis
+154,I47,0.0027068522758781,Paroxysmal tachycardia
+155,J30,0.002672808477655,Vasomotor and allergic rhinitis
+156,Z94,0.0026371332351118,Transplanted organ and tissue status
+157,R13,0.0025968495756387,Aphagia and dysphagia
+158,M23,0.0025925335939973,Internal derangement of knee
+159,E10,0.0025631343014538,Type 1 diabetes mellitus
+160,D17,0.0025615026243031,Benign lipomatous neoplasm
+161,N93,0.0025400407612323,Other abnormal uterine and vaginal bleeding
+162,F84,0.0025382991880178,Pervasive developmental disorders
+163,C54,0.0024928860366344,Malignant neoplasm of corpus uteri
+164,G91,0.0024735569022595,Hydrocephalus
+165,V85,0.0023969551548361,Occupant of special construction vehicle injured in transport accident
+166,N60,0.0023947721347212,Benign mammary dysplasia
+167,R52,0.0023895201738923,"Pain, unspecified"
+168,D05,0.002386659849435,Carcinoma in situ of breast
+169,I42,0.0023586100433021,Cardiomyopathy
+170,I20,0.002342517953366,Angina pectoris
+171,Z99,0.0023197575937956,"Dependence on enabling machines and devices, not elsewhere classified"
+172,J96,0.0022801412269473,"Respiratory failure, not elsewhere classified"
+173,M17,0.0022553489543497,Osteoarthritis of knee
+174,K56,0.002229199046269,Paralytic ileus and intestinal obstruction without hernia
+175,D69,0.0022249862086027,Purpura and other hemorrhagic conditions
+176,F15,0.0022042794153094,Other stimulant related disorders
+177,G82,0.0021321321837604,Paraplegia (paraparesis) and quadriplegia (quadriparesis)
+178,A41,0.0021254506427794,Other sepsis
+179,S59,0.0020985091105103,Other and unspecified injuries of elbow and forearm
+180,X58,0.0020878540817648,Exposure to other specified factors
+181,D24,0.0020727096125483,Benign neoplasm of breast
+182,Z23,0.0020682828035205,Encounter for immunization
+183,T50,0.0020489708986133,"Poisoning by, adverse effect of and underdosing of diuretics and other and unspecified drugs, medicaments and biological substances"
+184,M51,0.002048872411251,"Thoracic, thoracolumbar, and lumbosacral intervertebral disc disorders"
+185,D72,0.0020476023200899,Other disorders of white blood cells
+186,M67,0.0020091854967176,Other disorders of synovium and tendon
+187,O34,0.0020031726453453,Maternal care for abnormality of pelvic organs
+188,E87,0.0019830833189189,"Other disorders of fluid, electrolyte and acid-base balance"
+189,N18,0.0019514826126396,Chronic kidney disease (CKD)
+190,R09,0.0019312582444399,Other symptoms and signs involving the circulatory and respiratory system
+191,O02,0.0019153843168169,Other abnormal products of conception
+192,G40,0.001897404436022,Epilepsy and recurrent seizures
+193,M20,0.0018971872050315,Acquired deformities of fingers and toes
+194,H69,0.0018935604020953,Other and unspecified disorders of Eustachian tube
+195,M19,0.001873007742688,Other and unspecified osteoarthritis
+196,F06,0.0018523395992815,Other mental disorders due to known physiological condition
+197,H91,0.0018380763940513,Other and unspecified hearing loss
+198,C44,0.00178375816904,Other and unspecified malignant neoplasm of skin
+199,Z90,0.00178033253178,"Acquired absence of organs, not elsewhere classified"
+200,N85,0.0017627788474783,"Other noninflammatory disorders of uterus, except cervix"
+201,N81,0.0017462538089603,Female genital prolapse
+202,G60,0.0017443111864849,Hereditary and idiopathic neuropathy
+203,I63,0.0017323339125141,Cerebral infarction
+204,Z33,0.001716164057143,Pregnant state
+205,I50,0.0016992393648251,Heart failure
+206,R26,0.0016838272567838,Abnormalities of gait and mobility
+207,N28,0.0016640138346701,"Other disorders of kidney and ureter, not elsewhere classified"
+208,H50,0.0016625249991193,Other strabismus
+209,Z83,0.0015955994604155,Family history of other specific disorders
+210,I08,0.0015948426444083,Multiple valve diseases
+211,J03,0.0015879311831668,Acute tonsillitis
+212,W09,0.0015869559720158,Fall on and from playground equipment
+213,M32,0.0015710109146311,Systemic lupus erythematosus (SLE)
+214,R59,0.0015654959715902,Enlarged lymph nodes
+215,K29,0.0015632531139999,Gastritis and duodenitis
+216,I11,0.0015316170174628,Hypertensive heart disease
+217,Z93,0.0015251733129844,Artificial opening status
+218,F79,0.0015193086583167,Unspecified intellectual disabilities
+219,I61,0.0015064741019159,Nontraumatic intracerebral hemorrhage
+220,J95,0.0014749673428013,"Intraoperative and postprocedural complications and disorders of respiratory system, not elsewhere classified"
+221,N32,0.0014670768287032,Other disorders of bladder
+222,S01,0.0014640163863077,Open wound of head
+223,J90,0.0014628417557105,"Pleural effusion, not elsewhere classified"
+224,C71,0.0014503691345453,Malignant neoplasm of brain
+225,S06,0.0014477521181106,Intracranial injury
+226,D64,0.0014414932811632,Other anemias
+227,S32,0.0014392344746738,Fracture of lumbar spine and pelvis
+228,V49,0.0014329572441056,Car occupant injured in other and unspecified transport accidents
+229,N95,0.0014182546874508,Menopausal and other perimenopausal disorders
+230,O69,0.0014134864322841,Labor and delivery complicated by umbilical cord complications
+231,M96,0.0014119000406935,"Intraoperative and postprocedural complications and disorders of musculoskeletal system, not elsewhere classified"
+232,Z78,0.001399366185069,Other specified health status
+233,Z98,0.0013866301160305,Other postprocedural states
+234,O90,0.0013607688015326,"Complications of the puerperium, not elsewhere classified"
+235,H33,0.0013428563252091,Retinal detachments and breaks
+236,O14,0.0013391703832894,Pre-eclampsia
+237,R92,0.0013132155872881,Abnormal and inconclusive findings on diagnostic imaging of breast
+238,S53,0.0012911439407616,Dislocation and sprain of joints and ligaments of elbow
+239,J40,0.0012903618626296,"Bronchitis, not specified as acute or chronic"
+240,G93,0.0012680774088948,Other disorders of brain
+241,I67,0.0012523930054157,Other cerebrovascular diseases
+242,W21,0.0012470696819946,Striking against or struck by sports equipment
+243,C67,0.0012427412439137,Malignant neoplasm of bladder
+244,Z77,0.0012403591535985,Other contact with and (suspected) exposures hazardous to health
+245,R73,0.0012358492240309,Elevated blood glucose level
+246,N94,0.0012347546871751,Pain and other conditions associated with female genital organs and menstrual cycle
+247,H35,0.0012303799157962,Other retinal disorders
+248,M47,0.0012291877064853,Spondylosis
+249,R30,0.0012280390365049,Pain associated with micturition
+250,B96,0.0012126886285841,Other bacterial agents as the cause of diseases classified elsewhere
+251,R55,0.0012122937478125,Syncope and collapse
+252,R20,0.0012115486897528,Disturbances of skin sensation
+253,E21,0.0012049940414726,Hyperparathyroidism and other disorders of parathyroid gland
+254,C22,0.0011797212064266,Malignant neoplasm of liver and intrahepatic bile ducts
+255,C73,0.0011787455296143,Malignant neoplasm of thyroid gland
+256,D49,0.0011746664531528,Neoplasms of unspecified behavior
+257,O24,0.0011718414025381,"Diabetes mellitus in pregnancy, childbirth, and the puerperium"
+258,C91,0.0011691036634147,Lymphoid leukemia
+259,A05,0.0011655151611194,"Other bacterial foodborne intoxications, not elsewhere classified"
+260,Q54,0.0011637163115665,Hypospadias
+261,L72,0.0011589862406253,Follicular cysts of skin and subcutaneous tissue
+262,K74,0.0011585289612412,Fibrosis and cirrhosis of liver
+263,M16,0.0011545373126864,Osteoarthritis of hip
+264,Z11,0.0011484269052743,Encounter for screening for infectious and parasitic diseases
+265,K82,0.0011416043853387,Other diseases of gallbladder
+266,E29,0.0011275570141151,Testicular dysfunction
+267,N64,0.001120846485719,Other disorders of breast
+268,Z87,0.0011176411062479,Personal history of other diseases and conditions
+269,C77,0.0011156330583617,Secondary and unspecified malignant neoplasm of lymph nodes
+270,F25,0.001109313336201,Schizoaffective disorders
+271,Z21,0.0011077640810981,Asymptomatic human immunodeficiency virus [HIV] infection status
+272,M43,0.0010963074164465,Other deforming dorsopathies
+273,O62,0.0010813062544912,Abnormalities of forces of labor
+274,R97,0.0010798507137224,Abnormal tumor markers
+275,M86,0.001059646718204,Osteomyelitis
+276,G56,0.0010588219156488,Mononeuropathies of upper limb
+277,G80,0.0010495474562048,Cerebral palsy
+278,I95,0.0010297101689502,Hypotension
+279,Q66,0.0010263803415,Congenital deformities of feet
+280,D32,0.0010016246233135,Benign neoplasm of meninges
+281,B34,0.0009948872029781,Viral infection of unspecified site
+282,R22,0.0009948541410267,"Localized swelling, mass and lump of skin and subcutaneous tissue"
+283,T82,0.0009928366634994,"Complications of cardiac and vascular prosthetic devices, implants and grafts"
+284,N87,0.000986068858765,Dysplasia of cervix uteri
+285,L91,0.000985556282103,Hypertrophic disorders of skin
+286,O03,0.0009770370088517,Spontaneous abortion
+287,K65,0.0009727434371598,Peritonitis
+288,D27,0.0009427184122614,Benign neoplasm of ovary
+289,D22,0.0009351412882097,Melanocytic nevi
+290,S63,0.0009349548490718,Dislocation and sprain of joints and ligaments at wrist and hand level
+291,F39,0.0009330990724265,Unspecified mood [affective] disorder
+292,O35,0.0009300234960392,Maternal care for known or suspected fetal abnormality and damage
+293,R31,0.0009145708172582,Hematuria
+294,M24,0.0008970629423856,Other specific joint derangements
+295,K61,0.0008949702023528,Abscess of anal and rectal regions
+296,S27,0.0008946921443566,Injury of other and unspecified intrathoracic organs
+297,O00,0.0008766355458647,Ectopic pregnancy
+298,M21,0.0008628371288068,Other acquired deformities of limbs
+299,G97,0.0008483038982376,"Intraoperative and postprocedural complications and disorders of nervous system, not elsewhere classified"
+300,K37,0.0008443769183941,Unspecified appendicitis
+301,V00,0.0008436830248683,Pedestrian conveyance accident
+302,O86,0.0008290480473078,Other puerperal infections
+303,F80,0.0008262344636023,Specific developmental disorders of speech and language
+304,K76,0.0008230112143792,Other diseases of liver
+305,M22,0.0008195490809157,Disorder of patella
+306,F13,0.0008164353203028,"Sedative, hypnotic, or anxiolytic related disorders"
+307,Q21,0.0008058646344579,Congenital malformations of cardiac septa
+308,R51,0.0008039232925511,Headache
+309,G59,0.000803331262432,Mononeuropathy in diseases classified elsewhere
+310,S92,0.000799746136181,"Fracture of foot and toe, except ankle"
+311,R33,0.0007939522038213,Retention of urine
+312,J43,0.0007931104046292,Emphysema
+313,Z00,0.000791193335317,"Encounter for general examination without complaint, suspected or reported diagnosis"
+314,C49,0.0007886149687692,Malignant neoplasm of other connective and soft tissue
+315,I51,0.0007853432907722,Complications and ill-defined descriptions of heart disease
+316,I45,0.0007850581314414,Other conduction disorders
+317,N35,0.0007835372234694,Urethral stricture
+318,K04,0.0007826673099771,Diseases of pulp and periapical tissues
+319,L05,0.0007699392153881,Pilonidal cyst and sinus
+320,R49,0.0007695000385865,Voice and resonance disorders
+321,O76,0.0007626590668223,Abnormality in fetal heart rate and rhythm complicating labor and delivery
+322,J81,0.0007466624956578,Pulmonary edema
+323,J98,0.0007421185728162,Other respiratory disorders
+324,I31,0.0007392808329313,Other diseases of pericardium
+325,K01,0.0007383223273791,Embedded and impacted teeth
+326,Z59,0.0007342840544879,Problems related to housing and economic circumstances
+327,D16,0.0007329375948756,Benign neoplasm of bone and articular cartilage
+328,K85,0.000731953070499,Acute pancreatitis
+329,O26,0.000730964820832,Maternal care for other conditions predominantly related to pregnancy
+330,Q53,0.0007281457656063,Undescended and ectopic testicle
+331,N62,0.0007252807263284,Hypertrophy of breast
+332,J10,0.0007187575101852,Influenza due to other identified influenza virus
+333,N23,0.0007180544780567,Unspecified renal colic
+334,O42,0.0007149449083954,Premature rupture of membranes
+335,K52,0.0007141880923882,Other and unspecified noninfective gastroenteritis and colitis
+336,J93,0.0007100072107277,Pneumothorax and air leak
+337,K60,0.0007095877081155,Fissure and fistula of anal and rectal regions
+338,E11,0.0007044208468869,Type 2 diabetes mellitus
+339,H02,0.0007018879405222,Other disorders of eyelid
+340,Y04,0.0006998127209953,Assault by bodily force
+341,D23,0.0006997843156568,Other benign neoplasms of skin
+342,L89,0.0006964242202229,Pressure ulcer
+343,G21,0.0006950531387701,Secondary parkinsonism
+344,I13,0.0006944263004697,Hypertensive heart and renal disease
+345,T42,0.0006925780326128,"Poisoning by, adverse effect of and underdosing of antiepileptic, sedative- hypnotic and antiparkinsonism drugs"
+346,K66,0.0006920954911038,Other disorders of peritoneum
+347,I62,0.0006891189841553,Other and unspecified nontraumatic intracranial hemorrhage
+348,X50,0.0006888561765663,Overexertion and strenuous or repetitive movements
+349,J18,0.0006789250182919,"Pneumonia, unspecified organism"
+350,D03,0.0006777724483981,Melanoma in situ
+351,Z52,0.0006774630746804,Donors of organs and tissues
+352,O98,0.0006734913913533,"Maternal infectious and parasitic diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium"
+353,Q55,0.0006712459144182,Other congenital malformations of male genital organs
+354,N63,0.0006696474156342,Unspecified lump in breast
+355,L02,0.0006630007992498,"Cutaneous abscess, furuncle and carbuncle"
+356,D06,0.0006620938074775,Carcinoma in situ of cervix uteri
+357,R91,0.0006549857207573,Abnormal findings on diagnostic imaging of lung
+358,N43,0.0006330753094516,Hydrocele and spermatocele
+359,K22,0.0006259630899876,Other diseases of esophagus
+360,M15,0.0006130894762463,Polyosteoarthritis
+361,N10,0.0006080312887206,Acute pyelonephritis
+362,F01,0.0006068075890652,Vascular dementia
+363,R19,0.0005984458257444,Other symptoms and signs involving the digestive system and abdomen
+364,R40,0.0005880094249732,"Somnolence, stupor and coma"
+365,R27,0.0005826230626553,Other lack of coordination
+366,E07,0.0005763826775364,Other disorders of thyroid
+367,G81,0.0005706887459382,Hemiplegia and hemiparesis
+368,Z97,0.0005670082755386,Presence of other devices
+369,C92,0.000564815592952,Myeloid leukemia
+370,C64,0.0005588611820712,"Malignant neoplasm of kidney, except renal pelvis"
+371,S02,0.0005569574423134,Fracture of skull and facial bones
+372,I69,0.0005528796464204,Sequelae of cerebrovascular disease
+373,M81,0.0005525884917005,Osteoporosis without current pathological fracture
+374,B08,0.0005418309592641,"Other viral infections characterized by skin and mucous membrane lesions, not elsewhere classified"
+375,K83,0.0005406390409916,Other diseases of biliary tract
+376,N97,0.0005401859525591,Female infertility
+377,I88,0.0005363569362089,Nonspecific lymphadenitis
+378,R93,0.0005355555331334,Abnormal findings on diagnostic imaging of other body structures
+379,R01,0.000527486205101,Cardiac murmurs and other cardiac sounds
+380,F12,0.0005219152080826,Cannabis related disorders
+381,G62,0.0005203137407079,Other and unspecified polyneuropathies
+382,R21,0.0005202806205488,Rash and other nonspecific skin eruption
+383,S89,0.000508454919327,Other and unspecified injuries of lower leg
+384,N73,0.0005076528759673,Other female pelvic inflammatory diseases
+385,O13,0.0005066546145826,Gestational [pregnancy-induced] hypertension without significant proteinuria
+386,J06,0.0005061298725195,Acute upper respiratory infections of multiple and unspecified sites
+387,S70,0.0005059703253209,Superficial injury of hip and thigh
+388,C80,0.0005051816115155,Malignant neoplasm without specification of site
+389,J11,0.0005019887466914,Influenza due to unidentified influenza virus
+390,F20,0.0004998629447072,Schizophrenia
+391,V89,0.0004986974527128,"Motor- or nonmotor-vehicle accident, type of vehicle unspecified"
+392,H81,0.0004950225702486,Disorders of vestibular function
+393,V43,0.0004882378561887,"Car occupant injured in collision with car, pick-up truck or van"
+394,R47,0.0004815654247067,"Speech disturbances, not elsewhere classified"
+395,F29,0.0004813465639017,Unspecified psychosis not due to a substance or known physiological condition
+396,G31,0.0004716933181043,"Other degenerative diseases of nervous system, not elsewhere classified"
+397,V86,0.0004627516609616,"Occupant of special all-terrain or other off-road motor vehicle, injured in transport accident"
+398,M94,0.0004583572444971,Other disorders of cartilage
+399,O36,0.00045554083772,Maternal care for other fetal problems
+400,I77,0.0004535139014478,Other disorders of arteries and arterioles
+401,K75,0.0004526544653344,Other inflammatory liver diseases
+402,T81,0.0004494092427194,"Complications of procedures, not elsewhere classified"
+403,H72,0.0004469721461646,Perforation of tympanic membrane
+404,C79,0.0004376400902401,Secondary malignant neoplasm of other and unspecified sites
+405,K77,0.0004345687048044,Liver disorders in diseases classified elsewhere
+406,G90,0.0004344018816482,Disorders of autonomic nervous system
+407,N88,0.0004319417930673,Other noninflammatory disorders of cervix uteri
+408,R69,0.0004319371655583,Unknown and unspecified causes of morbidity
+409,T23,0.0004312611708883,Burn and corrosion of wrist and hand
+410,J38,0.0004306357877794,"Diseases of vocal cords and larynx, not elsewhere classified"
+411,K43,0.0004267267649993,Ventral hernia
+412,T45,0.0004215747467242,"Poisoning by, adverse effect of and underdosing of primarily systemic and hematological agents, not elsewhere classified"
+413,C43,0.0004204616998322,Malignant melanoma of skin
+414,I87,0.0004169729363638,Other disorders of veins
+415,E28,0.0004158219671808,Ovarian dysfunction
+416,Q67,0.0004138021904509,"Congenital musculoskeletal deformities of head, face, spine and chest"
+417,I97,0.0004074264143127,"Intraoperative and postprocedural complications and disorders of circulatory system, not elsewhere classified"
+418,F69,0.0004069296701345,Unspecified disorder of adult personality and behaviour
+419,O72,0.0004040098283439,Postpartum hemorrhage
+420,G35,0.000395688926801,Multiple sclerosis
+421,S33,0.0003947436925955,Dislocation and sprain of joints and ligaments of lumbar spine and pelvis
+422,J36,0.0003946023352909,Peritonsillar abscess
+423,J84,0.0003939527086913,Other interstitial pulmonary diseases
+424,J33,0.0003937295114155,Nasal polyp
+425,Q89,0.0003924749034922,"Other congenital malformations, not elsewhere classified"
+426,M66,0.0003909295483026,Spontaneous rupture of synovium and tendon
+427,S36,0.0003906763449776,Injury of intra-abdominal organs
+428,F60,0.000389751541661,Specific personality disorders
+429,N90,0.0003802730643656,Other noninflammatory disorders of vulva and perineum
+430,J05,0.0003796707896981,Acute obstructive laryngitis [croup] and epiglottitis
+431,C83,0.0003794080403167,Non-follicular lymphoma
+432,Z41,0.0003783893771469,Encounter for procedures for purposes other than remedying health state
+433,I33,0.000376130308723,Acute and subacute endocarditis
+434,L90,0.0003760916588362,Atrophic disorders of skin
+435,Q25,0.0003751046315301,Congenital malformations of great arteries
+436,N21,0.0003750535543076,Calculus of lower urinary tract
+437,M99,0.0003747969167307,"Biomechanical lesions, not elsewhere classified"
+438,N29,0.000372125825379,Other disorders of kidney and ureter in diseases classified elsewhere
+439,V87,0.0003694754268508,Traffic accident of specified type but victim's mode of transport unknown
+440,K59,0.0003692395403049,Other functional intestinal disorders
+441,S39,0.0003646728291641,"Other and unspecified injuries of abdomen, lower back, pelvis and external genitals"
+442,C53,0.0003619890776462,Malignant neoplasm of cervix uteri
+443,T07,0.000361021986464,Unspecified multiple injuries
+444,R17,0.0003600882191676,Unspecified jaundice
+445,K62,0.0003595779126044,Other diseases of anus and rectum
+446,T63,0.0003571038832888,Toxic effect of contact with venomous animals and plants
+447,S68,0.0003524310013744,"Traumatic amputation of wrist, hand and fingers"
+448,B17,0.0003523574559949,Other acute viral hepatitis
+449,D34,0.0003508105583023,Benign neoplasm of thyroid gland
+450,R32,0.0003407507610972,Unspecified urinary incontinence
+451,H92,0.0003392469952814,Otalgia and effusion of ear
+452,V80,0.0003374360967427,Animal-rider or occupant of animal-drawn vehicle injured in transport accident
+453,R80,0.000333347794367,Proteinuria
+454,D21,0.0003319605311844,Other benign neoplasms of connective and other soft tissue
+455,I85,0.0003306542348582,Esophageal varices
+456,Q27,0.0003279421653132,Other congenital malformations of peripheral vascular system
+457,O47,0.000322976760799,False labor
+458,Z17,0.0003222863015253,Estrogen receptor status
+459,M72,0.0003201517683919,Fibroblastic disorders
+460,K00,0.0003156244638375,Disorders of tooth development and eruption
+461,T18,0.0003148228279314,Foreign body in alimentary tract
+462,C25,0.0003136368177365,Malignant neoplasm of pancreas
+463,K87,0.0003128981043118,"Disorders of gallbladder, biliary tract and pancreas in diseases classified elsewhere"
+464,I73,0.0003127573290839,Other peripheral vascular diseases
+465,S61,0.0003102322225458,"Open wound of wrist, hand and fingers"
+466,R63,0.0003093683626502,Symptoms and signs concerning food and fluid intake
+467,R76,0.000307216978399,Other abnormal immunological findings in serum
+468,N25,0.0003069913655053,Disorders resulting from impaired renal tubular function
+469,R54,0.0003028472419828,Age-related physical debility
+470,V29,0.0003010957443621,Motorcycle rider injured in other and unspecified transport accidents
+471,W31,0.0003007615159731,Contact with other and unspecified machinery
+472,R57,0.0002984885941259,"Shock, not elsewhere classified"
+473,X95,0.0002976348041556,Assault by other and unspecified firearm and gun discharge
+474,I60,0.0002962923026643,Nontraumatic subarachnoid hemorrhage
+475,T86,0.0002960523124784,Complications of transplanted organs and tissue
+476,E44,0.0002944373118225,Protein-calorie malnutrition of moderate and mild degree
+477,C86,0.0002933529030997,Other specified types of T/NK-cell lymphoma
+478,N70,0.0002918689278885,Salpingitis and oophoritis
+479,Y08,0.0002895768557209,Assault by other specified means
+480,S99,0.0002894409117288,Other and unspecified injuries of ankle and foot
+481,T22,0.0002880695392377,"Burn and corrosion of shoulder and upper limb, except wrist and hand"
+482,Q23,0.000286769849481,Congenital malformations of aortic and mitral valves
+483,N16,0.0002856577630154,Renal tubulo-interstitial disorders in diseases classified elsewhere
+484,E01,0.0002809936122503,Iodine-deficiency related thyroid disorders and allied conditions
+485,O21,0.0002784707176033,Excessive vomiting in pregnancy
+486,S20,0.0002784052630886,Superficial injury of thorax
+487,V19,0.0002770730352494,Pedal cycle rider injured in other and unspecified transport accidents
+488,S22,0.0002747435937635,"Fracture of rib(s), sternum and thoracic spine"
+489,D18,0.0002728616818785,"Hemangioma and lymphangioma, any site"
+490,M46,0.0002709912077989,Other inflammatory spondylopathies
+491,L84,0.0002708637330215,Corns and callosities
+492,B27,0.0002685850486159,Infectious mononucleosis
+493,I37,0.000267564173555,Nonrheumatic pulmonary valve disorders
+494,W23,0.000266414892394,"Caught, crushed, jammed or pinched in or between objects"
+495,I16,0.0002663334307726,Hypertensive crisis
+496,R87,0.0002662939659785,Abnormal findings in specimens from female genital organs
+497,K02,0.0002643467742018,Dental caries
+498,W51,0.0002622119500301,Accidental striking against or bumped into by another person
+499,R53,0.0002608906943351,Malaise and fatigue
+500,Q18,0.0002608576905913,Other congenital malformations of face and neck
+501,S86,0.0002548049669712,"Injury of muscle, fascia and tendon at lower leg level"
+502,Z04,0.0002518985129427,Encounter for examination and observation for other reasons
+503,G57,0.0002511663769837,Mononeuropathies of lower limb
+504,B97,0.0002500497212167,Viral agents as the cause of diseases classified elsewhere
+505,M85,0.0002490673214197,Other disorders of bone density and structure
+506,M90,0.0002432064793538,Osteopathies in diseases classified elsewhere
+507,O30,0.0002421743411105,Multiple gestation
+508,T80,0.0002408395521342,"Complications following infusion, transfusion and therapeutic injection"
+509,Q24,0.0002408314903732,Other congenital malformations of heart
+510,L71,0.0002374768228037,Rosacea
+511,G92,0.0002368277782807,Toxic encephalopathy
+512,R12,0.0002360538928769,Heartburn
+513,M62,0.0002346429391764,Other disorders of muscle
+514,Q28,0.0002322431828361,Other congenital malformations of circulatory system
+515,Z96,0.0002317670150659,Presence of other functional implants
+516,N89,0.0002308993134647,Other noninflammatory disorders of vagina
+517,N44,0.0002298139588674,Noninflammatory disorders of testis
+518,W18,0.0002293525176355,"Other slipping, tripping and stumbling and falls"
+519,A09,0.0002292523422511,"Infectious gastroenteritis and colitis, unspecified"
+520,Z71,0.0002280003245687,"Persons encountering health services for other counseling and medical advice, not elsewhere classified"
+521,Q90,0.0002274467988172,Down syndrome
+522,W19,0.0002241526381112,Unspecified fall
+523,Q38,0.0002236938453279,"Other congenital malformations of tongue, mouth and pharynx"
+524,C56,0.0002235264837509,Malignant neoplasm of ovary
+525,I89,0.0002209162194048,Other noninfective disorders of lymphatic vessels and lymph nodes
+526,K91,0.0002185736957471,"Intraoperative and postprocedural complications and disorders of digestive system, not elsewhere classified"
+527,Q62,0.000217701002839,Congenital obstructive defects of renal pelvis and congenital malformations of ureter
+528,D48,0.0002171763480873,Neoplasm of uncertain behavior of other and unspecified sites
+529,L22,0.0002157822309527,Diaper dermatitis
+530,C24,0.0002127085463143,Malignant neoplasm of other and unspecified parts of biliary tract
+531,N49,0.0002122352307196,"Inflammatory disorders of male genital organs, not elsewhere classified"
+532,E05,0.0002078901597997,Thyrotoxicosis [hyperthyroidism]
+533,R99,0.0002032285265158,Other ill-defined and unspecified causes of mortality
+534,O9A,0.0001995095663005,"Maternal malignant neoplasms, traumatic injuries and abuse classifiable elsewhere but complicating pregnancy, childbirth and the puerperium"
+535,V09,0.0001994804333662,Pedestrian injured in other and unspecified transport accidents
+536,C85,0.0001976152852876,Other specified and unspecified types of non-Hodgkin lymphoma
+537,M93,0.0001969413569895,Other osteochondropathies
+538,L40,0.0001966386480489,Psoriasis
+539,W17,0.000194803593331,Other fall from one level to another
+540,M71,0.0001923337695188,Other bursopathies
+541,K26,0.000191473547602,Duodenal ulcer
+542,E84,0.0001892251748358,Cystic fibrosis
+543,S12,0.0001855021400842,Fracture of cervical vertebra and other parts of neck
+544,E88,0.0001843253121478,Other and unspecified metabolic disorders
+545,S16,0.0001829270768212,"Injury of muscle, fascia and tendon at neck level"
+546,S09,0.0001807890221243,Other and unspecified injuries of head
+547,G20,0.0001780729944584,Parkinson's disease
+548,P28,0.0001779406011337,Other respiratory conditions originating in the perinatal period
+549,R44,0.0001777205325197,Other symptoms and signs involving general sensations and perceptions
+550,W34,0.0001777148281689,Accidental discharge and malfunction from other and unspecified firearms and guns
+551,H43,0.0001753729156916,Disorders of vitreous body
+552,E83,0.0001751258678268,Disorders of mineral metabolism
+553,Z20,0.0001710837386781,Contact with and (suspected) exposure to communicable diseases
+554,M77,0.0001710215874481,Other enthesopathies
+555,S46,0.0001699310378171,"Injury of muscle, fascia and tendon at shoulder and upper arm level"
+556,F48,0.0001697626430541,Other nonpsychotic mental disorders
+557,C51,0.0001689493801677,Malignant neoplasm of vulva
+558,T85,0.0001684103917796,"Complications of other internal prosthetic devices, implants and grafts"
+559,M48,0.0001673618680797,Other spondylopathies
+560,Z74,0.0001647017488721,Problems related to care provider dependency
+561,M50,0.0001636022352613,Cervical disc disorders
+562,R18,0.0001628001919016,Ascites
+563,E89,0.0001625919539947,"Postprocedural endocrine and metabolic complications and disorders, not elsewhere classified"
+564,T25,0.0001622325944481,Burn and corrosion of ankle and foot
+565,N36,0.0001605318830115,Other disorders of urethra
+566,Z22,0.0001592296175658,Carrier of infectious disease
+567,E86,0.000158797862241,Volume depletion
+568,M95,0.0001581539545441,Other acquired deformities of musculoskeletal system and connective tissue
+569,Z64,0.0001580680545885,Problems related to certain psychosocial circumstances
+570,Z31,0.0001572581240907,Encounter for procreative management
+571,T24,0.0001567441067891,"Burn and corrosion of lower limb, except ankle and foot"
+572,L08,0.0001551157183712,Other local infections of skin and subcutaneous tissue
+573,V78,0.000151984160766,Bus occupant injured in noncollision transport accident
+574,S00,0.0001500535145169,Superficial injury of head
+575,Q75,0.0001497585326433,Other congenital malformations of skull and face bones
+576,B86,0.0001481138897361,Scabies
+577,M87,0.0001479214988648,Osteonecrosis
+578,Q37,0.0001464431697968,Cleft palate with cleft lip
+579,N72,0.000146163845784,Inflammatory disease of cervix uteri
+580,Q03,0.000145265716128,Congenital hydrocephalus
+581,A04,0.0001435693557141,Other bacterial intestinal infections
+582,R79,0.0001430734264431,Other abnormal findings of blood chemistry
+583,Z16,0.0001430454140063,Resistance to antimicrobial drugs
+584,E64,0.0001428729883627,Sequelae of malnutrition and other nutritional deficiencies
+585,S29,0.0001398020831402,Other and unspecified injuries of thorax
+586,L25,0.0001377248991047,Unspecified contact dermatitis
+587,L70,0.0001375525898765,Acne
+588,S93,0.0001371562102576,"Dislocation and sprain of joints and ligaments at ankle, foot and toe level"
+589,N61,0.0001356764842057,Inflammatory disorders of breast
+590,L94,0.0001342015020782,Other localized connective tissue disorders
+591,D14,0.000133003166411,Benign neoplasm of middle ear and respiratory system
+592,N80,0.0001315153494942,Endometriosis
+593,W22,0.0001310659718001,Striking against or struck by other objects
+594,S88,0.000129441730678,Traumatic amputation of lower leg
+595,T36,0.0001282751763937,"Poisoning by, adverse effect of and underdosing of systemic antibiotics"
+596,I38,0.0001259288110304,"Endocarditis, valve unspecified"
+597,H71,0.0001251469075214,Cholesteatoma of middle ear
+598,N12,0.000125073158415,"Tubulo-interstitial nephritis, not specified as acute or chronic"
+599,S05,0.0001246431929757,Injury of eye and orbit
+600,K27,0.0001239132980117,"Peptic ulcer, site unspecified"
+601,T83,0.000122859433759,"Complications of genitourinary prosthetic devices, implants and grafts"
+602,D63,0.000121711025713,Anemia in chronic diseases classified elsewhere
+603,D13,0.0001201509439852,Benign neoplasm of other and ill-defined parts of digestive system
+604,E46,0.0001201157065224,Unspecified protein-calorie malnutrition
+605,Q10,0.000119988915685,"Congenital malformations of eyelid, lacrimal apparatus and orbit"
+606,D37,0.0001184773573186,Neoplasm of uncertain behavior of oral cavity and digestive organs
+607,J31,0.000118338073662,"Chronic rhinitis, nasopharyngitis and pharyngitis"
+608,H04,0.0001182260020868,Disorders of lacrimal system
+609,N75,0.0001171772819361,Diseases of Bartholin's gland
+610,K73,0.0001168291200883,"Chronic hepatitis, not elsewhere classified"
+611,D35,0.0001165867652161,Benign neoplasm of other and unspecified endocrine glands
+612,W20,0.0001149505478679,"Struck by thrown, projected or falling object"
+613,R65,0.0001138400111813,Symptoms and signs specifically associated with systemic inflammation and infection
+614,D75,0.0001130808595917,Other and unspecified diseases of blood and blood-forming organs
+615,J47,0.0001124433256336,Bronchiectasis
+616,Q35,0.000111400426249,Cleft palate
+617,P59,0.0001107302159653,Neonatal jaundice from other and unspecified causes
+618,D11,0.0001093966493499,Benign neoplasm of major salivary glands
+619,I96,0.0001093092068913,"Gangrene, not elsewhere classified"
+620,C90,0.0001090173609554,Multiple myeloma and malignant plasma cell neoplasms
+621,Z32,0.0001086974734789,Encounter for pregnancy test and childbirth and childcare instruction
+622,A63,0.0001086275078705,"Other predominantly sexually transmitted diseases, not elsewhere classified"
+623,R29,0.0001081420050468,Other symptoms and signs involving the nervous and musculoskeletal systems
+624,W11,0.0001056614055414,Fall on and from ladder
+625,T66,0.000105431798147,Unspecified effects of radiation
+626,A64,0.0001052282241289,Unspecified sexually transmitted disease
+627,M34,0.0001051482540788,Systemic sclerosis [scleroderma]
+628,B95,0.0001026360841933,"Streptococcus, Staphylococcus, and Enterococcus as the cause of diseases classified elsewhere"
+629,H61,0.0001017599715851,Other disorders of external ear
+630,H21,0.000100413133623,Other disorders of iris and ciliary body
+631,Q65,9.838425467023626e-05,Congenital deformities of hip
+632,R03,9.67830274021253e-05,"Abnormal blood-pressure reading, without diagnosis"
+633,D50,9.633843001211062e-05,Iron deficiency anemia
+634,I72,9.57496595219709e-05,Other aneurysm
+635,K70,9.568429231876507e-05,Alcoholic liver disease
+636,M26,9.538429003441706e-05,Dentofacial anomalies [including malocclusion]
+637,Y09,9.53609196585603e-05,Assault by unspecified means
+638,H47,9.24327250686474e-05,Other disorders of optic [2nd] nerve and visual pathways
+639,R25,9.186066017718986e-05,Abnormal involuntary movements
+640,E22,9.074827539734542e-05,Hyperfunction of pituitary gland
+641,W01,9.057177521754056e-05,"Fall on same level from slipping, tripping and stumbling"
+642,I74,8.894524216884747e-05,Arterial embolism and thrombosis
+643,Z03,8.8468637841288e-05,Encounter for medical observation for suspected diseases and conditions ruled out
+644,W54,8.798271301202476e-05,Bitten or struck by dog
+645,G96,8.646392961964011e-05,Other disorders of central nervous system
+646,L27,8.553561201551929e-05,Dermatitis due to substances taken internally
+647,D73,8.549633639631793e-05,Diseases of spleen
+648,I27,8.282243652502075e-05,Other pulmonary heart diseases
+649,N19,8.279704343294725e-05,Unspecified kidney failure
+650,Z92,8.231400715885684e-05,Personal history of medical treatment
+651,L20,8.124290616251528e-05,Atopic dermatitis
+652,S31,8.111122588161379e-05,"Open wound of abdomen, lower back, pelvis and external genitals"
+653,R05,8.099477417999879e-05,Cough
+654,Q79,7.942973752506077e-05,"Congenital malformations of musculoskeletal system, not elsewhere classified"
+655,G51,7.927647675387561e-05,Facial nerve disorders
+656,M53,7.922147779027e-05,"Other and unspecified dorsopathies, not elsewhere classified"
+657,Y82,7.876554445829242e-05,Other and unspecified medical devices associated with adverse incidents
+658,S91,7.810237730154768e-05,"Open wound of ankle, foot and toes"
+659,C15,7.74497602833435e-05,Malignant neoplasm of esophagus
+660,T43,7.728646596660838e-05,"Poisoning by, adverse effect of and underdosing of psychotropic drugs, not elsewhere classified"
+661,J70,7.727876072749496e-05,Respiratory conditions due to other external agents
+662,E43,7.675815868424252e-05,Unspecified severe protein-energy malnutrition
+663,F88,7.673700019950047e-05,Other disorders of psychological development
+664,R36,7.605643622810021e-05,Urethral discharge
+665,M12,7.530803850386292e-05,Other and unspecified arthropathy
+666,L82,7.4956682510674e-05,Seborrhoeic keratosis
+667,Q61,7.44234785088338e-05,Cystic kidney disease
+668,T87,7.434110011672601e-05,Complications peculiar to reattachment and amputation
+669,Z48,7.397046283585951e-05,Encounter for other postprocedural aftercare
+670,B02,7.376458233920857e-05,Zoster [herpes zoster]
+671,D07,7.332358654821292e-05,Carcinoma in situ of other and unspecified genital organs
+672,F07,7.3209848778788e-05,Personality and behavioral disorders due to known physiological condition
+673,E06,7.316478149732575e-05,Thyroiditis
+674,C32,7.1826929342933e-05,Malignant neoplasm of larynx
+675,E27,7.174906932050362e-05,Other disorders of adrenal gland
+676,W57,7.101730443537235e-05,Bitten or stung by nonvenomous insect and other nonvenomous arthropods
+677,S23,7.058155460981652e-05,Dislocation and sprain of joints and ligaments of thorax
+678,F45,6.943365588085726e-05,Somatoform disorders
+679,M41,6.89527514623478e-05,Scoliosis
+680,F72,6.866256444482133e-05,Severe intellectual disabilities
+681,D68,6.776275404263288e-05,Other coagulation defects
+682,B37,6.732688780175522e-05,Candidiasis
+683,V18,6.711322930641472e-05,Pedal cycle rider injured in noncollision transport accident
+684,K28,6.704258703393862e-05,Gastrojejunal ulcer
+685,S03,6.683264655293897e-05,Dislocation and sprain of joints and ligaments of head
+686,E65,6.670189031865448e-05,Localized adiposity
+687,W29,6.658608617726713e-05,Contact with other powered hand tools and household machinery
+688,R16,6.63878527120687e-05,"Hepatomegaly and splenomegaly, not elsewhere classified"
+689,X93,6.480223964899778e-05,Assault by handgun discharge
+690,K38,6.409947673091665e-05,Other diseases of appendix
+691,J61,6.358988321153447e-05,Pneumoconiosis due to asbestos and other mineral fibres
+692,K20,6.33454619674012e-05,Oesophagitis
+693,B99,6.286274583544582e-05,Other and unspecified infectious diseases
+694,S10,6.268951983656734e-05,Superficial injury of neck
+695,N42,6.154274160508066e-05,Other and unspecified disorders of prostate
+696,M35,6.117741577327251e-05,Other systemic involvement of connective tissue
+697,O40,6.058009239495732e-05,Polyhydramnios
+698,H10,6.045085683581419e-05,Conjunctivitis
+699,Z13,5.949152182438411e-05,Encounter for screening for other diseases and disorders
+700,T84,5.863129990757443e-05,"Complications of internal orthopedic prosthetic devices, implants and grafts"
+701,I83,5.7680721511133015e-05,Varicose veins of lower extremities
+702,O92,5.756520113209263e-05,Other disorders of breast and disorders of lactation associated with pregnancy and the puerperium
+703,F70,5.7330595154780895e-05,Mild intellectual disabilities
+704,F22,5.715212319046259e-05,Delusional disorders
+705,J20,5.684299321728759e-05,Acute bronchitis
+706,Q36,5.676711953128688e-05,Cleft lip
+707,C16,5.648542719427496e-05,Malignant neoplasm of stomach
+708,G70,5.636846253764816e-05,Myasthenia gravis and other myoneural disorders
+709,S79,5.618249633698724e-05,Other and unspecified injuries of hip and thigh
+710,E79,5.594668255071156e-05,Disorders of purine and pyrimidine metabolism
+711,C07,5.58660613023676e-05,Malignant neoplasm of parotid gland
+712,Z43,5.492627678904682e-05,Encounter for attention to artificial openings
+713,W50,5.444934868137352e-05,"Hit, struck, kicked, twisted, bitten or scratched by another person"
+714,F81,5.436480569187552e-05,Specific developmental disorders of scholastic skills
+715,A69,5.398688881541602e-05,Other spirochetal infections
+716,I79,5.3760250011691824e-05,"Disorders of arteries, arterioles and capillaries in diseases classified elsewhere"
+717,A49,5.3630417824024335e-05,Bacterial infection of unspecified site
+718,S80,5.259743193164468e-05,Superficial injury of knee and lower leg
+719,T78,5.256605800241232e-05,"Adverse effects, not elsewhere classified"
+720,G25,5.1571609219536185e-05,Other extrapyramidal and movement disorders
+721,V79,5.148073978489265e-05,Bus occupant injured in other and unspecified transport accidents
+722,F98,5.140628854860552e-05,Other behavioral and emotional disorders with onset usually occurring in childhood and adolescence
+723,W05,5.105582022224553e-05,"Fall from non-moving wheelchair, nonmotorized scooter and motorized mobility scooter"
+724,Q83,5.059234536020085e-05,Congenital malformations of breast
+725,E16,5.047350350650959e-05,Other disorders of pancreatic internal secretion
+726,T65,5.0173890485893935e-05,Toxic effect of other and unspecified substances
+727,K94,4.98081099067349e-05,Complications of artificial openings of the digestive system
+728,D51,4.913997327093966e-05,Vitamin B12 deficiency anemia
+729,E55,4.852019264944829e-05,Vitamin D deficiency
+730,S50,4.827522570849396e-05,Superficial injury of elbow and forearm
+731,S90,4.7274075768655166e-05,"Superficial injury of ankle, foot and toes"
+732,W06,4.643261854653247e-05,Fall from bed
+733,G04,4.567448922898621e-05,"Encephalitis, myelitis and encephalomyelitis"
+734,C69,4.536038613878191e-05,Malignant neoplasm of eye and adnexa
+735,G14,4.498640555539168e-05,Postpolio syndrome
+736,C45,4.4927601265953854e-05,Mesothelioma
+737,J42,4.436889867065474e-05,Unspecified chronic bronchitis
+738,R78,4.427186286193319e-05,"Findings of drugs and other substances, not normally found in blood"
+739,A08,4.415384682943113e-05,Viral and other specified intestinal infections
+740,K51,4.3195639591431245e-05,Ulcerative colitis
+741,G03,4.305181937525049e-05,Meningitis due to other and unspecified causes
+742,H74,4.244458978064358e-05,Other disorders of middle ear mastoid
+743,M14,4.234707012074068e-05,Arthropathies in other diseases classified elsewhere
+744,S56,4.1902269003912807e-05,"Injury of muscle, fascia and tendon at forearm level"
+745,Q69,4.176213769824244e-05,Polydactyly
+746,A40,4.1422739741392434e-05,Streptococcal sepsis
+747,M70,4.127939973841421e-05,"Soft tissue disorders related to use, overuse and pressure"
+748,D86,4.1260584112023935e-05,Sarcoidosis
+749,J21,4.124992847209796e-05,Acute bronchiolitis
+750,S73,4.1090937884291634e-05,Dislocation and sprain of joint and ligaments of hip
+751,R68,4.108173379790969e-05,Other general symptoms and signs
+752,T34,4.097394048585557e-05,Frostbite with tissue necrosis
+753,R23,4.041984720970504e-05,Other skin changes
+754,G50,4.0339698898606e-05,Disorders of trigeminal nerve
+755,K25,3.956285945605487e-05,Gastric ulcer
+756,N30,3.896007547155023e-05,Cystitis
+757,R58,3.871350781992078e-05,"Hemorrhage, not elsewhere classified"
+758,Y84,3.832170841633342e-05,"Other medical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure"
+759,S96,3.79554221581202e-05,Injury of muscle and tendon at ankle and foot level
+760,D89,3.7928195524727926e-05,"Other disorders involving the immune mechanism, not elsewhere classified"
+761,S13,3.759014362003654e-05,Dislocation and sprain of joints and ligaments at neck level
+762,I26,3.7365691241575405e-05,Pulmonary embolism
+763,T75,3.7231871829135343e-05,Other and unspecified effects of other external causes
+764,S34,3.719625965459272e-05,"Injury of lumbar and sacral spinal cord and nerves at abdomen, lower back and pelvis level"
+765,J15,3.684581679408439e-05,"Bacterial pneumonia, not elsewhere classified"
+766,L88,3.6658333556260914e-05,Pyoderma gangrenosum
+767,A31,3.629248385550454e-05,Infection due to other mycobacteria
+768,H60,3.624252349254675e-05,Otitis externa
+769,K58,3.618977643782273e-05,Irritable bowel syndrome
+770,R90,3.6022000131197274e-05,Abnormal findings on diagnostic imaging of central nervous system
+771,O28,3.574506627046503e-05,Abnormal findings on antenatal screening of mother
+772,K92,3.557928357622586e-05,Other diseases of digestive system
+773,Z08,3.555767398211174e-05,Encounter for follow-up examination after completed treatment for malignant neoplasm
+774,X19,3.5444507375359535e-05,Contact with other heat and hot substances
+775,L04,3.530812682583928e-05,Acute lymphadenitis
+776,E53,3.5013272281503305e-05,Deficiency of other B group vitamins
+777,V48,3.499550439300947e-05,Car occupant injured in noncollision transport accident
+778,H55,3.4985314414370805e-05,Nystagmus and other irregular eye movements
+779,Z18,3.4282471460755914e-05,Retained foreign body fragments
+780,W62,3.4056407457683235e-05,Contact with nonvenomous amphibians
+781,N82,3.381042552064173e-05,Fistulae involving female genital tract
+782,N91,3.3715561585268006e-05,"Absent, scanty and rare menstruation"
+783,Z62,3.366766395629384e-05,Problems related to upbringing
+784,K46,3.3117994462372735e-05,Unspecified abdominal hernia
+785,R39,3.285589991719462e-05,Other and unspecified symptoms and signs involving the genitourinary system
+786,Q07,3.251815360272303e-05,Other congenital malformations of nervous system
+787,Y90,3.2367028325097635e-05,Evidence of alcohol involvement determined by blood alcohol level
+788,V76,3.218436540919356e-05,Bus occupant injured in collision with other nonmotor vehicle
+789,M31,3.214902608306147e-05,Other necrotizing vasculopathies
+790,Z36,3.213894524378702e-05,Encounter for antenatal screening of mother
+791,Z38,3.2133761123986915e-05,Liveborn infants according to place of birth and type of delivery
+792,W46,3.2002029911382124e-05,Contact with hypodermic needle
+793,M89,3.155233571305871e-05,Other disorders of bone
+794,J69,3.119402390439063e-05,Pneumonitis due to solids and liquids
+795,F05,3.092403130722232e-05,Delirium due to known physiological condition
+796,D70,3.050599480047822e-05,Neutropenia
+797,J01,3.04463737847982e-05,Acute sinusitis
+798,S40,3.0275592507678084e-05,Superficial injury of shoulder and upper arm
+799,Q87,2.9523986086132936e-05,Other specified congenital malformation syndromes affecting multiple systems
+800,T21,2.9154523872421123e-05,Burn and corrosion of trunk
+801,V99,2.8830889277742244e-05,Unspecified transport accident
+802,E30,2.8545939130708572e-05,"Disorders of puberty, not elsewhere classified"
+803,Q32,2.8429178200894967e-05,Congenital malformations of trachea and bronchus
+804,O20,2.8412407118594277e-05,Hemorrhage in early pregnancy
+805,S14,2.8372885935823436e-05,Injury of nerves and spinal cord at neck level
+806,S67,2.817873610183597e-05,"Crushing injury of wrist, hand and fingers"
+807,Q76,2.816153755702544e-05,Congenital malformations of spine and bony thorax
+808,C57,2.750784369709436e-05,Malignant neoplasm of other and unspecified female genital organs
+809,C21,2.7381358449929397e-05,Malignant neoplasm of anus and anal canal
+810,Q85,2.72162797045894e-05,"Phakomatoses, not elsewhere classified"
+811,T32,2.7173942726221867e-05,Corrosions classified according to extent of body surface involved
+812,B59,2.712947753025219e-05,Pneumocystosis
+813,M13,2.6616224204190075e-05,Other arthritis
+814,E24,2.6506546419113874e-05,Cushing's syndrome
+815,L92,2.6113795684068464e-05,Granulomatous disorders of skin and subcutaneous tissue
+816,O23,2.5824752810876817e-05,Infections of genitourinary tract in pregnancy
+817,L01,2.55073573498521e-05,Impetigo
+818,M76,2.5504297809675336e-05,"Enthesopathies, lower limb, excluding foot"
+819,H53,2.5501281925244257e-05,Visual disturbances
+820,M11,2.515432788641192e-05,Other crystal arthropathies
+821,Z63,2.50305329245748e-05,"Other problems related to primary support group, including family circumstances"
+822,T14,2.480560215190053e-05,Injury of unspecified body region
+823,R35,2.478167152730748e-05,Polyuria
+824,G95,2.4586599465692416e-05,Other and unspecified diseases of spinal cord
+825,N31,2.430668246233836e-05,"Neuromuscular dysfunction of bladder, not elsewhere classified"
+826,C48,2.429040978313424e-05,Malignant neoplasm of retroperitoneum and peritoneum
+827,D56,2.3950588001753204e-05,Thalassemia
+828,R74,2.338274498470128e-05,Abnormal serum enzyme levels
+829,L53,2.318199403816834e-05,Other erythematous conditions
+830,N34,2.310781565029174e-05,Urethritis and urethral syndrome
+831,E09,2.2976491891313344e-05,Drug or chemical induced diabetes mellitus
+832,D47,2.2933432774152607e-05,"Other neoplasms of uncertain behavior of lymphoid, hematopoietic and related tissue"
+833,D46,2.237216358480509e-05,Myelodysplastic syndromes
+834,M1A,2.217700966866687e-05,Chronic gout
+835,V69,2.2154108592076227e-05,Occupant of heavy transport vehicle injured in other and unspecified transport accidents
+836,D39,2.206573844887316e-05,Neoplasm of uncertain behavior of female genital organs
+837,Z15,2.1768473743577488e-05,Genetic susceptibility to disease
+838,H46,2.1731382730649784e-05,Optic neuritis
+839,M92,2.170377774746157e-05,Other juvenile osteochondrosis
+840,P04,2.1592359189526175e-05,Newborn affected by noxious substances transmitted via placenta or breast milk
+841,S19,2.1529895093408413e-05,Other specified and unspecified injuries of neck
+842,M36,2.146609585906845e-05,Systemic disorders of connective tissue in diseases classified elsewhere
+843,R89,2.1379388272180225e-05,"Abnormal findings in specimens from other organs, systems and tissues"
+844,N65,2.1103582184878175e-05,Deformity and disproportion of reconstructed breast
+845,S30,2.0895389752695337e-05,"Superficial injury of abdomen, lower back, pelvis and external genitals"
+846,F90,2.069165748252999e-05,Attention-deficit hyperactivity disorders
+847,S69,2.0603512894012965e-05,"Other and unspecified injuries of wrist, hand and finger(s)"
+848,E72,2.054762444458902e-05,Other disorders of amino-acid metabolism
+849,O60,2.04932384804124e-05,Preterm labor
+850,H49,2.0401108486112207e-05,Paralytic strabismus
+851,K12,2.0259567463654093e-05,Stomatitis and related lesions
+852,Z28,2.0242656319169328e-05,Immunization not carried out and underimmunization status
+853,V28,2.0165363821433857e-05,Motorcycle rider injured in noncollision transport accident
+854,M00,2.0134768419666216e-05,Pyogenic arthritis
+855,H52,2.0097078959224746e-05,Disorders of refraction and accommodation
+856,J04,2.0089897589059547e-05,Acute laryngitis and tracheitis
+857,X83,1.9946264728787355e-05,Intentional self-harm by other specified means
+858,O75,1.9771026927628554e-05,"Other complications of labor and delivery, not elsewhere classified"
+859,G45,1.971437814063393e-05,Transient cerebral ischemic attacks and related syndromes
+860,G44,1.9706287275766957e-05,Other headache syndromes
+861,T19,1.9617709767771885e-05,Foreign body in genitourinary tract
+862,B00,1.939879985002335e-05,Herpesviral [herpes simplex] infections
+863,E85,1.9347164197824892e-05,Amyloidosis
+864,T31,1.927577613969333e-05,Burns classified according to extent of body surface involved
+865,T44,1.914586209750269e-05,"Poisoning by, adverse effect of and underdosing of drugs primarily affecting the autonomic nervous system"
+866,Q17,1.9084553059656173e-05,Other congenital malformations of ear
+867,N41,1.8888935301220044e-05,Inflammatory diseases of prostate
+868,K72,1.8829545297194272e-05,"Hepatic failure, not elsewhere classified"
+869,I24,1.877196154964622e-05,Other acute ischemic heart diseases
+870,R82,1.855149821494706e-05,Other and unspecified abnormal findings in urine
+871,K55,1.840414734033402e-05,Vascular disorders of intestine
+872,W55,1.8312130123376846e-05,Bitten or struck by other mammals
+873,S51,1.8172358977608383e-05,Open wound of elbow and forearm
+874,O82,1.790331953088753e-05,Encounter for cesarean delivery without indication
+875,Q20,1.779494596121367e-05,Congenital malformations of cardiac chambers and connections
+876,I68,1.7706686776364222e-05,Cerebrovascular disorders in diseases classified elsewhere
+877,Q43,1.7340737031190656e-05,Other congenital malformations of intestine
+878,Y07,1.719243300613016e-05,"Perpetrator of assault, maltreatment and neglect"
+879,S60,1.7187710909638554e-05,"Superficial injury of wrist, hand and fingers"
+880,G72,1.7178819689434022e-05,Other and unspecified myopathies
+881,I82,1.7111469787778333e-05,Other venous embolism and thrombosis
+882,R71,1.708198760752566e-05,Abnormality of red blood cells
+883,Z73,1.702083318377845e-05,Problems related to life management difficulty
+884,W10,1.676844658504706e-05,Fall on and from stairs and steps
+885,C81,1.6731652067392133e-05,Hodgkin lymphoma
+886,Z81,1.6670181139488705e-05,Family history of mental and behavioral disorders
+887,B35,1.6586416677455418e-05,Dermatophytosis
+888,K90,1.637517380004283e-05,Intestinal malabsorption
+889,E80,1.619273461983539e-05,Disorders of porphyrin and bilirubin metabolism
+890,G71,1.608436468814034e-05,Primary disorders of muscles
+891,C7A,1.607462218089495e-05,Malignant neuroendocrine tumors
+892,O71,1.6038235116866417e-05,Other obstetric trauma
+893,Q74,1.598574272065889e-05,Other congenital malformations of limb(s)
+894,R14,1.5868499758653343e-05,Flatulence and related conditions
+895,G46,1.5151136722124647e-05,Vascular syndromes of brain in cerebrovascular diseases
+896,N50,1.504581541666994e-05,Other and unspecified disorders of male genital organs
+897,M08,1.5042182894831058e-05,Juvenile arthritis
+898,O32,1.4973400539020076e-05,Maternal care for malpresentation of fetus
+899,A87,1.4827906852588058e-05,Viral meningitis
+900,W03,1.4789570741413629e-05,"Other fall on same level due to collision with, or pushing by, another person"
+901,H18,1.4587821169698144e-05,Other disorders of cornea
+902,Y33,1.434537898603594e-05,"Other specified events, undetermined intent"
+903,F44,1.4308333447843324e-05,Dissociative and conversion disorders
+904,W26,1.430489464837592e-05,"Contact with knife, sword or dagger"
+905,Y95,1.4289128557720687e-05,Nosocomial condition
+906,N52,1.415904625901021e-05,Male erectile dysfunction
+907,H51,1.414330199622782e-05,Other disorders of binocular movement
+908,G99,1.4118567378318405e-05,Other disorders of nervous system in diseases classified elsewhere
+909,E23,1.407507988915313e-05,Hypofunction and other disorders of the pituitary gland
+910,S08,1.406806222803425e-05,Avulsion and traumatic amputation of part of head
+911,A60,1.390388479194371e-05,Anogenital herpesviral [herpes simplex] infections
+912,M84,1.3711089195567183e-05,Disorder of continuity of bone
+913,R77,1.3598774785350544e-05,Other abnormalities of plasma proteins
+914,D30,1.3455872249323876e-05,Benign neoplasm of urinary organs
+915,K11,1.339805021416396e-05,Diseases of salivary glands
+916,T88,1.3295126336743124e-05,"Other complications of surgical and medical care, not elsewhere classified"
+917,S81,1.3245659829408396e-05,Open wound of knee and lower leg
+918,R04,1.3241189662949182e-05,Hemorrhage from respiratory passages
+919,I99,1.3167694305593614e-05,Other and unspecified disorders of circulatory system
+920,L65,1.295918809773866e-05,Other nonscarring hair loss
+921,M27,1.2951963071827777e-05,Other diseases of jaws
+922,Z84,1.2950213204021566e-05,Family history of other conditions
+923,N22,1.29256068248651e-05,Calculus of urinary tract in diseases classified elsewhere
+924,S66,1.287571922148345e-05,"Injury of muscle, fascia and tendon at wrist and hand level"
+925,C76,1.2837933354603592e-05,Malignant neoplasm of other and ill-defined sites
+926,K13,1.2791581866622437e-05,Other diseases of lip and oral mucosa
+927,I81,1.271816381631652e-05,Portal vein thrombosis
+928,C09,1.2674969184445216e-05,Malignant neoplasm of tonsil
+929,N48,1.262657497136388e-05,Other disorders of penis
+930,B38,1.2511587556218728e-05,Coccidioidomycosis
+931,E35,1.248021908395458e-05,Disorders of endocrine glands in diseases classified elsewhere
+932,Z46,1.2182673344796058e-05,Encounter for fitting and adjustment of other devices
+933,I05,1.2103163498977663e-05,Rheumatic mitral valve diseases
+934,D52,1.2082608918717597e-05,Folate deficiency anemia
+935,H93,1.2042308298987336e-05,"Other disorders of ear, not elsewhere classified"
+936,I52,1.1971824278589338e-05,Other heart disorders in diseases classified elsewhere
+937,T46,1.1911776709894184e-05,"Poisoning by, adverse effect of and underdosing of agents primarily affecting the cardiovascular system"
+938,Z60,1.184541451948462e-05,Problems related to social environment
+939,P27,1.173959935840685e-05,Chronic respiratory disease originating in the perinatal period
+940,C84,1.1568167792574968e-05,Mature T/NK-cell lymphomas
+941,M40,1.1539842489582952e-05,Kyphosis and lordosis
+942,L29,1.1527014976309148e-05,Pruritus
+943,R64,1.1379570423741823e-05,Cachexia
+944,A56,1.1267314221186098e-05,Other sexually transmitted chlamydial diseases
+945,T79,1.1165140676894223e-05,"Certain early complications of trauma, not elsewhere classified"
+946,Q60,1.0964272405544762e-05,Renal agenesis and other reduction defects of kidney
+947,M05,1.0878752618737051e-05,Rheumatoid arthritis with rheumatoid factor
+948,H57,1.0707502042350823e-05,Other disorders of eye and adnexa
+949,N33,1.0349705007683951e-05,Bladder disorders in diseases classified elsewhere
+950,F42,1.0188237865804696e-05,Obsessive-compulsive disorder
+951,A59,1.0132763236470057e-05,Trichomoniasis
+952,G61,1.010079631669214e-05,Inflammatory polyneuropathy
+953,H15,1.0053407095256262e-05,Disorders of sclera
+954,A42,1.00495790320565e-05,Actinomycosis
+955,B85,1.0027901225839742e-05,Pediculosis and phthiriasis
+956,L81,9.9679627965088e-06,Other disorders of pigmentation
+957,K30,9.961820069293026e-06,Functional dyspepsia
+958,K45,9.94630499917548e-06,Other abdominal hernia
+959,O16,9.607065294403585e-06,Unspecified maternal hypertension
+960,N45,9.524757842882536e-06,Orchitis and epididymitis
+961,G58,9.520294952380937e-06,Other mononeuropathies
+962,T38,9.505095476924907e-06,"Poisoning by, adverse effect of and underdosing of hormones and their synthetic substitutes and antagonists, not elsewhere classified"
+963,L30,9.482280802330934e-06,Other and unspecified dermatitis
+964,F51,9.400119779456872e-06,Sleep disorders not due to a substance or known physiological condition
+965,N04,9.34177660383284e-06,Nephrotic syndrome
+966,E61,9.337293704447802e-06,Deficiency of other nutrient elements
+967,M18,9.285771739087068e-06,Osteoarthritis of first carpometacarpal joint
+968,C82,9.271556336898357e-06,Follicular lymphoma
+969,D82,9.2465452325996e-06,Immunodeficiency associated with other major defects
+970,L62,9.213320481649134e-06,Nail disorders in diseases classified elsewhere
+971,K14,9.2029404186178e-06,Diseases of tongue
+972,H54,9.142742783296852e-06,Blindness and low vision
+973,J86,9.10231210582424e-06,Pyothorax
+974,O64,9.064849109563513e-06,Obstructed labor due to malposition and malpresentation of fetus
+975,R61,8.82759559317492e-06,Generalized hyperhidrosis
+976,L28,8.810940926196054e-06,Lichen simplex chronicus and prurigo
+977,J94,8.787877050053794e-06,Other pleural conditions
+978,O10,8.762898687564302e-06,"Pre-existing hypertension complicating pregnancy, childbirth and the puerperium"
+979,X12,8.760636774240993e-06,Contact with other hot fluids
+980,J39,8.7255521066254e-06,Other diseases of upper respiratory tract
+981,D59,8.706777407496702e-06,Acquired hemolytic anemia
+982,C55,8.692855772096664e-06,"Malignant neoplasm of uterus, part unspecified"
+983,L60,8.682384759595152e-06,Nail disorders
+984,N76,8.619277650723234e-06,Other inflammation of vagina and vulva
+985,J41,8.614588296040893e-06,Simple and mucopurulent chronic bronchitis
+986,H20,8.608916687080637e-06,Iridocyclitis
+987,D61,8.526191777491476e-06,Other aplastic anemias and other bone marrow failure syndromes
+988,S71,8.345789865416009e-06,Open wound of hip and thigh
+989,S49,8.322222129208967e-06,Other and unspecified injuries of shoulder and upper arm
+990,C19,8.284514478873461e-06,Malignant neoplasm of rectosigmoid junction
+991,A52,8.236750545620453e-06,Late syphilis
+992,N26,8.219936717068776e-06,Unspecified contracted kidney
+993,H00,8.204942787415348e-06,Hordeolum and chalazion
+994,P70,8.025896931940224e-06,Transitory disorders of carbohydrate metabolism specific to newborn
+995,H16,8.014846571313683e-06,Keratitis
+996,K23,8.000138222996611e-06,Disorders of esophagus in diseases classified elsewhere
+997,F73,7.940306204545777e-06,Profound intellectual disabilities
+998,D38,7.912702130852267e-06,Neoplasm of uncertain behavior of middle ear and respiratory and intrathoracic organs
+999,G07,7.899202500993852e-06,Intracranial and intraspinal abscess and granuloma in diseases classified elsewhere
+1000,L99,7.896459464973304e-06,Other disorders of skin and subcutaneous tissue in diseases classified elsewhere
+1001,E56,7.892382200225256e-06,Other vitamin deficiencies
+1002,S76,7.855539479351137e-06,"Injury of muscle, fascia and tendon at hip and thigh level"
+1003,C93,7.848042514524423e-06,Monocytic leukemia
+1004,I36,7.811035175109282e-06,Nonrheumatic tricuspid valve disorders
+1005,N15,7.753313184366561e-06,Other renal tubulo-interstitial diseases
+1006,H11,7.70410679251654e-06,Other disorders of conjunctiva
+1007,K95,7.612298304593423e-06,Complications of bariatric procedures
+1008,I80,7.6075798460806254e-06,Phlebitis and thrombophlebitis
+1009,T17,7.4301638051110785e-06,Foreign body in respiratory tract
+1010,D80,7.3561095632612705e-06,Immunodeficiency with predominantly antibody defects
+1011,C41,7.352275588345947e-06,Malignant neoplasm of bone and articular cartilage of other and unspecified sites
+1012,D66,7.323464160435833e-06,Hereditary factor VIII deficiency
+1013,F99,7.293399448826676e-06,"Mental disorder, not otherwise specified"
+1014,I30,7.2800689849827904e-06,Acute pericarditis
+1015,F40,7.209100658656098e-06,Phobic anxiety disorders
+1016,T51,7.185163212852785e-06,Toxic effect of alcohol
+1017,B44,7.181648925325135e-06,Aspergillosis
+1018,G54,7.173045105446363e-06,Nerve root and plexus disorders
+1019,M60,7.097016350599006e-06,Myositis
+1020,G12,6.919581664988073e-06,Spinal muscular atrophy and related syndromes
+1021,C20,6.80421908327844e-06,Malignant neoplasm of rectum
+1022,L73,6.754051355528645e-06,Other follicular disorders
+1023,T41,6.679196758341277e-06,"Poisoning by, adverse effect of and underdosing of anesthetics and therapeutic gases"
+1024,G83,6.65152219880838e-06,Other paralytic syndromes
+1025,E34,6.610268883378012e-06,Other endocrine disorders
+1026,F91,6.480588581325719e-06,Conduct disorders
+1027,F30,6.480233423644677e-06,Manic episode
+1028,D53,6.453184596466599e-06,Other nutritional anemias
+1029,D83,6.35927699477179e-06,Common variable immunodeficiency
+1030,P92,6.352210675686365e-06,Feeding problems of newborn
+1031,F52,6.311814559012419e-06,Sexual dysfunction not due to a substance or known physiological condition
+1032,Z75,6.286597908911062e-06,Problems related to medical facilities and other health care
+1033,O15,6.215844223333988e-06,Eclampsia
+1034,I07,6.215188932401361e-06,Rheumatic tricuspid valve diseases
+1035,R43,6.1719492805423215e-06,Disturbances of smell and taste
+1036,G24,6.11309815212735e-06,Dystonia
+1037,G06,6.108179150032811e-06,Intracranial and intraspinal abscess and granuloma
+1038,M97,6.094565833336674e-06,Periprosthetic fracture around internal prosthetic joint
+1039,A74,6.085584573156666e-06,Other diseases caused by chlamydiae
+1040,I78,6.058339749870356e-06,Diseases of capillaries
+1041,P96,6.021167791914195e-06,Other conditions originating in the perinatal period
+1042,S41,5.99524400968221e-06,Open wound of shoulder and upper arm
+1043,I86,5.934922683081823e-06,Varicose veins of other sites
+1044,D33,5.871591838513268e-06,Benign neoplasm of brain and other parts of central nervous system
+1045,Q82,5.861852514499333e-06,Other congenital malformations of skin
+1046,F64,5.8147943491349e-06,Gender identity disorders
+1047,O77,5.73983106733067e-06,Other fetal stress complicating labor and delivery
+1048,O22,5.653166226693429e-06,Venous complications and hemorrhoids in pregnancy
+1049,M80,5.629270162899047e-06,Osteoporosis with current pathological fracture
+1050,W88,5.604762009170372e-06,Exposure to ionizing radiation
+1051,E68,5.456454346131068e-06,Sequelae of hyperalimentation
+1052,Z65,5.440047971205786e-06,Problems related to other psychosocial circumstances
+1053,T71,5.421355581347598e-06,Asphyxiation
+1054,C74,5.41498548045638e-06,Malignant neoplasm of adrenal gland
+1055,C10,5.412159680417972e-06,Malignant neoplasm of oropharynx
+1056,S37,5.338127266441006e-06,Injury of urinary and pelvic organs
+1057,C88,5.330563908501063e-06,Malignant immunoproliferative diseases and certain other B-cell lymphomas
+1058,Y79,5.3200901675154455e-06,Orthopedic devices associated with adverse incidents
+1059,E76,5.304380010784371e-06,Disorders of glycosaminoglycan metabolism
+1060,Q05,5.253248218650697e-06,Spina bifida
+1061,C17,5.22255231771851e-06,Malignant neoplasm of small intestine
+1062,I43,5.210250492382329e-06,Cardiomyopathy in diseases classified elsewhere
+1063,L10,5.174816578801256e-06,Pemphigus
+1064,S38,5.121560661791591e-06,"Crushing injury and traumatic amputation of abdomen, lower back, pelvis and external genitals"
+1065,J00,5.079739366919966e-06,Acute nasopharyngitis [common cold]
+1066,R46,5.076455181551864e-06,Symptoms and signs involving appearance and behavior
+1067,L21,5.044278623245191e-06,Seborrheic dermatitis
+1068,Q16,5.026147391617997e-06,Congenital malformations of ear causing impairment of hearing
+1069,Q99,4.872983481618576e-06,"Other chromosome abnormalities, not elsewhere classified"
+1070,R48,4.8310889724234585e-06,"Dyslexia and other symbolic dysfunctions, not elsewhere classified"
+1071,R34,4.818225534108933e-06,Anuria and oliguria
+1072,F09,4.811451617570128e-06,Unspecified mental disorder due to known physiological condition
+1073,Q22,4.775934485223843e-06,Congenital malformations of pulmonary and tricuspid valves
+1074,X10,4.705112132796785e-06,"Contact with hot drinks, food, fats and cooking oils"
+1075,Q78,4.6815503083053045e-06,Other osteochondrodysplasias
+1076,W00,4.673277089750627e-06,Fall due to ice and snow
+1077,J82,4.665875621867599e-06,"Pulmonary eosinophilia, not elsewhere classified"
+1078,Q33,4.639219696400687e-06,Congenital malformations of lung
+1079,O89,4.638338396034669e-06,Complications of anesthesia during the puerperium
+1080,Y73,4.603100023814477e-06,Gastroenterology and urology devices associated with adverse incidents
+1081,A48,4.580214863381116e-06,"Other bacterial diseases, not elsewhere classified"
+1082,Q64,4.5721330934611615e-06,Other congenital malformations of urinary system
+1083,A15,4.5721271817456e-06,Respiratory tuberculosis
+1084,I76,4.503836862568278e-06,Septic arterial embolism
+1085,W53,4.477763468457852e-06,Contact with rodent
+1086,T37,4.42032296632533e-06,"Poisoning by, adverse effect of and underdosing of other systemic anti- infectives and antiparasitics"
+1087,Z29,4.337997324910248e-06,Encounter for other prophylactic measures
+1088,E26,4.273694230505498e-06,Hyperaldosteronism
+1089,B49,4.2714377741504e-06,Unspecified mycosis
+1090,P91,4.257165528542828e-06,Other disturbances of cerebral status of newborn
+1091,B15,4.239247573423199e-06,Acute hepatitis A
+1092,K05,4.219284164719284e-06,Gingivitis and periodontal diseases
+1093,O67,4.207485289953183e-06,"Labor and delivery complicated by intrapartum hemorrhage, not elsewhere classified"
+1094,N11,4.2052338358189445e-06,Chronic tubulo-interstitial nephritis
+1095,B48,4.145863840676611e-06,"Other mycoses, not elsewhere classified"
+1096,E41,4.144659669691464e-06,Nutritional marasmus
+1097,L23,4.137156338401837e-06,Allergic contact dermatitis
+1098,Q98,4.004206402896671e-06,"Other sex chromosome abnormalities, male phenotype, not elsewhere classified"
+1099,E73,3.957614808314247e-06,Lactose intolerance
+1100,W60,3.88385842597927e-06,Contact with nonvenomous plant thorns and spines and sharp leaves
+1101,P05,3.840280896838522e-06,Disorders of newborn related to slow fetal growth and fetal malnutrition
+1102,E74,3.8291864257189445e-06,Other disorders of carbohydrate metabolism
+1103,A81,3.761866992135765e-06,Atypical virus infections of central nervous system
+1104,T20,3.7193894968368113e-06,"Burn and corrosion of head, face, and neck"
+1105,Z14,3.693677399496664e-06,Genetic carrier
+1106,D31,3.647092626124504e-06,Benign neoplasm of eye and adnexa
+1107,C00,3.61717047780985e-06,Malignant neoplasm of lip
+1108,J12,3.5244706850789957e-06,"Viral pneumonia, not elsewhere classified"
+1109,F50,3.517895493132528e-06,Eating disorders
+1110,X08,3.503524112602463e-06,"Exposure to other specified smoke, fire and flames"
+1111,O11,3.502536173982662e-06,Pre-existing hypertension with pre-eclampsia
+1112,C95,3.499447984722792e-06,Leukemia of unspecified cell type
+1113,Z56,3.4938841508846963e-06,Problems related to employment and unemployment
+1114,J16,3.493210670058033e-06,"Pneumonia due to other infectious organisms, not elsewhere classified"
+1115,L50,3.492225005174987e-06,Urticaria
+1116,Q52,3.4879478789662244e-06,Other congenital malformations of female genitalia
+1117,L85,3.4217764550703578e-06,Other epidermal thickening
+1118,G11,3.3918381632247474e-06,Hereditary ataxia
+1119,N71,3.389790663277381e-06,"Inflammatory disease of uterus, except cervix"
+1120,M33,3.355107764946297e-06,Dermatopolymyositis
+1121,C72,3.32354761667375e-06,"Malignant neoplasm of spinal cord, cranial nerves and other parts of central nervous system"
+1122,I00,3.317572463856777e-06,Rheumatic fever without heart involvement
+1123,D3A,3.317276650705025e-06,Benign neuroendocrine tumors
+1124,B39,3.2500677207281115e-06,Histoplasmosis
+1125,D45,3.2319865113095148e-06,Polycythemia vera
+1126,O44,3.228196192139876e-06,Placenta previa
+1127,D01,3.190824827470351e-06,Carcinoma in situ of other and unspecified digestive organs
+1128,D36,3.180382464051945e-06,Benign neoplasm of other and unspecified sites
+1129,Q26,3.1622105325368466e-06,Congenital malformations of great veins
+1130,O41,3.150022394038388e-06,Other disorders of amniotic fluid and membranes
+1131,F68,3.1447909805137897e-06,Other disorders of adult personality and behavior
+1132,C06,3.0505093491228763e-06,Malignant neoplasm of other and unspecified parts of mouth
+1133,D44,3.036746193174622e-06,Neoplasm of uncertain behavior of endocrine glands
+1134,T76,2.9737070690316614e-06,"Adult and child abuse, neglect and other maltreatment, suspected"
+1135,L83,2.970695504700416e-06,Acanthosis nigricans
+1136,H01,2.925979288193048e-06,Other inflammation of eyelid
+1137,Q56,2.925405169662554e-06,Indeterminate sex and pseudohermaphroditism
+1138,O33,2.872232926165452e-06,Maternal care for disproportion
+1139,A53,2.8155957352282712e-06,Other and unspecified syphilis
+1140,L87,2.781090415737708e-06,Transepidermal elimination disorders
+1141,D84,2.7375176614441443e-06,Other immunodeficiencies
+1142,B30,2.72766101261368e-06,Viral conjunctivitis
+1143,J13,2.722560338952462e-06,Pneumonia due to Streptococcus pneumoniae
+1144,C02,2.6876402898778906e-06,Malignant neoplasm of other and unspecified parts of tongue
+1145,W36,2.680245643205126e-06,Explosion and rupture of gas cylinder
+1146,S35,2.664586645551026e-06,"Injury of blood vessels at abdomen, lower back and pelvis level"
+1147,E08,2.660202426341129e-06,Diabetes mellitus due to underlying condition
+1148,J85,2.6234538381686434e-06,Abscess of lung and mediastinum
+1149,W13,2.605842155389837e-06,"Fall from, out of or through building or structure"
+1150,S94,2.531707195885246e-06,Injury of nerves at ankle and foot level
+1151,G55,2.527758397263824e-06,Nerve root and plexus compressions in diseases classified elsewhere
+1152,F89,2.5153585738735278e-06,Unspecified disorder of psychological development
+1153,R15,2.47064235736616e-06,Fecal incontinence
+1154,T39,2.4567432319599902e-06,"Poisoning by, adverse effect of and underdosing of nonopioid analgesics, antipyretics and antirheumatics"
+1155,F23,2.456711399645428e-06,Brief psychotic disorder
+1156,Q04,2.452388798701577e-06,Other congenital malformations of brain
+1157,Z05,2.378439603489824e-06,Encounter for observation and evaluation of newborn for   suspected diseases and conditions ruled out
+1158,P01,2.375241365371039e-06,Newborn affected by maternal complications of pregnancy
+1159,K68,2.3747661543893628e-06,Disorders of retroperitoneum
+1160,Q45,2.3691375190537656e-06,Other congenital malformations of digestive system
+1161,C11,2.319908617209876e-06,Malignant neoplasm of nasopharynx
+1162,T68,2.31695594266057e-06,Hypothermia
+1163,S65,2.265118155264645e-06,Injury of blood vessels at wrist and hand level
+1164,E15,2.2632843865721952e-06,Nondiabetic hypoglycaemic coma
+1165,S28,2.2486524358100723e-06,"Crushing injury of thorax, and traumatic amputation of part of thorax"
+1166,Q51,2.2387318949768087e-06,Congenital malformations of uterus and cervix
+1167,O12,2.2265871848503598e-06,Gestational [pregnancy-induced] edema and proteinuria without hypertension
+1168,I09,2.145406369891134e-06,Other rheumatic heart diseases
+1169,G10,2.122978685292765e-06,Huntington's disease
+1170,E51,2.1172479591768933e-06,Thiamine deficiency
+1171,P74,2.106135752910632e-06,Other transitory neonatal electrolyte and metabolic disturbances
+1172,W07,2.1028165519965114e-06,Fall from chair
+1173,L93,2.091214582833345e-06,Lupus erythematosus
+1174,Q93,2.0796960598090664e-06,"Monosomies and deletions from the autosomes, not elsewhere classified"
+1175,O61,2.0700651930383174e-06,Failed induction of labor
+1176,N05,2.046449026238406e-06,Unspecified nephritic syndrome
+1177,Q63,2.010777961913845e-06,Other congenital malformations of kidney
+1178,F63,2.0076718101336155e-06,Impulse disorders
+1179,H34,1.972132395167137e-06,Retinal vascular occlusions
+1180,Y35,1.970940502360463e-06,Legal intervention
+1181,T74,1.9651104139484232e-06,"Adult and child abuse, neglect and other maltreatment, confirmed"
+1182,V03,1.964497869266779e-06,"Pedestrian injured in collision with car, pick-up truck or van"
+1183,W90,1.9545141185517423e-06,Exposure to other nonionizing radiation
+1184,K06,1.942905100804637e-06,Other disorders of gingiva and edentulous alveolar ridge
+1185,X99,1.9315409645059844e-06,Assault by sharp object
+1186,J14,1.911422032208065e-06,Pneumonia due to Hemophilus influenzae
+1187,G09,1.9081505797657883e-06,Sequelae of inflammatory diseases of central nervous system
+1188,P00,1.9065774949922345e-06,Newborn affected by maternal conditions that may be unrelated to present pregnancy
+1189,D04,1.900235588436772e-06,Carcinoma in situ of skin
+1190,A46,1.8473084537617977e-06,Erysipelas
+1191,B45,1.8409667745800109e-06,Cryptococcosis
+1192,C68,1.8398590100332517e-06,Malignant neoplasm of other and unspecified urinary organs
+1193,T47,1.8349321635469096e-06,"Poisoning by, adverse effect of and underdosing of agents primarily affecting the gastrointestinal system"
+1194,Q06,1.8153548353438964e-06,Other congenital malformations of spinal cord
+1195,M61,1.8108194126398305e-06,Calcification and ossification of muscle
+1196,C01,1.809216996662144e-06,Malignant neoplasm of base of tongue
+1197,E63,1.8068445797325692e-06,Other nutritional deficiencies
+1198,I15,1.761734893079847e-06,Secondary hypertension
+1199,K36,1.7558814988660745e-06,Other appendicitis
+1200,C14,1.753259425640863e-06,"Malignant neoplasm of other and ill-defined sites in the lip, oral cavity and pharynx"
+1201,R70,1.7231296851605291e-06,Elevated erythrocyte sedimentation rate and abnormality of plasma viscosity
+1202,V27,1.7106132190747303e-06,Motorcycle rider injured in collision with fixed or stationary object
+1203,J80,1.706721491245844e-06,Adult respiratory distress syndrome
+1204,D29,1.7020745417539729e-06,Benign neoplasm of male genital organs
+1205,J92,1.6975411654129855e-06,Pleural plaque
+1206,T49,1.680819877947215e-06,"Poisoning by, adverse effect of and underdosing of topical agents primarily affecting skin and mucous membrane and by ophthalmological, otorhinorlaryngological and dental drugs"
+1207,C13,1.627702090445382e-06,Malignant neoplasm of hypopharynx
+1208,X31,1.6116317738124053e-06,Exposure to excessive natural cold
+1209,L55,1.571317170601105e-06,Sunburn
+1210,C7B,1.5644660606994876e-06,Secondary neuroendocrine tumors
+1211,H05,1.559153247399081e-06,Disorders of orbit
+1212,T56,1.5400611346194637e-06,Toxic effect of metals
+1213,N96,1.5324885680456646e-06,Habitual aborter
+1214,P39,1.5065700154082151e-06,Other infections specific to the perinatal period
+1215,L59,1.434313503523299e-06,Other disorders of skin and subcutaneous tissue related to radiation
+1216,P52,1.4014956377650378e-06,Intracranial nontraumatic hemorrhage of newborn
+1217,B07,1.393771867697069e-06,Viral warts
+1218,K71,1.3783502481601315e-06,Toxic liver disease
+1219,X17,1.37160861868324e-06,"Contact with hot engines, machinery and tools"
+1220,T30,1.3434969332593028e-06,"Burn and corrosion, body region unspecified"
+1221,L57,1.3348095535548057e-06,Skin changes due to chronic exposure to nonionizing radiation
+1222,D09,1.3328520935829149e-06,Carcinoma in situ of other and unspecified sites
+1223,G26,1.3236922313808464e-06,Extrapyramidal and movement disorders in diseases classified elsewhere
+1224,T48,1.3151465054761502e-06,"Poisoning by, adverse effect of and underdosing of agents primarily acting on smooth and skeletal muscles and the respiratory system"
+1225,F04,1.29399325032864e-06,"Organic amnesic syndrome, not induced by alcohol and other psychoactive substances"
+1226,X11,1.290981799684232e-06,Contact with hot tap-water
+1227,M88,1.2800048807548592e-06,Osteitis deformans [Paget's disease of bone]
+1228,D81,1.2702953426924068e-06,Combined immunodeficiencies
+1229,V17,1.25097767522675e-06,Pedal cycle rider injured in collision with fixed or stationary object
+1230,Y81,1.2466460930227186e-06,General- and plastic-surgery devices associated with adverse incidents
+1231,L43,1.2262037216714816e-06,Lichen planus
+1232,F16,1.2010326599920518e-06,Hallucinogen related disorders
+1233,B36,1.192959302898089e-06,Other superficial mycoses
+1234,T28,1.1729691777873086e-06,Burn and corrosion of other internal organs
+1235,F53,1.1713568710547406e-06,Puerperal psychosis
+1236,I28,1.1512346418385278e-06,Other diseases of pulmonary vessels
+1237,H59,1.1301027598165092e-06,"Intraoperative and postprocedural complications and disorders of eye and adnexa, not elsewhere classified"
+1238,S26,1.1272544497842318e-06,Injury of heart
+1239,J67,1.1192194051545812e-06,Hypersensitivity pneumonitis due to organic dust
+1240,H70,1.1124373031634605e-06,Mastoiditis and related conditions
+1241,Q96,1.107495677388215e-06,Turner's syndrome
+1242,N53,1.1010223488483462e-06,Other male sexual dysfunction
+1243,P61,1.1005507758454769e-06,Other perinatal hematological disorders
+1244,B33,1.0775648888738942e-06,"Other viral diseases, not elsewhere classified"
+1245,D58,1.0444642839502194e-06,Other hereditary hemolytic anemias
+1246,S98,1.0373709073974169e-06,Traumatic amputation of ankle and foot
+1247,I01,1.0321899708287674e-06,Rheumatic fever with heart involvement
+1248,A36,1.015122279568459e-06,Diphtheria
+1249,Q39,9.881100595521275e-07,Congenital malformations of esophagus
+1250,N00,9.7783743058244e-07,Acute nephritic syndrome
+1251,C62,9.63248453444976e-07,Malignant neoplasm of testis
+1252,H83,9.529374551675572e-07,Other diseases of inner ear
+1253,O66,9.516142540633156e-07,Other obstructed labor
+1254,D71,9.48245713061624e-07,Functional disorders of polymorphonuclear neutrophils
+1255,C58,9.370314728585072e-07,Malignant neoplasm of placenta
+1256,L68,9.35814171043603e-07,Hypertrichosis
+1257,W25,9.261148079531268e-07,Contact with sharp glass
+1258,N03,9.224785344486008e-07,Chronic nephritic syndrome
+1259,J62,9.181562745652628e-07,Pneumoconiosis due to dust containing silica
+1260,S21,8.961657727013517e-07,Open wound of thorax
+1261,S84,8.913710871638614e-07,Injury of nerves at lower leg level
+1262,T67,8.906497441785177e-07,Effects of heat and light
+1263,P71,8.731758498470299e-07,Transitory neonatal disorders of calcium and magnesium metabolism
+1264,G37,8.682665679771162e-07,Other demyelinating diseases of central nervous system
+1265,P84,8.616759714641375e-07,Other problems with newborn
+1266,A18,8.433250968664652e-07,Tuberculosis of other organs
+1267,L56,8.409918450524856e-07,Other acute skin changes due to ultraviolet radiation
+1268,D67,8.30669023343944e-07,Hereditary factor IX deficiency
+1269,M30,7.880371981627832e-07,Polyarteritis nodosa and related conditions
+1270,P81,7.744628760519845e-07,Other disturbances of temperature regulation of newborn
+1271,W08,7.685414402658353e-07,Fall from other furniture
+1272,O04,7.635107976966538e-07,Complications following (induced) termination of pregnancy
+1273,B16,7.547926088591339e-07,Acute hepatitis B
+1274,W40,7.492506597372994e-07,Explosion of other materials
+1275,R81,7.263250267897092e-07,Glycosuria
+1276,O45,7.196388764896255e-07,Premature separation of placenta [abruptio placentae]
+1277,Q44,7.157887580433453e-07,"Congenital malformations of gallbladder, bile ducts and liver"
+1278,P36,6.922329021108453e-07,Bacterial sepsis of newborn
+1279,W33,6.851208240732376e-07,"Accidental rifle, shotgun and larger firearm discharge and malfunction"
+1280,L66,6.839974844297103e-07,Cicatricial alopecia [scarring hair loss]
+1281,Z57,6.780779244763835e-07,Occupational exposure to risk factors
+1282,B25,6.76023944379267e-07,Cytomegaloviral disease
+1283,J09,6.740928029103088e-07,Influenza due to identified Avian influenza virus
+1284,O65,6.667493721579376e-07,Obstructed labor due to maternal pelvic abnormality
+1285,D41,6.491586646006908e-07,Neoplasm of uncertain behavior of urinary organs
+1286,V53,6.445071676353109e-07,"Occupant of pick-up truck or van injured in collision with car, pick-up truck or van"
+1287,L13,6.376017154252622e-07,Other bullous disorders
+1288,P37,6.361135547194863e-07,Other congenital infectious and parasitic diseases
+1289,G08,6.293739147622546e-07,Intracranial and intraspinal phlebitis and thrombophlebitis
+1290,E20,6.168815502860525e-07,Hypoparathyroidism
+1291,L80,6.008921218381147e-07,Vitiligo
+1292,M02,5.893568868486909e-07,Postinfective and reactive arthropathies
+1293,W14,5.797020889986015e-07,Fall from tree
+1294,P29,5.755551342190302e-07,Cardiovascular disorders originating in the perinatal period
+1295,P19,5.753700520472194e-07,Metabolic acidemia in newborn
+1296,T54,5.678325010194385e-07,Toxic effect of corrosive substances
+1297,L76,5.549681532102113e-07,Intraoperative and postprocedural complications of skin and subcutaneous tissue
+1298,P80,5.506554430212418e-07,Hypothermia of newborn
+1299,W49,5.501406121766195e-07,Exposure to other inanimate mechanical forces
+1300,X37,5.482789333655091e-07,Cataclysmic storm
+1301,O08,5.472616066981573e-07,Complications following ectopic and molar pregnancy
+1302,X74,5.356345695872733e-07,Intentional self-harm by other and unspecified firearm and gun discharge
+1303,S04,5.290021931614319e-07,Injury of cranial nerve
+1304,V23,5.225008408160647e-07,"Motorcycle rider injured in collision with car, pick-up truck or van"
+1305,V83,5.127147915118258e-07,Occupant of special vehicle mainly used on industrial premises injured in transport accident
+1306,E31,5.00729925079213e-07,Polyglandular dysfunction
+1307,Y69,4.895035772278788e-07,Unspecified misadventure during surgical and medical care
+1308,Q80,4.482300823838159e-07,Congenital ichthyosis
+1309,R88,4.437875134044589e-07,Abnormal findings in other body fluids and substances
+1310,G00,4.4252820430301654e-07,"Bacterial meningitis, not elsewhere classified"
+1311,B87,4.375742719275877e-07,Myiasis
+1312,I41,4.251170935276605e-07,Myocarditis in diseases classified elsewhere
+1313,H94,4.2400859001645596e-07,Other disorders of ear in diseases classified elsewhere
+1314,L74,4.222853249302716e-07,Eccrine sweat disorders
+1315,G36,4.192083622456266e-07,Other acute disseminated demyelination
+1316,X80,4.069551948759909e-07,Intentional self-harm by jumping from a high place
+1317,H62,3.91020108736484e-07,Disorders of external ear in diseases classified elsewhere
+1318,L52,3.8231615917538885e-07,Erythema nodosum
+1319,X30,3.7942089647913246e-07,Exposure to excessive natural heat
+1320,D65,3.7852262835258443e-07,Disseminated intravascular coagulation [defibrination syndrome]
+1321,M83,3.6802549630010617e-07,Adult osteomalacia
+1322,L51,3.565532153970708e-07,Erythema multiforme
+1323,C38,3.559566152944172e-07,"Malignant neoplasm of heart, mediastinum and pleura"
+1324,C46,3.527500211930601e-07,Kaposi's sarcoma
+1325,N02,3.455824924003537e-07,Recurrent and persistent hematuria
+1326,Q42,3.306536768832302e-07,"Congenital absence, atresia and stenosis of large intestine"
+1327,F95,3.26478073020553e-07,Tic disorder
+1328,F54,3.1598452210346295e-07,Psychological and behavioral factors associated with disorders or diseases classified elsewhere
+1329,T52,3.077308576848737e-07,Toxic effect of organic solvents
+1330,J60,2.8565321485984896e-07,Coalworker's pneumoconiosis
+1331,X78,2.815077948525868e-07,Intentional self-harm by sharp object
+1332,S55,2.699103163195105e-07,Injury of blood vessels at forearm level
+1333,W45,2.693580825052777e-07,Foreign body or object entering through skin
+1334,F82,2.413598281236773e-07,Specific developmental disorder of motor function
+1335,T69,2.4054745040302805e-07,Other effects of reduced temperature
+1336,S97,2.057014540923774e-07,Crushing injury of ankle and foot
+1337,Q15,2.056985834997249e-07,Other congenital malformations of eye
+1338,Y24,1.8913159749445185e-07,"Other and unspecified firearm discharge, undetermined intent"
+1339,D15,1.4697006633923593e-07,Benign neoplasm of other and unspecified intrathoracic organs
+1340,I66,1.4415452653793184e-07,"Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction"
+1341,K09,1.3721889047246805e-07,"Cysts of oral region, not elsewhere classified"
+1342,K03,1.1943502897793226e-07,Other diseases of hard tissues of teeth
+1343,V77,1.1575390601592517e-07,Bus occupant injured in collision with fixed or stationary object
+1344,F94,1.1235728436531645e-07,Disorders of social functioning with onset specific to childhood and adolescence
+1345,A54,7.658641010266366e-08,Gonococcal infection
+1346,Q71,6.805885277572088e-08,Reduction defects of upper limb
+1347,P02,6.688006948252223e-08,"Newborn affected by complications of placenta, cord and membranes"
+1348,Y27,5.61593402892413e-08,"Contact with steam, hot vapors and hot objects, undetermined intent"
+1349,S24,5.3091866902832414e-08,Injury of nerves and spinal cord at thorax level
+1350,W64,5.2858592169968694e-08,Exposure to other animate mechanical forces
+1351,A68,5.1905942655139377e-08,Relapsing fevers
+1352,T33,5.146332071603865e-08,Superficial frostbite
+1353,Z55,4.8790671058895896e-08,Problems related to education and literacy
+1354,G94,4.105701378875892e-08,Other disorders of brain in diseases classified elsewhere
+1355,X00,3.8048320050165785e-08,Exposure to uncontrolled fire in building or structure
+1356,G63,3.3179773595293234e-08,Polyneuropathy in diseases classified elsewhere
+1357,I06,3.3033579427410587e-08,Rheumatic aortic valve diseases
+1358,X81,2.5218067634114053e-08,Intentional self-harm by jumping or lying in front of moving object
+1359,K67,0.0,Disorders of peritoneum in infectious diseases classified elsewhere
+1360,B42,0.0,Sporotrichosis
+1361,W38,0.0,Explosion and rupture of other specified pressurized devices
+1362,C65,0.0,Malignant neoplasm of renal pelvis
+1363,T26,0.0,Burn and corrosion confined to eye and adnexa
+1364,B50,0.0,Plasmodium falciparum malaria
+1365,A21,0.0,Tularemia
+1366,N01,0.0,Rapidly progressive nephritic syndrome
+1367,L00,0.0,Staphylococcal scalded skin syndrome
+1368,H75,0.0,Other disorders of middle ear and mastoid in diseases classified elsewhere
+1369,H68,0.0,Eustachian salpingitis and obstruction
+1370,P38,0.0,Omphalitis of newborn
+1371,B51,0.0,Plasmodium vivax malaria
+1372,D76,0.0,Other specified diseases with participation of lymphoreticular and reticulohistiocytic tissue
+1373,V81,0.0,Occupant of railway train or railway vehicle injured in transport accident
+1374,P11,0.0,Other birth injuries to central nervous system
+1375,B78,0.0,Strongyloidiasis
+1376,V90,0.0,Drowning and submersion due to accident to watercraft
+1377,H36,0.0,Retinal disorders in diseases classified elsewhere
+1378,X71,0.0,Intentional self-harm by drowning and submersion
+1379,B64,0.0,Unspecified protozoal disease
+1380,A82,0.0,Rabies
+1381,A85,0.0,"Other viral encephalitis, not elsewhere classified"
+1382,A84,0.0,Tick-borne viral encephalitis
+1383,A26,0.0,Erysipeloid
+1384,B76,0.0,Hookworm diseases
+1385,Y29,0.0,"Contact with blunt object, undetermined intent"
+1386,Z44,0.0,Encounter for fitting and adjustment of external prosthetic device
+1387,P51,0.0,Umbilical hemorrhage of newborn
+1388,T53,0.0,Toxic effect of halogen derivatives of aliphatic and aromatic hydrocarbons
+1389,W28,0.0,Contact with powered lawn mower
+1390,A70,0.0,Chlamydia psittaci infections
+1391,A00,0.0,Cholera
+1392,Y65,0.0,Other misadventures during surgical and medical care
+1393,X32,0.0,Exposure to sunlight
+1394,B73,0.0,Onchocerciasis
+1395,T04,0.0,
+1396,S17,0.0,Crushing injury of neck
+1397,W42,0.0,Exposure to noise
+1398,A71,0.0,Trachoma
+1399,Y23,0.0,"Rifle, shotgun and larger firearm discharge, undetermined intent"
+1400,P72,0.0,Other transitory neonatal endocrine disorders
+1401,X92,0.0,Assault by drowning and submersion
+1402,A98,0.0,"Other viral hemorrhagic fevers, not elsewhere classified"
+1403,O31,0.0,Complications specific to multiple gestation
+1404,W32,0.0,Accidental handgun discharge and malfunction
+1405,C37,0.0,Malignant neoplasm of thymus
+1406,W89,0.0,Exposure to man-made visible and ultraviolet light
+1407,E45,0.0,Retarded development following protein-calorie malnutrition
+1408,Y36,0.0,Operations of war
+1409,I39,0.0,Endocarditis and heart valve disorders in diseases classified elsewhere
+1410,V82,0.0,Occupant of powered streetcar injured in transport accident
+1411,Q14,0.0,Congenital malformations of posterior segment of eye
+1412,P15,0.0,Other birth injuries
+1413,P35,0.0,Congenital viral diseases
+1414,A22,0.0,Anthrax
+1415,V88,0.0,Nontraffic accident of specified type but victim's mode of transport unknown
+1416,Q31,0.0,Congenital malformations of larynx
+1417,A17,0.0,Tuberculosis of nervous system
+1418,V96,0.0,Accident to nonpowered aircraft causing injury to occupant
+1419,X96,0.0,Assault by explosive material
+1420,M49,0.0,Spondylopathies in diseases classified elsewhere
+1421,W99,0.0,Exposure to other man-made environmental factors
+1422,P50,0.0,Newborn affected by intrauterine (fetal) blood loss
+1423,Y38,0.0,Terrorism
+1424,V92,0.0,"Drowning and submersion due to accident on board watercraft, without accident to watercraft"
+1425,Q11,0.0,"Anophthalmos, microphthalmos and macrophthalmos"
+1426,A66,0.0,Yaws
+1427,F24,0.0,Induced delusional disorder
+1428,B71,0.0,Other cestode infections
+1429,B66,0.0,Other fluke infections
+1430,R86,0.0,Abnormal findings in specimens from male genital organs
+1431,B26,0.0,Mumps
+1432,B06,0.0,Rubella [German measles]
+1433,G05,0.0,"Encephalitis, myelitis and encephalomyelitis in diseases classified elsewhere"
+1434,M01,0.0,Direct infections of joint in infectious and parasitic diseases classified elsewhere
+1435,B55,0.0,Leishmaniasis
+1436,O07,0.0,Failed attempted termination of pregnancy
+1437,D60,0.0,Acquired pure red cell aplasia [erythroblastopenia]
+1438,Q13,0.0,Congenital malformations of anterior segment of eye
+1439,B05,0.0,Measles
+1440,B53,0.0,Other specified malaria
+1441,P93,0.0,Reactions and intoxications due to drugs administered to newborn
+1442,A83,0.0,Mosquito-borne viral encephalitis
+1443,A01,0.0,Typhoid and paratyphoid fevers
+1444,N51,0.0,Disorders of male genital organs in diseases classified elsewhere
+1445,P53,0.0,Haemorrhagic disease of fetus and newborn
+1446,H67,0.0,Otitis media in diseases classified elsewhere
+1447,F66,0.0,Other sexual disorders
+1448,B54,0.0,Unspecified malaria
+1449,B81,0.0,"Other intestinal helminthiases, not elsewhere classified"
+1450,A20,0.0,Plague
+1451,A03,0.0,Shigellosis
+1452,B79,0.0,Trichuriasis
+1453,E50,0.0,Vitamin A deficiency
+1454,P56,0.0,Hydrops fetalis due to hemolytic disease
+1455,S48,0.0,Traumatic amputation of shoulder and upper arm
+1456,S54,0.0,Injury of nerves at forearm level
+1457,A44,0.0,Bartonellosis
+1458,H28,0.0,Cataract in diseases classified elsewhere
+1459,P09,0.0,Abnormal findings on neonatal screening
+1460,X52,0.0,Prolonged stay in weightless environment
+1461,W35,0.0,Explosion and rupture of boiler
+1462,X36,0.0,"Avalanche, landslide and other earth movements"
+1463,C39,0.0,Malignant neoplasm of other and ill-defined sites in the respiratory system and intrathoracic organs
+1464,Y62,0.0,Failure of sterile precautions during surgical and medical care
+1465,Y64,0.0,Contaminated medical or biological substances
+1466,X35,0.0,Victim of volcanic eruption
+1467,B77,0.0,Ascariasis
+1468,S58,0.0,Traumatic amputation of elbow and forearm
+1469,Q41,0.0,"Congenital absence, atresia and stenosis of small intestine"
+1470,L14,0.0,Bullous disorders in diseases classified elsewhere
+1471,Y30,0.0,"Falling, jumping or pushed from a high place, undetermined intent"
+1472,J66,0.0,Airway disease due to specific organic dust
+1473,I32,0.0,Pericarditis in diseases classified elsewhere
+1474,X15,0.0,Contact with hot household appliances
+1475,V74,0.0,Bus occupant injured in collision with heavy transport vehicle or bus
+1476,V67,0.0,Occupant of heavy transport vehicle injured in collision with fixed or stationary object
+1477,W56,0.0,Contact with nonvenomous marine animal
+1478,E00,0.0,Congenital iodine-deficiency syndrome
+1479,V72,0.0,Bus occupant injured in collision with two- or three-wheeled motor vehicle
+1480,B89,0.0,Unspecified parasitic disease
+1481,Q86,0.0,"Congenital malformation syndromes due to known exogenous causes, not elsewhere classified"
+1482,P57,0.0,Kernicterus
+1483,V41,0.0,Car occupant injured in collision with pedal cycle
+1484,V39,0.0,Occupant of three-wheeled motor vehicle injured in other and unspecified transport accidents
+1485,Q92,0.0,"Other trisomies and partial trisomies of the autosomes, not elsewhere classified"
+1486,Y26,0.0,"Exposure to smoke, fire and flames, undetermined intent"
+1487,S78,0.0,Traumatic amputation of hip and thigh
+1488,J99,0.0,Respiratory disorders in diseases classified elsewhere
+1489,G23,0.0,Other degenerative diseases of basal ganglia
+1490,V84,0.0,Occupant of special vehicle mainly used in agriculture injured in transport accident
+1491,Y71,0.0,Cardiovascular devices associated with adverse incidents
+1492,F78,0.0,Other intellectual disabilities
+1493,H80,0.0,Otosclerosis
+1494,B92,0.0,Sequelae of leprosy
+1495,C47,0.0,Malignant neoplasm of peripheral nerves and autonomic nervous system
+1496,V10,0.0,Pedal cycle rider injured in collision with pedestrian or animal
+1497,J22,0.0,Unspecified acute lower respiratory infection
+1498,P94,0.0,Disorders of muscle tone of newborn
+1499,X76,0.0,"Intentional self-harm by smoke, fire and flames"
+1500,V44,0.0,Car occupant injured in collision with heavy transport vehicle or bus
+1501,Y76,0.0,Obstetric and gynecological devices associated with adverse incidents
+1502,X13,0.0,Contact with steam and other hot vapors
+1503,X16,0.0,"Contact with hot heating appliances, radiators and pipes"
+1504,Y77,0.0,Ophthalmic devices associated with adverse incidents
+1505,V73,0.0,"Bus occupant injured in collision with car, pick-up truck or van"
+1506,I23,0.0,Certain current complications following ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction (within the 28 day period)
+1507,V38,0.0,Occupant of three-wheeled motor vehicle injured in noncollision transport accident
+1508,Y03,0.0,Assault by crashing of motor vehicle
+1509,V55,0.0,Occupant of pick-up truck or van injured in collision with railway train or railway vehicle
+1510,V12,0.0,Pedal cycle rider injured in collision with two- or three-wheeled motor vehicle
+1511,V50,0.0,Occupant of pick-up truck or van injured in collision with pedestrian or animal
+1512,D77,0.0,Other disorders of blood and blood-forming organs in diseases classified elsewhere
+1513,L54,0.0,Erythema in diseases classified elsewhere
+1514,A95,0.0,Yellow fever
+1515,Y02,0.0,Assault by pushing or placing victim before moving object
+1516,W67,0.0,Accidental drowning and submersion while in swimming-pool
+1517,L26,0.0,Exfoliative dermatitis
+1518,Y80,0.0,Physical medicine devices associated with adverse incidents
+1519,X14,0.0,Contact with hot air and gases
+1520,V71,0.0,Bus occupant injured in collision with pedal cycle
+1521,V30,0.0,Occupant of three-wheeled motor vehicle injured in collision with pedestrian or animal
+1522,Q97,0.0,"Other sex chromosome abnormalities, female phenotype, not elsewhere classified"
+1523,X79,0.0,Intentional self-harm by blunt object
+1524,L86,0.0,Keratoderma in diseases classified elsewhere
+1525,N06,0.0,Isolated proteinuria with specified morphological lesion
+1526,V52,0.0,Occupant of pick-up truck or van injured in collision with two- or three-wheeled motor vehicle
+1527,B91,0.0,Sequelae of poliomyelitis
+1528,V64,0.0,Occupant of heavy transport vehicle injured in collision with heavy transport vehicle or bus
+1529,O25,0.0,"Malnutrition in pregnancy, childbirth and the puerperium"
+1530,L41,0.0,Parapsoriasis
+1531,P95,0.0,Stillbirth
+1532,E59,0.0,Dietary selenium deficiency
+1533,V58,0.0,Occupant of pick-up truck or van injured in noncollision transport accident
+1534,Q81,0.0,Epidermolysis bullosa
+1535,V33,0.0,"Occupant of three-wheeled motor vehicle injured in collision with car, pick-up truck or van"
+1536,A34,0.0,Obstetrical tetanus
+1537,H82,0.0,Vertiginous syndromes in diseases classified elsewhere
+1538,W58,0.0,Contact with crocodile or alligator
+1539,O29,0.0,Complications of anesthesia during pregnancy
+1540,V37,0.0,Occupant of three-wheeled motor vehicle injured in collision with fixed or stationary object
+1541,V63,0.0,"Occupant of heavy transport vehicle injured in collision with car, pick-up truck or van"
+1542,E54,0.0,Ascorbic acid deficiency
+1543,Y72,0.0,Otorhinolaryngological devices associated with adverse incidents
+1544,K07,0.0,
+1545,A91,0.0,Dengue hemorrhagic fever
+1546,E52,0.0,Niacin deficiency [pellagra]
+1547,V14,0.0,Pedal cycle rider injured in collision with heavy transport vehicle or bus
+1548,Y31,0.0,"Falling, lying or running before or into moving object, undetermined intent"
+1549,A75,0.0,Typhus fever
+1550,W61,0.0,Contact with birds (domestic) (wild)
+1551,L44,0.0,Other papulosquamous disorders
+1552,N98,0.0,Complications associated with artificial fertilization
+1553,B56,0.0,African trypanosomiasis
+1554,F28,0.0,Other nonorganic psychotic disorders
+1555,A96,0.0,Arenaviral hemorrhagic fever
+1556,A94,0.0,Unspecified arthropod-borne viral fever
+1557,T64,0.0,Toxic effect of aflatoxin and other mycotoxin food contaminants
+1558,A99,0.0,Unspecified viral haemorrhagic fever
+1559,A33,0.0,Tetanus neonatorum
+1560,F18,0.0,Inhalant related disorders
+1561,L58,0.0,Radiodermatitis
+1562,M07,0.0,Enteropathic arthropathies
+1563,A25,0.0,Rat-bite fevers
+1564,V24,0.0,Motorcycle rider injured in collision with heavy transport vehicle or bus
+1565,V22,0.0,Motorcycle rider injured in collision with two- or three-wheeled motor vehicle
+1566,B70,0.0,Diphyllobothriasis and sparganosis
+1567,Y25,0.0,"Contact with explosive material, undetermined intent"
+1568,B03,0.0,Smallpox
+1569,B43,0.0,Chromomycosis and pheomycotic abscess
+1570,X05,0.0,Exposure to ignition or melting of nightwear
+1571,W12,0.0,Fall on and from scaffolding
+1572,V95,0.0,Accident to powered aircraft causing injury to occupant
+1573,D74,0.0,Methemoglobinemia
+1574,S64,0.0,Injury of nerves at wrist and hand level
+1575,B52,0.0,Plasmodium malariae malaria
+1576,X38,0.0,Flood
+1577,N37,0.0,Urethral disorders in diseases classified elsewhere
+1578,A67,0.0,Pinta [carate]
+1579,B41,0.0,Paracoccidioidomycosis
+1580,P58,0.0,Neonatal jaundice due to other excessive hemolysis
+1581,O01,0.0,Hydatidiform mole
+1582,V47,0.0,Car occupant injured in collision with fixed or stationary object
+1583,Y70,0.0,Anesthesiology devices associated with adverse incidents
+1584,V46,0.0,Car occupant injured in collision with other nonmotor vehicle
+1585,W73,0.0,Other specified drowning and submersion
+1586,X75,0.0,Intentional self-harm by explosive material
+1587,W04,0.0,Fall while being carried or supported by other persons
+1588,V59,0.0,Occupant of pick-up truck or van injured in other and unspecified transport accidents
+1589,Y00,0.0,Assault by blunt object
+1590,T70,0.0,Effects of air pressure and water pressure
+1591,N14,0.0,Drug- and heavy-metal-induced tubulo-interstitial and tubular conditions
+1592,L64,0.0,Androgenic alopecia
+1593,V13,0.0,"Pedal cycle rider injured in collision with car, pick-up truck or van"
+1594,V15,0.0,Pedal cycle rider injured in collision with railway train or railway vehicle
+1595,E60,0.0,Dietary zinc deficiency
+1596,R84,0.0,Abnormal findings in specimens from respiratory organs and thorax
+1597,J64,0.0,Unspecified pneumoconiosis
+1598,E02,0.0,Subclinical iodine-deficiency hypothyroidism
+1599,Z67,0.0,Blood type
+1600,J17,0.0,Pneumonia in diseases classified elsewhere
+1601,Q68,0.0,Other congenital musculoskeletal deformities
+1602,B40,0.0,Blastomycosis
+1603,Q40,0.0,Other congenital malformations of upper alimentary tract
+1604,D78,0.0,Intraoperative and postprocedural complications of the spleen
+1605,E40,0.0,Kwashiorkor
+1606,M45,0.0,Ankylosing spondylitis
+1607,N08,0.0,Glomerular disorders in diseases classified elsewhere
+1608,B04,0.0,Monkeypox
+1609,T15,0.0,Foreign body on external eye
+1610,N74,0.0,Female pelvic inflammatory disorders in diseases classified elsewhere
+1611,W86,0.0,Exposure to other specified electric current
+1612,O63,0.0,Long labor
+1613,W27,0.0,Contact with nonpowered hand tool
+1614,T16,0.0,Foreign body in ear
+1615,W39,0.0,Discharge of firework
+1616,C23,0.0,Malignant neoplasm of gallbladder
+1617,V62,0.0,Occupant of heavy transport vehicle injured in collision with two- or three-wheeled motor vehicle
+1618,V40,0.0,Car occupant injured in collision with pedestrian or animal
+1619,H30,0.0,Chorioretinal inflammation
+1620,P55,0.0,Hemolytic disease of newborn
+1621,A78,0.0,Q fever
+1622,Q72,0.0,Reduction defects of lower limb
+1623,Y63,0.0,Failure in dosage during surgical and medical care
+1624,V05,0.0,Pedestrian injured in collision with railway train or railway vehicle
+1625,B09,0.0,Unspecified viral infection characterized by skin and mucous membrane lesions
+1626,F93,0.0,Emotional disorders with onset specific to childhood
+1627,C60,0.0,Malignant neoplasm of penis
+1628,Y28,0.0,"Contact with sharp object, undetermined intent"
+1629,R37,0.0,"Sexual dysfunction, unspecified"
+1630,S85,0.0,Injury of blood vessels at lower leg level
+1631,P77,0.0,Necrotizing enterocolitis of fetus and newborn
+1632,W52,0.0,"Crushed, pushed or stepped on by crowd or human stampede"
+1633,P12,0.0,Birth injury to scalp
+1634,X94,0.0,"Assault by rifle, shotgun and larger firearm discharge"
+1635,P23,0.0,Congenital pneumonia
+1636,A35,0.0,Other tetanus
+1637,L42,0.0,Pityriasis rosea
+1638,C03,0.0,Malignant neoplasm of gum
+1639,E67,0.0,Other hyperalimentation
+1640,T73,0.0,Effects of other deprivation
+1641,B88,0.0,Other infestations
+1642,A79,0.0,Other rickettsioses
+1643,E77,0.0,Disorders of glycoprotein metabolism
+1644,H27,0.0,Other disorders of lens
+1645,D26,0.0,Other benign neoplasms of uterus
+1646,P07,0.0,"Disorders of newborn related to short gestation and low birth weight, not elsewhere classified"
+1647,V01,0.0,Pedestrian injured in collision with pedal cycle
+1648,B10,0.0,Other human herpesviruses
+1649,P25,0.0,Interstitial emphysema and related conditions originating in the perinatal period
+1650,Q91,0.0,Trisomy 18 and Trisomy 13
+1651,C08,0.0,Malignant neoplasm of other and unspecified major salivary glands
+1652,A38,0.0,Scarlet fever
+1653,N07,0.0,"Hereditary nephropathy, not elsewhere classified"
+1654,R83,0.0,Abnormal findings in cerebrospinal fluid
+1655,I75,0.0,Atheroembolism
+1656,X03,0.0,"Exposure to controlled fire, not in building or structure"
+1657,L63,0.0,Alopecia areata
+1658,C75,0.0,Malignant neoplasm of other endocrine glands and related structures
+1659,M91,0.0,Juvenile osteochondrosis of hip and pelvis
+1660,O43,0.0,Placental disorders
+1661,Y01,0.0,Assault by pushing from high place
+1662,B57,0.0,Chagas' disease
+1663,A28,0.0,"Other zoonotic bacterial diseases, not elsewhere classified"
+1664,S87,0.0,Crushing injury of lower leg
+1665,P83,0.0,Other conditions of integument specific to newborn
+1666,O91,0.0,"Infections of breast associated with pregnancy, the puerperium and lactation"
+1667,L11,0.0,Other acantholytic disorders
+1668,Y32,0.0,"Crashing of motor vehicle, undetermined intent"
+1669,V20,0.0,Motorcycle rider injured in collision with pedestrian or animal
+1670,X06,0.0,Exposure to ignition or melting of other clothing and apparel
+1671,D20,0.0,Benign neoplasm of soft tissue of retroperitoneum and peritoneum
+1672,W16,0.0,"Fall, jump or diving into water"
+1673,Y66,0.0,Nonadministration of surgical and medical care
+1674,A39,0.0,Meningococcal infection
+1675,E70,0.0,Disorders of aromatic amino-acid metabolism
+1676,X97,0.0,"Assault by smoke, fire and flames"
+1677,Y21,0.0,"Drowning and submersion, undetermined intent"
+1678,A50,0.0,Congenital syphilis
+1679,C96,0.0,"Other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue"
+1680,I40,0.0,Acute myocarditis
+1681,Q30,0.0,Congenital malformations of nose
+1682,A07,0.0,Other protozoal intestinal diseases
+1683,L12,0.0,Pemphigoid
+1684,C12,0.0,Malignant neoplasm of pyriform sinus
+1685,X77,0.0,"Intentional self-harm by steam, hot vapors and hot objects"
+1686,P54,0.0,Other neonatal hemorrhages
+1687,B75,0.0,Trichinellosis
+1688,J65,0.0,Pneumoconiosis associated with tuberculosis
+1689,G52,0.0,Disorders of other cranial nerves
+1690,V94,0.0,Other and unspecified water transport accidents
+1691,V06,0.0,Pedestrian injured in collision with other nonmotor vehicle
+1692,V42,0.0,Car occupant injured in collision with two- or three-wheeled motor vehicle
+1693,E58,0.0,Dietary calcium deficiency
+1694,V65,0.0,Occupant of heavy transport vehicle injured in collision with railway train or railway vehicle
+1695,A86,0.0,Unspecified viral encephalitis
+1696,P10,0.0,Intracranial laceration and hemorrhage due to birth injury
+1697,V45,0.0,Car occupant injured in collision with railway train or railway vehicle
+1698,V04,0.0,Pedestrian injured in collision with heavy transport vehicle or bus
+1699,O68,0.0,Labor and delivery complicated by abnormality of fetal acid-base balance
+1700,V57,0.0,Occupant of pick-up truck or van injured in collision with fixed or stationary object
+1701,S57,0.0,Crushing injury of elbow and forearm
+1702,A55,0.0,Chlamydial lymphogranuloma (venereum)
+1703,C30,0.0,Malignant neoplasm of nasal cavity and middle ear
+1704,S75,0.0,Injury of blood vessels at hip and thigh level
+1705,Z40,0.0,Encounter for prophylactic surgery
+1706,N86,0.0,Erosion and ectropion of cervix uteri
+1707,D00,0.0,"Carcinoma in situ of oral cavity, esophagus and stomach"
+1708,W37,0.0,"Explosion and rupture of pressurized tyre, pipe or hose"
+1709,V31,0.0,Occupant of three-wheeled motor vehicle injured in collision with pedal cycle
+1710,V56,0.0,Occupant of pick-up truck or van injured in collision with other nonmotor vehicle
+1711,Y78,0.0,Radiological devices associated with adverse incidents
+1712,W65,0.0,Accidental drowning and submersion while in bath-tub
+1713,V60,0.0,Occupant of heavy transport vehicle injured in collision with pedestrian or animal
+1714,Z19,0.0,Hormone sensitivity malignancy status
+1715,M04,0.0,Autoinflammatory syndromes
+1716,V54,0.0,Occupant of pick-up truck or van injured in collision with heavy transport vehicle or bus
+1717,V16,0.0,Pedal cycle rider injured in collision with other nonmotor vehicle
+1718,Y75,0.0,Neurological devices associated with adverse incidents
+1719,Z70,0.0,"Counseling related to sexual attitude, behavior and orientation"
+1720,V02,0.0,Pedestrian injured in collision with two- or three-wheeled motor vehicle
+1721,B72,0.0,Dracunculiasis
+1722,G65,0.0,Sequelae of inflammatory and toxic polyneuropathies
+1723,V11,0.0,Pedal cycle rider injured in collision with other pedal cycle
+1724,E36,0.0,Intraoperative complications of endocrine system
+1725,V66,0.0,Occupant of heavy transport vehicle injured in collision with other nonmotor vehicle
+1726,Y74,0.0,General hospital and personal-use devices associated with adverse incidents
+1727,O88,0.0,Obstetric embolism
+1728,F21,0.0,Schizotypal disorder
+1729,A93,0.0,"Other arthropod-borne viral fevers, not elsewhere classified"
+1730,X04,0.0,Exposure to ignition of highly flammable material
+1731,L95,0.0,"Vasculitis limited to skin, not elsewhere classified"
+1732,C70,0.0,Malignant neoplasm of meninges
+1733,T57,0.0,Toxic effect of other inorganic substances
+1734,X82,0.0,Intentional self-harm by crashing of motor vehicle
+1735,Q00,0.0,Anencephaly and similar malformations
+1736,B47,0.0,Mycetoma
+1737,O74,0.0,Complications of anesthesia during labor and delivery
+1738,V93,0.0,"Other injury due to accident on board watercraft, without accident to watercraft"
+1739,E75,0.0,Disorders of sphingolipid metabolism and other lipid storage disorders
+1740,P22,0.0,Respiratory distress of newborn
+1741,W24,0.0,"Contact with lifting and transmission devices, not elsewhere classified"
+1742,Z49,0.0,Encounter for care involving renal dialysis
+1743,A51,0.0,Early syphilis
+1744,S25,0.0,Injury of blood vessels of thorax
+1745,W15,0.0,Fall from cliff
+1746,J68,0.0,"Respiratory conditions due to inhalation of chemicals, gases, fumes and vapors"
+1747,H73,0.0,Other disorders of tympanic membrane
+1748,Z42,0.0,Encounter for plastic and reconstructive surgery following medical procedure or healed injury
+1749,A89,0.0,Unspecified viral infection of central nervous system
+1750,S95,0.0,Injury of blood vessels at ankle and foot level
+1751,S47,0.0,Crushing injury of shoulder and upper arm
+1752,N27,0.0,Small kidney of unknown cause
+1753,C66,0.0,Malignant neoplasm of ureter
+1754,B58,0.0,Toxoplasmosis
+1755,T58,0.0,Toxic effect of carbon monoxide
+1756,C31,0.0,Malignant neoplasm of accessory sinuses
+1757,C26,0.0,Malignant neoplasm of other and ill-defined digestive organs
+1758,C52,0.0,Malignant neoplasm of vagina
+1759,Q02,0.0,Microcephaly
+1760,L45,0.0,Papulosquamous disorders in diseases classified elsewhere
+1761,D55,0.0,Anemia due to enzyme disorders
+1762,Q50,0.0,"Congenital malformations of ovaries, fallopian tubes and broad ligaments"
+1763,H95,0.0,"Intraoperative and postprocedural complications and disorders of ear and mastoid process, not elsewhere classified"
+1764,A24,0.0,Glanders and melioidosis
+1765,V91,0.0,Other injury due to accident to watercraft
+1766,C4A,0.0,Merkel cell carcinoma
+1767,B68,0.0,Taeniasis
+1768,E32,0.0,Diseases of thymus
+1769,H32,0.0,Chorioretinal disorders in diseases classified elsewhere
+1770,Q73,0.0,Reduction defects of unspecified limb
+1771,B67,0.0,Echinococcosis
+1772,B69,0.0,Cysticercosis
+1773,P13,0.0,Birth injury to skeleton
+1774,Q01,0.0,Encephalocele
+1775,X02,0.0,Exposure to controlled fire in building or structure
+1776,C05,0.0,Malignant neoplasm of palate
+1777,B01,0.0,Varicella [chickenpox]
+1778,V25,0.0,Motorcycle rider injured in collision with railway train or railway vehicle
+1779,W69,0.0,Accidental drowning and submersion while in natural water
+1780,D42,0.0,Neoplasm of uncertain behavior of meninges
+1781,X34,0.0,Earthquake
+1782,A57,0.0,Chancroid
+1783,M42,0.0,Spinal osteochondrosis
+1784,O87,0.0,Venous complications and hemorrhoids in the puerperium
+1785,S11,0.0,Open wound of neck
+1786,D10,0.0,Benign neoplasm of mouth and pharynx
+1787,G98,0.0,"Other disorders of nervous system, not elsewhere classified"
+1788,T62,0.0,Toxic effect of other noxious substances eaten as food
+1789,B74,0.0,Filariasis
+1790,C94,0.0,Other leukemias of specified cell type
+1791,P76,0.0,Other intestinal obstruction of newborn
+1792,P60,0.0,Disseminated intravascular coagulation of newborn
+1793,P26,0.0,Pulmonary hemorrhage originating in the perinatal period
+1794,D19,0.0,Benign neoplasm of mesothelial tissue
+1795,E71,0.0,Disorders of branched-chain amino-acid metabolism and fatty-acid metabolism
+1796,C04,0.0,Malignant neoplasm of floor of mouth
+1797,P24,0.0,Neonatal aspiration
+1798,V98,0.0,Other specified transport accidents
+1799,T61,0.0,Toxic effect of noxious substances eaten as seafood
+1800,Q12,0.0,Congenital lens malformations
+1801,B80,0.0,Enterobiasis
+1802,V70,0.0,Bus occupant injured in collision with pedestrian or animal
+1803,D43,0.0,Neoplasm of uncertain behavior of brain and central nervous system
+1804,V26,0.0,Motorcycle rider injured in collision with other nonmotor vehicle
+1805,K41,0.0,Femoral hernia
+1806,F71,0.0,Moderate intellectual disabilities
+1807,A92,0.0,Other mosquito-borne viral fevers
+1808,W94,0.0,Exposure to high and low air pressure and changes in air pressure
+1809,W92,0.0,Exposure to excessive heat of man-made origin
+1810,A88,0.0,"Other viral infections of central nervous system, not elsewhere classified"
+1811,I02,0.0,Rheumatic chorea
+1812,Q95,0.0,"Balanced rearrangements and structural markers, not elsewhere classified"
+1813,A19,0.0,Miliary tuberculosis
+1814,P14,0.0,Birth injury to peripheral nervous system
+1815,P78,0.0,Other perinatal digestive system disorders
+1816,A27,0.0,Leptospirosis
+1817,S74,0.0,Injury of nerves at hip and thigh level
+1818,A58,0.0,Granuloma inguinale
+1819,G53,0.0,Cranial nerve disorders in diseases classified elsewhere
+1820,T55,0.0,Toxic effect of soaps and detergents
+1821,L49,0.0,Exfoliation due to erythematous conditions according to extent of body surface involved
+1822,V68,0.0,Occupant of heavy transport vehicle injured in noncollision transport accident
+1823,S44,0.0,Injury of nerves at shoulder and upper arm level
+1824,A23,0.0,Brucellosis
+1825,Q34,0.0,Other congenital malformations of respiratory system
+1826,D28,0.0,Benign neoplasm of other and unspecified female genital organs
+1827,W30,0.0,Contact with agricultural machinery
+1828,F65,0.0,Paraphilias
+1829,S07,0.0,Crushing injury of head
+1830,P90,0.0,Convulsions of newborn
+1831,F59,0.0,Unspecified behavioural syndromes associated with physiological disturbances and physical factors
+1832,V32,0.0,Occupant of three-wheeled motor vehicle injured in collision with two- or three-wheeled motor vehicle
+1833,O46,0.0,"Antepartum hemorrhage, not elsewhere classified"
+1834,Q84,0.0,Other congenital malformations of integument
+1835,G73,0.0,Disorders of myoneural junction and muscle in diseases classified elsewhere
+1836,G64,0.0,Other disorders of peripheral nervous system
+1837,B65,0.0,Schistosomiasis [bilharziasis]
+1838,L75,0.0,Apocrine sweat disorders
+1839,C40,0.0,Malignant neoplasm of bone and articular cartilage of limbs
+1840,X01,0.0,"Exposure to uncontrolled fire, not in building or structure"
+1841,X18,0.0,Contact with other hot metals
+1842,T59,0.0,"Toxic effect of other gases, fumes and vapors"
+1843,V97,0.0,Other specified air transport accidents
+1844,W59,0.0,Contact with other nonvenomous reptiles
+1845,W85,0.0,Exposure to electric transmission lines
+1846,W93,0.0,Exposure to excessive cold of man-made origin
+1847,V21,0.0,Motorcycle rider injured in collision with pedal cycle
+1848,H42,0.0,Glaucoma in diseases classified elsewhere
+1849,H17,0.0,Corneal scars and opacities
+1850,Q77,0.0,Osteochondrodysplasia with defects of growth of tubular bones and spine
+1851,S15,0.0,Injury of blood vessels at neck level
+1852,R75,0.0,Laboratory evidence of human immunodeficiency virus [HIV]
+1853,Z69,0.0,Encounter for mental health services for victim and perpetrator of abuse
+1854,A65,0.0,Nonvenereal syphilis
+1855,N77,0.0,Vulvovaginal ulceration and inflammation in diseases classified elsewhere
+1856,A32,0.0,Listeriosis
+1857,O94,0.0,"Sequelae of complication of pregnancy, childbirth, and the puerperium"
+1858,G13,0.0,Systemic atrophies primarily affecting central nervous system in diseases classified elsewhere
+1859,O73,0.0,"Retained placenta and membranes, without hemorrhage"
+1860,G02,0.0,Meningitis in other infectious and parasitic diseases classified elsewhere
+1861,B90,0.0,Sequelae of tuberculosis
+1862,T60,0.0,Toxic effect of pesticides
+1863,N46,0.0,Male infertility
+1864,H44,0.0,Disorders of globe
+1865,O85,0.0,Puerperal sepsis
+1866,A90,0.0,Dengue fever [classical dengue]
+1867,B82,0.0,Unspecified intestinal parasitism
+1868,Q70,0.0,Syndactyly
+1869,X73,0.0,"Intentional self-harm by rifle, shotgun and larger firearm discharge"
+1870,E42,0.0,Marasmic kwashiorkor
+1871,C63,0.0,Malignant neoplasm of other and unspecified male genital organs
+1872,C33,0.0,Malignant neoplasm of trachea
+1873,V75,0.0,Bus occupant injured in collision with railway train or railway vehicle
+1874,J63,0.0,Pneumoconiosis due to other inorganic dusts
+1875,H31,0.0,Other disorders of choroid
+1876,X72,0.0,Intentional self-harm by handgun discharge
+1877,R85,0.0,Abnormal findings in specimens from digestive organs and abdominal cavity
+1878,X39,0.0,Exposure to other forces of nature
+1879,S77,0.0,Crushing injury of hip and thigh
+1880,E25,0.0,Adrenogenital disorders
+1881,T27,0.0,Burn and corrosion of respiratory tract
+1882,X98,0.0,"Assault by steam, hot vapours and hot objects"
+1883,P03,0.0,Newborn affected by other complications of labor and delivery
+1884,B94,0.0,Sequelae of other and unspecified infectious and parasitic diseases
+1885,A37,0.0,Whooping cough
+1886,A80,0.0,Acute poliomyelitis
+1887,B60,0.0,"Other protozoal diseases, not elsewhere classified"
+1888,G32,0.0,Other degenerative disorders of nervous system in diseases classified elsewhere
+1889,L67,0.0,Hair color and hair shaft abnormalities
+1890,B46,0.0,Zygomycosis
+1891,A06,0.0,Amebiasis
+1892,A77,0.0,Spotted fever [tick-borne rickettsioses]
+1893,S45,0.0,Injury of blood vessels at shoulder and upper arm level
+1894,D40,0.0,Neoplasm of uncertain behavior of male genital organs
+1895,L24,0.0,Irritant contact dermatitis
+1896,W74,0.0,Unspecified cause of accidental drowning and submersion
+1897,M63,0.0,Disorders of muscle in diseases classified elsewhere
+1898,B83,0.0,Other helminthiases
+1899,G01,0.0,Meningitis in bacterial diseases classified elsewhere
+1900,A30,0.0,Leprosy [Hansen's disease]
+1901,H22,0.0,Disorders of iris and ciliary body in diseases classified elsewhere
+1902,P08,0.0,Disorders of newborn related to long gestation and high birth weight
+1903,Y22,0.0,"Handgun discharge, undetermined intent"
+1904,Y37,0.0,Military operations
+1905,A43,0.0,Nocardiosis
+1906,J37,0.0,Chronic laryngitis and laryngotracheitis
+1907,D02,0.0,Carcinoma in situ of middle ear and respiratory system

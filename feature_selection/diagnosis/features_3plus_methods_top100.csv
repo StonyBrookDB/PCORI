@@ -1,0 +1,48 @@
+feature,n_methods,methods,description
+B18,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Chronic viral hepatitis
+B19,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Unspecified viral hepatitis
+D57,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Sickle-cell disorders
+F10,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Alcohol related disorders
+F11,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Opioid related disorders
+F14,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Cocaine related disorders
+F17,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Nicotine dependence
+F19,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Other psychoactive substance related disorders
+F31,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Bipolar disorder
+F32,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment","Major depressive disorder, single episode"
+F55,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Abuse of non-dependence-producing substances
+G89,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment","Pain, not elsewhere classified"
+O99,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment","Other maternal diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium"
+R45,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment",Symptoms and signs involving emotional state
+T40,4,"Elastic Net, LightGBM, NTK, Recurrence Enrichment","Poisoning by, adverse effect of and underdosing of narcotics and psychodysleptics [hallucinogens]"
+B20,3,"Elastic Net, LightGBM, Recurrence Enrichment",Human immunodeficiency virus [HIV] disease
+E66,3,"LightGBM, NTK, Recurrence Enrichment",Overweight and obesity
+E78,3,"Elastic Net, LightGBM, NTK",Disorders of lipoprotein metabolism and other lipidemias
+F41,3,"LightGBM, NTK, Recurrence Enrichment",Other anxiety disorders
+I48,3,"Elastic Net, LightGBM, NTK",Atrial fibrillation and flutter
+J44,3,"LightGBM, NTK, Recurrence Enrichment",Other chronic obstructive pulmonary disease
+J45,3,"LightGBM, NTK, Recurrence Enrichment",Asthma
+K21,3,"LightGBM, NTK, Recurrence Enrichment",Gastro-esophageal reflux disease
+K57,3,"Elastic Net, LightGBM, NTK",Diverticular disease of intestine
+K80,3,"Elastic Net, LightGBM, NTK",Cholelithiasis
+K86,3,"Elastic Net, LightGBM, Recurrence Enrichment",Other diseases of pancreas
+L03,3,"LightGBM, NTK, Recurrence Enrichment",Cellulitis and acute lymphangitis
+M54,3,"LightGBM, NTK, Recurrence Enrichment",Dorsalgia
+M79,3,"LightGBM, NTK, Recurrence Enrichment","Other and unspecified soft tissue disorders, not elsewhere classified"
+N20,3,"Elastic Net, LightGBM, NTK",Calculus of kidney and ureter
+R00,3,"LightGBM, NTK, Recurrence Enrichment",Abnormalities of heart beat
+R06,3,"LightGBM, NTK, Recurrence Enrichment",Abnormalities of breathing
+R07,3,"LightGBM, NTK, Recurrence Enrichment",Pain in throat and chest
+R10,3,"LightGBM, NTK, Recurrence Enrichment",Abdominal and pelvic pain
+R11,3,"LightGBM, NTK, Recurrence Enrichment",Nausea and vomiting
+R41,3,"LightGBM, NTK, Recurrence Enrichment",Other symptoms and signs involving cognitive functions and awareness
+Y92,3,"LightGBM, NTK, Recurrence Enrichment",Place of occurrence of the external cause
+Z01,3,"Elastic Net, LightGBM, NTK","Encounter for other special examination without complaint, suspected or reported diagnosis"
+Z12,3,"Elastic Net, LightGBM, NTK",Encounter for screening for malignant neoplasms
+Z37,3,"Elastic Net, LightGBM, NTK",Outcome of delivery
+Z3A,3,"Elastic Net, LightGBM, NTK",Weeks of gestation
+Z68,3,"LightGBM, NTK, Recurrence Enrichment",Body mass index [BMI]
+Z76,3,"Elastic Net, LightGBM, Recurrence Enrichment",Persons encountering health services in other circumstances
+Z79,3,"LightGBM, NTK, Recurrence Enrichment",Long term (current) drug therapy
+Z86,3,"LightGBM, NTK, Recurrence Enrichment",Personal history of certain other diseases
+Z88,3,"LightGBM, NTK, Recurrence Enrichment","Allergy status to drugs, medicaments and biological substances"
+Z91,3,"LightGBM, NTK, Recurrence Enrichment","Personal risk factors, not elsewhere classified"
