@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCORI SITL Prototype</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/tracker.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --bg-hover: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --border-color: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+        }
+
+        .header .status {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 2rem;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .tab-btn .badge {
+            background: var(--accent-green);
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Panel Styles */
+        .panel-header {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .panel-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Feature Selection */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.8rem;
+            border-radius: 6px;
+            background: var(--bg-dark);
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            background: var(--bg-hover);
+        }
+
+        .feature-item input {
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .feature-item label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .feature-item .name {
+            font-weight: 500;
+        }
+
+        .feature-item .desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Analysis Feature List */
+        .feature-list-analysis {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .analysis-feature-item {
+            padding: 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .analysis-feature-item:hover {
+            background: var(--bg-hover);
+        }
+
+        .analysis-feature-item.selected {
+            background: var(--bg-hover);
+            border-left-color: var(--accent-blue);
+        }
+
+        .analysis-feature-item .name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .analysis-feature-item .stats {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Form Controls */
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2ea043;
+        }
+
+        .btn-primary:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        /* Training Status */
+        .training-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border-radius: 6px;
+        }
+
+        .status-text.running { color: var(--accent-yellow); }
+        .status-text.completed { color: var(--accent-green); }
+        .status-text.failed { color: var(--accent-red); }
+
+        .chart-container {
+            margin-top: 1rem;
+            height: 300px;
+        }
+
+        /* Model Cards */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .model-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .model-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .model-card .type {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            background: var(--bg-dark);
+            padding: 0.6rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .metric .value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-green);
+        }
+
+        .metric .label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .feature-importance h4 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .importance-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .importance-bar .name {
+            width: 140px;
+            font-size: 0.85rem;
+        }
+
+        .importance-bar .bar-container {
+            flex: 1;
+            height: 16px;
+            background: var(--bg-dark);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .importance-bar .bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: 3px;
+        }
+
+        .importance-bar .value {
+            width: 55px;
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Patient List */
+        .patient-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 1.5rem;
+        }
+
+        .patient-list-container {
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .patient-list-header {
+            padding: 1rem;
+            background: var(--bg-hover);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .patient-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .patient-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .patient-item:hover {
+            background: var(--bg-hover);
+        }
+
+        .patient-item.selected {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .patient-item .name {
+            flex: 1;
+        }
+
+        .patient-item .split {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        .patient-item .split.train {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .patient-item .split.validation {
+            background: var(--accent-yellow);
+            color: black;
+        }
+
+        .patient-item .outcome {
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        .patient-item .outcome.positive {
+            color: var(--accent-red);
+        }
+
+        .patient-item.selected .outcome.positive {
+            color: #ffaaaa;
+        }
+
+        /* Patient Detail */
+        .patient-detail {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .patient-detail h3 {
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .patient-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .patient-features table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .patient-features th, .patient-features td {
+            padding: 0.6rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .patient-features th {
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .patient-predictions h4 {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 1rem 0 0.8rem 0;
+        }
+
+        .prediction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem;
+            background: var(--bg-dark);
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .prediction-item .prob {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .prediction-item .prob.high { color: var(--accent-red); }
+        .prediction-item .prob.low { color: var(--accent-green); }
+
+        /* Chat */
+        .chat-section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .chat-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border-radius: 6px;
+            min-height: 100px;
+        }
+
+        .chat-message {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        .chat-message.user {
+            background: var(--accent-blue);
+            color: white;
+            margin-left: 15%;
+        }
+
+        .chat-message.assistant {
+            background: var(--bg-hover);
+            margin-right: 15%;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .chat-input button {
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .chat-input button:hover {
+            background: #4090e0;
+        }
+
+        .no-selection {
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-secondary);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Two-column grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Job item hover */
+        .job-item:hover {
+            background: var(--bg-hover) !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .patient-layout {
+                grid-template-columns: 1fr;
+            }
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PCORI SITL Prototype - OD Risk Prediction</h1>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="status" id="serverStatus">Connecting...</div>
+            <div id="userInfo" style="display: none; font-size: 0.9rem;">
+                <span id="currentUsername" style="color: var(--accent-green);"></span>
+                <a href="/logout" style="color: var(--text-secondary); margin-left: 0.5rem; text-decoration: none;">[Logout]</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn" id="cohortTab" onclick="switchTab('cohort')" style="display: none;">
+            Cohort Builder
+        </button>
+        <button class="tab-btn active" onclick="switchTab('training')">
+            Training
+        </button>
+        <button class="tab-btn" onclick="switchTab('models')">
+            Model Results
+            <span class="badge" id="modelCount" style="display: none;">0</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('patients')">
+            Patients
+        </button>
+        <button class="tab-btn" onclick="switchTab('analysis')">
+            Analysis
+        </button>
+        <button class="tab-btn" onclick="switchTab('jobstatus')">
+            Training Status
+            <span class="badge" id="runningJobCount" style="display: none;">0</span>
+        </button>
+    </div>
+
+    <!-- Tab 0: Cohort Builder (hidden by default, shown for synthetic) -->
+    <div class="tab-content" id="tab-cohort">
+        <h2 class="panel-header">Cohort Builder</h2>
+
+        <div class="panel-section">
+            <h3>Filter Criteria</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Age Range</label>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <input type="number" id="ageMin" placeholder="Min" min="18" max="100" style="width: 80px;">
+                        <span>to</span>
+                        <input type="number" id="ageMax" placeholder="Max" min="18" max="100" style="width: 80px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cancer Status</label>
+                    <select id="cancerStatus">
+                        <option value="">All Patients</option>
+                        <option value="true">Cancer Only</option>
+                        <option value="false">No Cancer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prior Opioid Days (min)</label>
+                    <input type="number" id="opioidThreshold" placeholder="e.g., 30" min="0" max="365">
+                </div>
+                <div class="form-group">
+                    <label>Mental Health Score (min)</label>
+                    <input type="number" id="mentalHealthMin" placeholder="e.g., 3" min="0" max="10">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="applyCohortFilter()">Apply Filter</button>
+            <button class="btn" style="background: var(--bg-hover); margin-left: 0.5rem;" onclick="resetCohortFilter()">Reset</button>
+        </div>
+
+        <div class="panel-section" id="cohortStats">
+            <h3>Cohort Statistics</h3>
+            <div id="cohortStatsContent">
+                <div style="color: var(--text-secondary);">Click "Apply Filter" to see cohort statistics</div>
+            </div>
+        </div>
+
+        <div class="panel-section" id="cohortWarnings" style="display: none; border-color: var(--accent-yellow);">
+            <h3 style="color: var(--accent-yellow);">Warnings</h3>
+            <div id="cohortWarningsContent"></div>
+        </div>
+    </div>
+
+    <!-- Tab 1: Training (default active tab) -->
+    <div class="tab-content active" id="tab-training">
+        <h2 class="panel-header">Feature Selection & Model Training</h2>
+
+        <!-- Cohort Summary -->
+        <div class="panel-section" id="trainingCohortSummary" style="background: linear-gradient(135deg, var(--bg-card), var(--bg-hover));">
+            <h3>Current Cohort</h3>
+            <div id="trainingCohortContent">
+                <div style="color: var(--text-secondary);">No cohort selected. Go to Cohort Builder to filter patients.</div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <h3>Select Features</h3>
+            <div class="feature-grid" id="featureList"></div>
+        </div>
+
+        <div class="panel-section">
+            <h3>Configure & Train</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Model Type</label>
+                    <select id="modelType" onchange="updateHyperparamUI()">
+                        <option value="lightgbm">LightGBM (Gradient Boosting)</option>
+                        <option value="logreg">Logistic Regression</option>
+                        <option value="pytorch">PyTorch MLP (Neural Network)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Model Name (optional)</label>
+                    <input type="text" id="modelName" placeholder="e.g., My LightGBM v1">
+                </div>
+            </div>
+
+            <!-- LightGBM Hyperparameters -->
+            <div id="lgbParams" class="hyperparam-section" style="margin-top: 1rem;">
+                <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">LightGBM Parameters</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Number of Trees</label>
+                        <input type="number" id="lgb_n_estimators" value="100" min="10" max="1000" step="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Depth (-1 = unlimited)</label>
+                        <input type="number" id="lgb_max_depth" value="-1" min="-1" max="20">
+                    </div>
+                    <div class="form-group">
+                        <label>Learning Rate</label>
+                        <input type="number" id="lgb_learning_rate" value="0.05" min="0.001" max="1" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Num Leaves</label>
+                        <input type="number" id="lgb_num_leaves" value="31" min="2" max="256">
+                    </div>
+                </div>
+            </div>
+
+            <!-- LogReg Hyperparameters -->
+            <div id="logregParams" class="hyperparam-section" style="margin-top: 1rem; display: none;">
+                <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Logistic Regression Parameters</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Regularization (C)</label>
+                        <input type="number" id="logreg_C" value="1.0" min="0.001" max="100" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Iterations</label>
+                        <input type="number" id="logreg_max_iter" value="1000" min="100" max="10000" step="100">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PyTorch MLP Hyperparameters -->
+            <div id="pytorchParams" class="hyperparam-section" style="margin-top: 1rem; display: none;">
+                <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">PyTorch MLP Parameters</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Hidden Layers (comma-separated)</label>
+                        <input type="text" id="pytorch_hidden_sizes" value="64, 32" placeholder="e.g., 64, 32, 16">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Epochs</label>
+                        <input type="number" id="pytorch_max_epochs" value="50" min="1" max="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Learning Rate</label>
+                        <input type="number" id="pytorch_lr" value="0.001" min="0.0001" max="0.1" step="0.0001">
+                    </div>
+                    <div class="form-group">
+                        <label>Batch Size</label>
+                        <input type="number" id="pytorch_batch_size" value="32" min="8" max="256" step="8">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="trainBtn" onclick="startQuickTraining()" style="margin-top: 1rem;">
+                Train Model
+            </button>
+
+            <div class="training-status" id="trainingStatus" style="display: none;">
+                <div class="status-text" id="statusText"></div>
+                <div id="progressText"></div>
+                <div class="chart-container" id="chartContainer" style="display: none;">
+                    <canvas id="trainingChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 2: Model Results -->
+    <div class="tab-content" id="tab-models">
+        <h2 class="panel-header">Trained Models</h2>
+
+        <div class="grid-2">
+            <!-- Model List (Left Panel) -->
+            <div class="panel-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h3 style="margin: 0;">Models</h3>
+                    <label style="font-size: 0.8rem; color: var(--text-secondary);">
+                        <input type="checkbox" id="filterModelsByDataset" checked onchange="renderModels()">
+                        This dataset only
+                    </label>
+                </div>
+                <input type="text" id="modelSearch" placeholder="Search models..."
+                       oninput="renderModels()"
+                       style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;
+                              background: var(--bg-tertiary); border: 1px solid var(--border-color);
+                              border-radius: 4px; color: var(--text-primary);">
+                <div id="modelList" style="max-height: 350px; overflow-y: auto;">
+                    <div class="no-selection" style="padding: 1rem; color: var(--text-secondary);">
+                        No models trained yet. Go to Training tab to train a model.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Details (Right Panel) -->
+            <div class="panel-section">
+                <h3>Model Performance</h3>
+                <div id="selectedModelInfo" style="color: var(--text-secondary); padding: 0.5rem;">
+                    Select a model to view details
+                </div>
+
+                <!-- Classification Metrics -->
+                <div id="classificationMetrics" style="display: none; margin-top: 1rem;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Validation Metrics</h4>
+                    <div class="metrics-grid" id="modelMetricsGrid">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Training Curves -->
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Training History</h4>
+                    <div style="height: 200px;">
+                        <canvas id="modelTrainingCurves"></canvas>
+                    </div>
+                </div>
+
+                <!-- Feature Info -->
+                <div id="modelFeatureInfo" style="margin-top: 1rem; display: none;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Features Used</h4>
+                    <div id="modelFeatureList" style="font-size: 0.85rem;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-section" style="margin-top: 1.5rem;">
+            <h3>Ask GPT about Models</h3>
+            <div class="chat-messages" id="modelChat"></div>
+            <div class="chat-input">
+                <input type="text" id="modelChatInput" placeholder="e.g., Why is prior_opioid_days important? Compare LightGBM vs MLP...">
+                <button onclick="sendModelChat()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 3: Patients -->
+    <div class="tab-content" id="tab-patients">
+        <h2 class="panel-header">Individual Patient Analysis</h2>
+
+        <div class="patient-layout">
+            <div class="patient-list-container">
+                <div class="patient-list-header">
+                    Patient List (200 patients)
+                </div>
+                <div class="patient-list" id="patientList"></div>
+            </div>
+
+            <div>
+                <div class="patient-detail" id="patientDetail">
+                    <div class="no-selection">Select a patient from the list to view details and predictions.</div>
+                </div>
+
+                <div class="chat-section" style="margin-top: 1.5rem;">
+                    <h3>Ask GPT about this Patient</h3>
+                    <div class="chat-messages" id="patientChat"></div>
+                    <div class="chat-input">
+                        <input type="text" id="patientChatInput" placeholder="e.g., Why do models disagree? What factors increase this patient's risk?">
+                        <button onclick="sendPatientChat()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 4: Analysis -->
+    <div class="tab-content" id="tab-analysis">
+        <h2 class="panel-header">Feature Analysis</h2>
+
+        <div class="analysis-layout" style="display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem;">
+            <!-- Feature List -->
+            <div class="analysis-sidebar">
+                <div class="panel-section">
+                    <h3>Features</h3>
+                    <div id="analysisFeatureList" class="feature-list-analysis"></div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="analysis-main">
+                <!-- Controls -->
+                <div class="panel-section" style="margin-bottom: 1rem;">
+                    <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="clipPct">Clip Outliers (%)</label>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="range" id="clipPct" min="0" max="10" step="0.5" value="0"
+                                       style="width: 120px;" onchange="updateClipLabel(); loadHistogram();">
+                                <span id="clipLabel" style="min-width: 40px;">0%</span>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="sampleSize">Sample Size</label>
+                            <select id="sampleSize" onchange="loadHistogram()">
+                                <option value="100">100 samples</option>
+                                <option value="200">200 samples</option>
+                                <option value="500">500 samples</option>
+                                <option value="0">All samples</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="nBins">Bins</label>
+                            <select id="nBins" onchange="loadHistogram()">
+                                <option value="20">20</option>
+                                <option value="30" selected>30</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Histogram Display -->
+                <div class="panel-section" id="histogramPanel">
+                    <div id="histogramContainer" style="text-align: center;">
+                        <div class="no-selection">Select a feature from the list to view its distribution.</div>
+                    </div>
+                </div>
+
+                <!-- Feature Details -->
+                <div class="panel-section" id="featureDetailsPanel" style="display: none;">
+                    <h3 id="selectedFeatureName">Feature Details</h3>
+                    <p id="selectedFeatureDesc" style="color: var(--text-secondary); margin-bottom: 1rem;"></p>
+                    <div id="featureStats" class="metrics-grid"></div>
+                </div>
+
+                <!-- Claude Analysis (placeholder for phase 2) -->
+                <div class="panel-section" style="margin-top: 1rem;">
+                    <h3>Ask Claude</h3>
+                    <div class="chat-messages" id="analysisChat" style="min-height: 100px; max-height: 300px;"></div>
+                    <div class="chat-input">
+                        <input type="text" id="analysisChatInput"
+                               placeholder="e.g., Plot scatter of age vs bmi, run regression with y=outcome...">
+                        <button onclick="sendAnalysisChat()" title="Ask Claude to analyze data">Send</button>
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">
+                        Claude executes pandas/matplotlib code in a secure sandbox. Try: "show correlation heatmap" or "plot histogram of age"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 5: Training Status (Job Monitoring) -->
+    <div class="tab-content" id="tab-jobstatus">
+        <h2 class="panel-header">Training Status</h2>
+
+        <div class="grid-2">
+            <!-- Job List -->
+            <div class="panel-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h3 style="margin: 0;">Jobs</h3>
+                    <label style="font-size: 0.8rem; color: var(--text-secondary);">
+                        <input type="checkbox" id="filterJobsByDataset" checked onchange="refreshJobList()">
+                        This dataset only
+                    </label>
+                </div>
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <input type="text" id="jobSearch" placeholder="Search jobs..."
+                           oninput="filterJobsDisplay()"
+                           style="flex: 1; padding: 0.5rem; background: var(--bg-tertiary);
+                                  border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
+                    <button onclick="refreshJobList()" class="btn-secondary" style="padding: 0.5rem 1rem;">
+                        Refresh
+                    </button>
+                </div>
+                <div id="jobList" style="max-height: 280px; overflow-y: auto;">
+                    <div style="color: var(--text-secondary); padding: 1rem;">
+                        No jobs found. Submit a training job from the Training tab.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log Viewer -->
+            <div class="panel-section">
+                <h3>Log Viewer</h3>
+                <div id="selectedJobInfo" style="margin-bottom: 0.5rem; color: var(--text-secondary);">
+                    Select a job to view logs
+                </div>
+                <div id="jobLogViewer" style="background: #0d1117; border: 1px solid var(--border-color); border-radius: 4px; padding: 1rem; height: 250px; overflow-y: auto; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Curves -->
+        <div class="panel-section" style="margin-top: 1rem;">
+            <h3>Training Curves</h3>
+            <div style="background: var(--bg-card); padding: 1rem; border-radius: 4px; height: 300px;">
+                <canvas id="jobTrainingChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let datasetId = 'synthetic';  // Default dataset
+        let datasetConfig = null;
+        let taskType = 'classification';
+        let features = [];
+        let featureDescriptions = {};
+        let samples = [];  // Renamed from patients for genericity
+        let models = {};
+        let selectedSample = null;  // Renamed from selectedPatient
+        let currentJobId = null;
+        let trainingChart = null;
+        let currentCohort = null;
+        let currentFilters = {};
+
+        const API_BASE = window.location.origin;
+
+        // Extract dataset_id from URL path (e.g., /dataset/breast_cancer)
+        function getDatasetIdFromUrl() {
+            const path = window.location.pathname;
+            const match = path.match(/^\/dataset\/([^/]+)/);
+            return match ? match[1] : 'synthetic';
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // Track tab selection
+            if (typeof Tracker !== 'undefined') {
+                Tracker.track(EventTypes.SELECT_TAB, {
+                    context: { page: 'dashboard', dataset_id: datasetId },
+                    ui: { tab_name: tabName }
+                });
+            }
+        }
+
+        // Initialize
+        async function init() {
+            try {
+                // Fetch current user info and initialize tracker
+                try {
+                    const userRes = await fetch(`${API_BASE}/api/me`);
+                    if (userRes.ok) {
+                        const userData = await userRes.json();
+                        document.getElementById('currentUsername').textContent = userData.username;
+                        document.getElementById('userInfo').style.display = 'block';
+                        // Initialize behavior tracker
+                        if (typeof Tracker !== 'undefined') {
+                            Tracker.init({ userId: userData.username });
+                        }
+                    }
+                } catch (e) {
+                    console.log('Could not fetch user info:', e);
+                }
+
+                // Get dataset ID from URL
+                datasetId = getDatasetIdFromUrl();
+                console.log('Loading dataset:', datasetId);
+
+                // Fetch dataset config
+                const configRes = await fetch(`${API_BASE}/api/dataset/${datasetId}/config`);
+                if (!configRes.ok) {
+                    throw new Error(`Dataset '${datasetId}' not found`);
+                }
+                datasetConfig = await configRes.json();
+                taskType = datasetConfig.task_type;
+                features = datasetConfig.features;
+                featureDescriptions = datasetConfig.feature_descriptions;
+
+                // Update page title and header
+                document.title = `${datasetConfig.display_name} - ML Dashboard`;
+                document.querySelector('.header h1').textContent = datasetConfig.display_name;
+
+                // Fetch samples
+                const samplesRes = await fetch(`${API_BASE}/api/dataset/${datasetId}/samples`);
+                const samplesData = await samplesRes.json();
+                samples = samplesData.samples;
+
+                // Show cohort builder only for synthetic dataset
+                if (datasetId === 'synthetic') {
+                    document.getElementById('cohortTab').style.display = '';
+                }
+
+                // Adapt UI for task type
+                adaptUIForTaskType();
+
+                renderFeatures();
+                renderSamples();
+                document.getElementById('serverStatus').textContent = `Connected (${datasetConfig.sample_count} samples)`;
+                document.getElementById('serverStatus').style.color = '#3fb950';
+
+                await loadModels();
+                await loadAnalysisFeatures();
+            } catch (e) {
+                document.getElementById('serverStatus').textContent = 'Connection failed: ' + e.message;
+                document.getElementById('serverStatus').style.color = '#f85149';
+                console.error(e);
+            }
+        }
+
+        // Adapt UI elements based on task type
+        function adaptUIForTaskType() {
+            // Update training cohort summary
+            const cohortContent = document.getElementById('trainingCohortContent');
+            if (cohortContent && datasetId !== 'synthetic') {
+                cohortContent.innerHTML = `
+                    <div style="color: var(--text-secondary);">
+                        Dataset: <strong style="color: var(--accent-blue);">${datasetConfig.display_name}</strong> |
+                        ${datasetConfig.sample_count} samples |
+                        Task: <strong>${taskType}</strong>
+                    </div>
+                `;
+            }
+
+            // Update sample list header
+            const listHeader = document.querySelector('.patient-list-header');
+            if (listHeader) {
+                const entityName = datasetId === 'synthetic' ? 'Patients' : 'Samples';
+                listHeader.textContent = `${entityName} (${samples.length || datasetConfig.sample_count})`;
+            }
+
+            // Update tab name
+            const patientsTab = document.querySelector('[onclick="switchTab(\'patients\')"]');
+            if (patientsTab && datasetId !== 'synthetic') {
+                patientsTab.textContent = 'Samples';
+            }
+        }
+
+        function renderFeatures() {
+            const container = document.getElementById('featureList');
+            container.innerHTML = features.map(f => `
+                <div class="feature-item" onclick="this.querySelector('input').click()">
+                    <input type="checkbox" id="feat_${f}" checked onclick="event.stopPropagation()">
+                    <label for="feat_${f}" onclick="event.stopPropagation()">
+                        <div class="name">${f}</div>
+                        <div class="desc">${featureDescriptions[f]}</div>
+                    </label>
+                </div>
+            `).join('');
+        }
+
+        function renderSamples() {
+            const container = document.getElementById('patientList');
+            container.innerHTML = samples.map(s => {
+                // Format target display based on task type
+                let targetDisplay = '';
+                if (taskType === 'classification') {
+                    const isPositive = s.target === 1;
+                    const label = datasetId === 'synthetic' ? (isPositive ? 'OD' : '') :
+                                  datasetId === 'breast_cancer' ? (isPositive ? 'B' : 'M') :
+                                  (isPositive ? '+' : '-');
+                    targetDisplay = `<span class="outcome ${isPositive ? 'positive' : ''}">${label}</span>`;
+                } else {
+                    // Regression: show truncated target value
+                    targetDisplay = `<span class="outcome" style="color: var(--text-secondary);">${s.target.toFixed(1)}</span>`;
+                }
+
+                // Generate display name
+                const displayName = datasetId === 'synthetic' ? `Patient ${s.index + 1}` : `Sample ${s.index + 1}`;
+
+                return `
+                    <div class="patient-item" onclick="selectSample('${s.id}', ${s.index}, this)">
+                        <span class="name">${displayName}</span>
+                        <span class="split ${s.split}">${s.split}</span>
+                        ${targetDisplay}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Legacy alias
+        function renderPatients() { renderSamples(); }
+
+        // ============== Cohort Builder Functions ==============
+
+        async function applyCohortFilter() {
+            const filters = {};
+
+            const ageMin = document.getElementById('ageMin').value;
+            const ageMax = document.getElementById('ageMax').value;
+            const cancerStatus = document.getElementById('cancerStatus').value;
+            const opioidThreshold = document.getElementById('opioidThreshold').value;
+            const mentalHealthMin = document.getElementById('mentalHealthMin').value;
+
+            if (ageMin) filters.age_min = parseInt(ageMin);
+            if (ageMax) filters.age_max = parseInt(ageMax);
+            if (cancerStatus !== '') filters.cancer_status = cancerStatus === 'true';
+            if (opioidThreshold) filters.opioid_threshold = parseInt(opioidThreshold);
+            if (mentalHealthMin) filters.mental_health_min = parseInt(mentalHealthMin);
+
+            try {
+                const res = await fetch(`${API_BASE}/api/cohort/filter`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(filters)
+                });
+
+                if (!res.ok) {
+                    const error = await res.json();
+                    alert('Filter Error: ' + (error.detail?.[0]?.msg || error.detail || 'Unknown error'));
+                    return;
+                }
+
+                currentCohort = await res.json();
+                currentFilters = filters;
+                renderCohortStats();
+                updateTrainingCohortSummary();
+            } catch (e) {
+                console.error('Filter error:', e);
+                alert('Failed to filter cohort: ' + e.message);
+            }
+        }
+
+        function resetCohortFilter() {
+            document.getElementById('ageMin').value = '';
+            document.getElementById('ageMax').value = '';
+            document.getElementById('cancerStatus').value = '';
+            document.getElementById('opioidThreshold').value = '';
+            document.getElementById('mentalHealthMin').value = '';
+            currentCohort = null;
+            currentFilters = {};
+
+            document.getElementById('cohortStatsContent').innerHTML =
+                '<div style="color: var(--text-secondary);">Click "Apply Filter" to see cohort statistics</div>';
+            document.getElementById('cohortWarnings').style.display = 'none';
+            updateTrainingCohortSummary();
+        }
+
+        function renderCohortStats() {
+            if (!currentCohort) return;
+
+            const c = currentCohort;
+            const statsHtml = `
+                <div class="metrics-grid" style="margin-bottom: 1rem;">
+                    <div class="metric">
+                        <div class="value">${c.total_count.toLocaleString()}</div>
+                        <div class="label">Total Patients</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${c.event_count}</div>
+                        <div class="label">Events</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value" style="color: ${c.event_rate > 0.3 ? 'var(--accent-red)' : 'var(--accent-green)'}">
+                            ${(c.event_rate * 100).toFixed(1)}%
+                        </div>
+                        <div class="label">Event Rate</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${c.train_count}/${c.val_count}</div>
+                        <div class="label">Train/Val Split</div>
+                    </div>
+                </div>
+                ${c.statistics ? `
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Age: ${c.statistics.age_mean.toFixed(1)} +/- ${c.statistics.age_std.toFixed(1)}
+                        (range: ${c.statistics.age_min} - ${c.statistics.age_max})
+                    </div>
+                ` : ''}
+            `;
+
+            document.getElementById('cohortStatsContent').innerHTML = statsHtml;
+
+            // Show warnings if any
+            const warningsDiv = document.getElementById('cohortWarnings');
+            if (c.warnings && c.warnings.length > 0) {
+                document.getElementById('cohortWarningsContent').innerHTML =
+                    c.warnings.map(w => `<div style="margin-bottom: 0.5rem;">- ${w}</div>`).join('');
+                warningsDiv.style.display = 'block';
+            } else {
+                warningsDiv.style.display = 'none';
+            }
+        }
+
+        function updateTrainingCohortSummary() {
+            const container = document.getElementById('trainingCohortContent');
+
+            if (!currentCohort) {
+                container.innerHTML = `<div style="color: var(--text-secondary);">No cohort selected. Go to Cohort Builder to filter patients, or training will use all ${datasetConfig ? datasetConfig.sample_count : 2000} samples.</div>`;
+                return;
+            }
+
+            const c = currentCohort;
+            const filterSummary = Object.entries(currentFilters)
+                .map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`)
+                .join(', ') || 'All patients';
+
+            container.innerHTML = `
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div>
+                        <strong style="color: var(--accent-blue);">${c.total_count.toLocaleString()}</strong> patients
+                    </div>
+                    <div>
+                        <strong style="color: var(--accent-green);">${c.event_count}</strong> events
+                        (<strong>${(c.event_rate * 100).toFixed(1)}%</strong>)
+                    </div>
+                    <div style="color: var(--text-secondary);">
+                        Filters: ${filterSummary}
+                    </div>
+                </div>
+                ${c.warnings && c.warnings.length > 0 ?
+                    `<div style="color: var(--accent-yellow); margin-top: 0.5rem; font-size: 0.9rem;">
+                        Warning: ${c.warnings[0]}
+                    </div>` : ''}
+            `;
+        }
+
+        function getSelectedFeatures() {
+            return features.filter(f => document.getElementById(`feat_${f}`).checked);
+        }
+
+        // ============== Analysis Tab Functions ==============
+
+        let analysisFeatures = [];
+        let selectedAnalysisFeature = null;
+
+        async function loadAnalysisFeatures() {
+            try {
+                const res = await fetch(`${API_BASE}/api/dataset/${datasetId}/features`);
+                if (!res.ok) throw new Error('Failed to load features');
+                const data = await res.json();
+                analysisFeatures = data.features;
+                renderAnalysisFeatureList();
+            } catch (e) {
+                console.error('Failed to load analysis features:', e);
+            }
+        }
+
+        function renderAnalysisFeatureList() {
+            const container = document.getElementById('analysisFeatureList');
+            if (!container) return;
+
+            container.innerHTML = analysisFeatures.map(f => `
+                <div class="analysis-feature-item ${selectedAnalysisFeature === f.name ? 'selected' : ''}"
+                     onclick="selectAnalysisFeature('${f.name}')">
+                    <div class="name">${f.name}</div>
+                    <div class="stats" style="font-size: 0.75rem; color: var(--text-secondary);">
+                        μ=${f.stats.mean.toFixed(2)}, σ=${f.stats.std.toFixed(2)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function selectAnalysisFeature(featureName) {
+            selectedAnalysisFeature = featureName;
+            renderAnalysisFeatureList();
+
+            // Show feature details
+            const feature = analysisFeatures.find(f => f.name === featureName);
+            if (feature) {
+                document.getElementById('featureDetailsPanel').style.display = 'block';
+                document.getElementById('selectedFeatureName').textContent = feature.name;
+                document.getElementById('selectedFeatureDesc').textContent = feature.description || 'No description available.';
+                document.getElementById('featureStats').innerHTML = `
+                    <div class="metric">
+                        <div class="value">${feature.stats.mean.toFixed(3)}</div>
+                        <div class="label">Mean</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${feature.stats.std.toFixed(3)}</div>
+                        <div class="label">Std Dev</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${feature.stats.min.toFixed(3)}</div>
+                        <div class="label">Min</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${feature.stats.max.toFixed(3)}</div>
+                        <div class="label">Max</div>
+                    </div>
+                    <div class="metric">
+                        <div class="value">${feature.stats.median.toFixed(3)}</div>
+                        <div class="label">Median</div>
+                    </div>
+                `;
+            }
+
+            await loadHistogram();
+        }
+
+        async function loadHistogram() {
+            if (!selectedAnalysisFeature) return;
+
+            const clipPct = parseFloat(document.getElementById('clipPct').value);
+            const sampleSize = parseInt(document.getElementById('sampleSize').value);
+            const nBins = parseInt(document.getElementById('nBins').value);
+
+            const container = document.getElementById('histogramContainer');
+            container.innerHTML = '<div class="spinner"></div> Loading histogram...';
+
+            try {
+                const params = new URLSearchParams({
+                    clip_pct: clipPct,
+                    sample_size: sampleSize,
+                    n_bins: nBins
+                });
+                const res = await fetch(`${API_BASE}/api/dataset/${datasetId}/feature/${encodeURIComponent(selectedAnalysisFeature)}/histogram?${params}`);
+                if (!res.ok) throw new Error('Failed to load histogram');
+                const data = await res.json();
+
+                container.innerHTML = `
+                    <img src="${data.image}" alt="Histogram of ${selectedAnalysisFeature}"
+                         style="max-width: 100%; border-radius: 8px;">
+                    <div style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+                        Showing ${data.sample_size} samples${clipPct > 0 ? `, clipped at ${clipPct}%` : ''}
+                    </div>
+                `;
+            } catch (e) {
+                container.innerHTML = `<div class="error">Failed to load histogram: ${e.message}</div>`;
+            }
+        }
+
+        function updateClipLabel() {
+            const val = document.getElementById('clipPct').value;
+            document.getElementById('clipLabel').textContent = `${val}%`;
+        }
+
+        let analysisHistory = [];
+
+        async function sendAnalysisChat() {
+            const input = document.getElementById('analysisChatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chat = document.getElementById('analysisChat');
+
+            // Show user message
+            chat.innerHTML += `<div class="chat-message user">${escapeHtml(message)}</div>`;
+            chat.innerHTML += `<div class="chat-message assistant" style="color: var(--text-secondary);">
+                <span class="spinner"></span> Analyzing with Claude...
+            </div>`;
+            input.value = '';
+            chat.scrollTop = chat.scrollHeight;
+
+            try {
+                const res = await fetch(`${API_BASE}/api/dataset/${datasetId}/analysis/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: message,
+                        conversation_history: analysisHistory
+                    })
+                });
+
+                const data = await res.json();
+
+                // Remove loading message
+                chat.removeChild(chat.lastChild);
+
+                // Build response HTML
+                let responseHtml = '<div class="chat-message assistant">';
+
+                // Response text
+                if (data.response_text) {
+                    responseHtml += `<div class="response-text" style="white-space: pre-wrap; margin-bottom: 1rem;">${escapeHtml(data.response_text)}</div>`;
+                }
+
+                // Code (collapsible)
+                if (data.code_generated) {
+                    responseHtml += `<details style="margin-bottom: 1rem;">
+                        <summary style="cursor: pointer; color: var(--accent-blue);">View Generated Code</summary>
+                        <pre style="background: #1e1e1e; padding: 1rem; border-radius: 4px; overflow-x: auto; margin-top: 0.5rem;">${escapeHtml(data.code_generated)}</pre>
+                    </details>`;
+                }
+
+                // Plot
+                if (data.plot_base64) {
+                    responseHtml += `<div style="margin-bottom: 1rem;">
+                        <img src="data:image/png;base64,${data.plot_base64}" alt="Analysis plot" style="max-width: 100%; border-radius: 4px;">
+                    </div>`;
+                }
+
+                // Execution result (HTML output)
+                if (data.execution_result) {
+                    responseHtml += `<div class="execution-result" style="margin-bottom: 0.5rem;">${data.execution_result}</div>`;
+                }
+
+                // Error
+                if (data.error) {
+                    responseHtml += `<div style="color: var(--accent-red); background: rgba(248, 81, 73, 0.1); padding: 0.5rem; border-radius: 4px;">
+                        Error: ${escapeHtml(data.error)}
+                    </div>`;
+                }
+
+                // Execution time
+                if (data.execution_time_seconds) {
+                    responseHtml += `<div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.5rem;">
+                        Executed in ${data.execution_time_seconds.toFixed(2)}s
+                    </div>`;
+                }
+
+                responseHtml += '</div>';
+                chat.innerHTML += responseHtml;
+
+                // Update conversation history
+                analysisHistory.push({ role: 'user', content: message });
+                analysisHistory.push({ role: 'assistant', content: data.response_text || '' });
+
+            } catch (error) {
+                chat.removeChild(chat.lastChild);
+                chat.innerHTML += `<div class="chat-message assistant" style="color: var(--accent-red);">
+                    Error: ${error.message}
+                </div>`;
+            }
+
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ============== Quick Training (Dynamic Dataset) ==============
+
+        function updateHyperparamUI() {
+            const modelType = document.getElementById('modelType').value;
+            document.getElementById('lgbParams').style.display = modelType === 'lightgbm' ? 'block' : 'none';
+            document.getElementById('logregParams').style.display = modelType === 'logreg' ? 'block' : 'none';
+            document.getElementById('pytorchParams').style.display = modelType === 'pytorch' ? 'block' : 'none';
+        }
+
+        function getHyperparameters(modelType) {
+            if (modelType === 'lightgbm') {
+                return {
+                    n_estimators: parseInt(document.getElementById('lgb_n_estimators').value),
+                    max_depth: parseInt(document.getElementById('lgb_max_depth').value),
+                    learning_rate: parseFloat(document.getElementById('lgb_learning_rate').value),
+                    num_leaves: parseInt(document.getElementById('lgb_num_leaves').value)
+                };
+            } else if (modelType === 'logreg') {
+                return {
+                    C: parseFloat(document.getElementById('logreg_C').value),
+                    max_iter: parseInt(document.getElementById('logreg_max_iter').value)
+                };
+            } else if (modelType === 'pytorch') {
+                const hiddenStr = document.getElementById('pytorch_hidden_sizes').value;
+                const hiddenSizes = hiddenStr.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+                return {
+                    hidden_sizes: hiddenSizes.length > 0 ? hiddenSizes : [64, 32],
+                    max_epochs: parseInt(document.getElementById('pytorch_max_epochs').value),
+                    learning_rate: parseFloat(document.getElementById('pytorch_lr').value),
+                    batch_size: parseInt(document.getElementById('pytorch_batch_size').value)
+                };
+            }
+            return {};
+        }
+
+        async function startQuickTraining() {
+            const selectedFeatures = getSelectedFeatures();
+            if (selectedFeatures.length === 0) {
+                alert('Please select at least one feature');
+                return;
+            }
+
+            const modelType = document.getElementById('modelType').value;
+            const modelName = document.getElementById('modelName').value || null;
+
+            const btn = document.getElementById('trainBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Training...';
+
+            const statusDiv = document.getElementById('trainingStatus');
+            statusDiv.style.display = 'block';
+            document.getElementById('statusText').innerHTML = '<span class="status-text running">Training in progress...</span>';
+            document.getElementById('chartContainer').style.display = 'none';
+
+            // Get hyperparameters from UI
+            const hyperparams = getHyperparameters(modelType);
+
+            // PyTorch uses async training endpoint
+            if (modelType === 'pytorch') {
+                try {
+                    const res = await fetch(`${API_BASE}/api/train/submit`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            dataset_id: datasetId,
+                            model_type: modelType,
+                            features: selectedFeatures,
+                            name: modelName,
+                            config: hyperparams
+                        })
+                    });
+
+                    if (!res.ok) {
+                        const error = await res.json();
+                        throw new Error(error.detail || 'Failed to submit job');
+                    }
+
+                    const result = await res.json();
+
+                    document.getElementById('statusText').innerHTML = `
+                        <span class="status-text running">PyTorch job submitted!</span>
+                    `;
+                    document.getElementById('progressText').innerHTML = `
+                        <div style="margin-top: 1rem;">
+                            <p>Job ID: <code>${result.job_id}</code></p>
+                            <p style="color: var(--text-secondary);">
+                                PyTorch training runs in the background.
+                                Go to <a href="#" onclick="switchTab('jobstatus'); selectJob('${result.job_id}'); return false;" style="color: var(--accent-blue);">Training Status</a> tab to monitor progress.
+                            </p>
+                        </div>
+                    `;
+
+                    btn.disabled = false;
+                    btn.textContent = 'Train Model';
+                    return;
+                } catch (e) {
+                    document.getElementById('statusText').innerHTML =
+                        `<span class="status-text failed">Job submission failed: ${e.message}</span>`;
+                    btn.disabled = false;
+                    btn.textContent = 'Train Model';
+                    return;
+                }
+            }
+
+            try {
+                // Use dataset-specific training endpoint for LightGBM/LogReg
+                const res = await fetch(`${API_BASE}/api/dataset/${datasetId}/train`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model_type: modelType,
+                        features: selectedFeatures,
+                        name: modelName
+                    })
+                });
+
+                if (!res.ok) {
+                    const error = await res.json();
+                    throw new Error(error.detail || 'Training failed');
+                }
+
+                const result = await res.json();
+
+                // Show success with metrics (different for classification vs regression)
+                document.getElementById('statusText').innerHTML = `
+                    <span class="status-text completed">Training completed!</span>
+                `;
+
+                let metricsHtml;
+                if (result.task_type === 'classification') {
+                    metricsHtml = `
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="value">${(result.metrics.auroc * 100).toFixed(1)}%</div>
+                                <div class="label">AUROC</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${(result.metrics.auprc * 100).toFixed(1)}%</div>
+                                <div class="label">AUPRC</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${(result.metrics.accuracy * 100).toFixed(1)}%</div>
+                                <div class="label">Accuracy</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${result.training_time_seconds.toFixed(2)}s</div>
+                                <div class="label">Time</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Regression metrics
+                    metricsHtml = `
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="value">${result.metrics.rmse.toFixed(2)}</div>
+                                <div class="label">RMSE</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${result.metrics.mae.toFixed(2)}</div>
+                                <div class="label">MAE</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${(result.metrics.r2 * 100).toFixed(1)}%</div>
+                                <div class="label">R²</div>
+                            </div>
+                            <div class="metric">
+                                <div class="value">${result.training_time_seconds.toFixed(2)}s</div>
+                                <div class="label">Time</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('progressText').innerHTML = `
+                    <div style="margin-top: 1rem;">
+                        ${metricsHtml}
+                        <div style="margin-top: 1rem; color: var(--text-secondary);">
+                            Model ID: <code>${result.model_id}</code> |
+                            Train: ${result.train_size} | Val: ${result.val_size}
+                        </div>
+                    </div>
+                `;
+
+                await loadModels();
+            } catch (e) {
+                document.getElementById('statusText').innerHTML =
+                    `<span class="status-text failed">Training failed: ${e.message}</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Train Model';
+            }
+        }
+
+        // ============== Legacy Training (kept for backward compatibility) ==============
+
+        async function startTraining() {
+            const selectedFeatures = getSelectedFeatures();
+            if (selectedFeatures.length === 0) {
+                alert('Please select at least one feature');
+                return;
+            }
+
+            const modelType = document.getElementById('modelType').value;
+            const modelName = document.getElementById('modelName').value || null;
+
+            // Track training submission
+            if (typeof Tracker !== 'undefined') {
+                Tracker.track(EventTypes.TRAIN_SUBMITTED, {
+                    context: { page: 'dashboard', dataset_id: datasetId },
+                    data: {
+                        model_type: modelType,
+                        model_name: modelName,
+                        feature_count: selectedFeatures.length,
+                        features: selectedFeatures
+                    }
+                });
+            }
+
+            const btn = document.getElementById('trainBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Training...';
+
+            const statusDiv = document.getElementById('trainingStatus');
+            statusDiv.style.display = 'block';
+            document.getElementById('statusText').innerHTML = '<span class="status-text running">Training in progress...</span>';
+
+            const chartContainer = document.getElementById('chartContainer');
+            chartContainer.style.display = 'block';
+            initChart(modelType);
+
+            try {
+                const res = await fetch(`${API_BASE}/api/train`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model_type: modelType,
+                        features: selectedFeatures,
+                        name: modelName
+                    })
+                });
+                const data = await res.json();
+                currentJobId = data.job_id;
+                pollTrainingStatus();
+            } catch (e) {
+                document.getElementById('statusText').innerHTML = '<span class="status-text failed">Training failed: ' + e.message + '</span>';
+                btn.disabled = false;
+                btn.textContent = 'Train Model';
+            }
+        }
+
+        async function pollTrainingStatus() {
+            if (!currentJobId) return;
+
+            try {
+                const res = await fetch(`${API_BASE}/api/training/${currentJobId}`);
+                const job = await res.json();
+
+                if (job.status === 'running') {
+                    const progress = job.progress || {};
+                    if (progress.current_epoch) {
+                        document.getElementById('progressText').textContent = `Epoch ${progress.current_epoch}/${progress.total_epochs}`;
+                    } else if (progress.current_iteration) {
+                        document.getElementById('progressText').textContent = `Iteration ${progress.current_iteration}/${progress.total_iterations}`;
+                    }
+                    updateChart(progress);
+                    setTimeout(pollTrainingStatus, 500);
+                } else if (job.status === 'completed') {
+                    document.getElementById('statusText').innerHTML = '<span class="status-text completed">Training completed! Check Model Results tab.</span>';
+                    document.getElementById('progressText').textContent = '';
+
+                    const btn = document.getElementById('trainBtn');
+                    btn.disabled = false;
+                    btn.textContent = 'Train Model';
+
+                    await loadModels();
+                    currentJobId = null;
+                } else if (job.status === 'failed') {
+                    document.getElementById('statusText').innerHTML = '<span class="status-text failed">Training failed: ' + (job.error || 'Unknown error') + '</span>';
+                    const btn = document.getElementById('trainBtn');
+                    btn.disabled = false;
+                    btn.textContent = 'Train Model';
+                    currentJobId = null;
+                }
+            } catch (e) {
+                console.error('Polling error:', e);
+                setTimeout(pollTrainingStatus, 1000);
+            }
+        }
+
+        function initChart(modelType) {
+            const ctx = document.getElementById('trainingChart').getContext('2d');
+            if (trainingChart) trainingChart.destroy();
+
+            const isLightGBM = modelType === 'lightgbm';
+            const label = isLightGBM ? 'AUC' : 'Loss';
+
+            trainingChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: `Train ${label}`, data: [], borderColor: '#3fb950', backgroundColor: 'rgba(63, 185, 80, 0.1)', tension: 0.3 },
+                        { label: `Val ${label}`, data: [], borderColor: '#58a6ff', backgroundColor: 'rgba(88, 166, 255, 0.1)', tension: 0.3 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: !isLightGBM, grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                    },
+                    plugins: { legend: { labels: { color: '#c9d1d9' } } }
+                }
+            });
+        }
+
+        function updateChart(progress) {
+            if (!trainingChart || !progress) return;
+            const trainMetrics = progress.train_metrics || [];
+            const valMetrics = progress.val_metrics || [];
+
+            if (trainMetrics.length > 0) {
+                const xKey = trainMetrics[0].epoch !== undefined ? 'epoch' : 'iteration';
+                trainingChart.data.labels = trainMetrics.map(m => m[xKey]);
+                trainingChart.data.datasets[0].data = trainMetrics.map(m => m.value);
+            }
+            if (valMetrics.length > 0) {
+                trainingChart.data.datasets[1].data = valMetrics.map(m => m.value);
+            }
+            trainingChart.update('none');
+        }
+
+        async function loadModels() {
+            try {
+                const res = await fetch(`${API_BASE}/api/models`);
+                models = await res.json();
+                renderModels();
+
+                const count = Object.keys(models).length;
+                const badge = document.getElementById('modelCount');
+                if (count > 0) {
+                    badge.textContent = count;
+                    badge.style.display = 'inline';
+                } else {
+                    badge.style.display = 'none';
+                }
+            } catch (e) {
+                console.error('Failed to load models:', e);
+            }
+        }
+
+        let selectedModelId = null;
+        let modelTrainingChart = null;
+
+        function renderModels() {
+            const container = document.getElementById('modelList');
+            const searchQuery = (document.getElementById('modelSearch')?.value || '').toLowerCase();
+            const filterByDataset = document.getElementById('filterModelsByDataset')?.checked ?? true;
+
+            // Filter models
+            let filteredModels = Object.entries(models).filter(([id, m]) => {
+                // Filter by current dataset if checkbox is checked
+                if (filterByDataset && m.dataset_id && m.dataset_id !== datasetId) {
+                    return false;
+                }
+                // Filter by search query
+                if (searchQuery) {
+                    const searchable = `${m.name} ${m.model_type} ${id}`.toLowerCase();
+                    return searchable.includes(searchQuery);
+                }
+                return true;
+            });
+
+            // Sort by created_at (newest first) if available
+            filteredModels.sort((a, b) => {
+                const dateA = a[1].created_at || '';
+                const dateB = b[1].created_at || '';
+                return dateB.localeCompare(dateA);
+            });
+
+            if (filteredModels.length === 0) {
+                const msg = Object.keys(models).length === 0
+                    ? 'No models trained yet. Go to Training tab to train a model.'
+                    : 'No models match your filter.';
+                container.innerHTML = `<div class="no-selection" style="padding: 1rem; color: var(--text-secondary);">${msg}</div>`;
+                return;
+            }
+
+            container.innerHTML = filteredModels.map(([id, m]) => {
+                const isSelected = selectedModelId === id;
+                const isRegression = m.task_type === 'regression' || m.val_metrics.rmse !== undefined;
+
+                // Quick metric summary
+                let quickMetric = '';
+                if (isRegression) {
+                    const r2 = m.val_metrics.r2 || 0;
+                    quickMetric = `R²: ${(r2 * 100).toFixed(1)}%`;
+                } else {
+                    const auc = m.val_metrics.auroc || m.val_metrics.auc || 0;
+                    quickMetric = `AUC: ${(auc * 100).toFixed(1)}%`;
+                }
+
+                return `
+                <div class="model-item" onclick="selectModel('${id}')"
+                     style="padding: 0.8rem; cursor: pointer; border-bottom: 1px solid var(--border-color);
+                            background: ${isSelected ? 'var(--bg-hover)' : 'transparent'};
+                            border-left: 3px solid ${isSelected ? 'var(--accent-blue)' : 'transparent'};">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-weight: 500;">${m.name}</span>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary); margin-left: 0.5rem;">
+                                ${m.model_type.toUpperCase()}
+                            </span>
+                        </div>
+                        <span style="color: var(--accent-green); font-size: 0.85rem;">${quickMetric}</span>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.3rem;">
+                        ${m.features.length} features | ${m.dataset_id || 'unknown'}
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function selectModel(modelId) {
+            selectedModelId = modelId;
+            renderModels();  // Re-render to show selection
+
+            const m = models[modelId];
+            if (!m) return;
+
+            // Update info
+            document.getElementById('selectedModelInfo').textContent = `${m.name} (${m.model_type.toUpperCase()})`;
+
+            // Determine if regression or classification
+            const isRegression = m.task_type === 'regression' || m.val_metrics.rmse !== undefined;
+
+            // Show metrics
+            const metricsDiv = document.getElementById('classificationMetrics');
+            const metricsGrid = document.getElementById('modelMetricsGrid');
+            metricsDiv.style.display = 'block';
+
+            if (isRegression) {
+                const rmse = m.val_metrics.rmse || 0;
+                const mae = m.val_metrics.mae || 0;
+                const r2 = m.val_metrics.r2 || 0;
+                metricsGrid.innerHTML = `
+                    <div class="metric"><div class="value">${rmse.toFixed(3)}</div><div class="label">RMSE</div></div>
+                    <div class="metric"><div class="value">${mae.toFixed(3)}</div><div class="label">MAE</div></div>
+                    <div class="metric"><div class="value">${(r2 * 100).toFixed(1)}%</div><div class="label">R²</div></div>
+                `;
+            } else {
+                const auc = m.val_metrics.auroc || m.val_metrics.auc || 0;
+                const acc = m.val_metrics.accuracy || m.val_metrics.acc || 0;
+                const auprc = m.val_metrics.auprc || 0;
+                const trainAuc = m.train_metrics.auroc || m.train_metrics.auc || 0;
+                metricsGrid.innerHTML = `
+                    <div class="metric"><div class="value">${(auc * 100).toFixed(1)}%</div><div class="label">Val AUC</div></div>
+                    <div class="metric"><div class="value">${(auprc * 100).toFixed(1)}%</div><div class="label">Val AUPRC</div></div>
+                    <div class="metric"><div class="value">${(acc * 100).toFixed(1)}%</div><div class="label">Val Acc</div></div>
+                    <div class="metric"><div class="value">${(trainAuc * 100).toFixed(1)}%</div><div class="label">Train AUC</div></div>
+                `;
+            }
+
+            // Show features
+            const featureDiv = document.getElementById('modelFeatureInfo');
+            const featureList = document.getElementById('modelFeatureList');
+            featureDiv.style.display = 'block';
+            featureList.innerHTML = m.features.map(f => `<span style="background: var(--bg-hover); padding: 0.2rem 0.5rem; border-radius: 4px; margin: 0.2rem; display: inline-block;">${f}</span>`).join('');
+
+            // Update training curves chart
+            updateModelTrainingChart(m);
+        }
+
+        function updateModelTrainingChart(model) {
+            const ctx = document.getElementById('modelTrainingCurves');
+            if (!ctx) return;
+
+            if (modelTrainingChart) {
+                modelTrainingChart.destroy();
+            }
+
+            const trainData = model.training_history?.train || [];
+            const valData = model.training_history?.val || [];
+
+            if (trainData.length === 0 && valData.length === 0) {
+                // No training history
+                return;
+            }
+
+            const epochs = trainData.map(d => d.epoch || d.step || 0);
+            const trainLoss = trainData.map(d => d.loss || d.auc || 0);
+            const valLoss = valData.map(d => d.loss || d.auc || 0);
+
+            modelTrainingChart = new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: epochs,
+                    datasets: [
+                        {
+                            label: 'Train',
+                            data: trainLoss,
+                            borderColor: '#3fb950',
+                            backgroundColor: 'rgba(63, 185, 80, 0.1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Val',
+                            data: valLoss,
+                            borderColor: '#58a6ff',
+                            backgroundColor: 'rgba(88, 166, 255, 0.1)',
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } },
+                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
+                    },
+                    plugins: { legend: { labels: { color: '#c9d1d9' } } }
+                }
+            });
+        }
+
+        function renderFeatureImportance(importance) {
+            // Handle both array format (from /api/train/quick) and object format (from /api/train)
+            let items = [];
+            if (Array.isArray(importance)) {
+                // Array format: [{feature: "age", importance: 0.45}, ...]
+                items = importance.map(item => ({
+                    name: item.feature,
+                    value: item.importance
+                }));
+            } else {
+                // Object format: {age: 0.45, ...}
+                items = Object.entries(importance).map(([name, value]) => ({
+                    name,
+                    value
+                }));
+            }
+
+            const total = items.reduce((sum, item) => sum + item.value, 0) || 1;
+            items.sort((a, b) => b.value - a.value);
+
+            return items.map(item => {
+                const pct = (item.value / total) * 100;
+                return `
+                    <div class="importance-bar">
+                        <span class="name">${item.name}</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: ${pct}%"></div>
+                        </div>
+                        <span class="value">${pct.toFixed(1)}%</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Select a sample (works for all datasets)
+        function selectSample(sampleId, sampleIndex, element) {
+            document.querySelectorAll('.patient-item').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+
+            // Find sample in our local samples array
+            selectedSample = samples.find(s => s.id === sampleId || s.index === sampleIndex);
+            renderSampleDetail();
+        }
+
+        // Legacy alias for synthetic dataset
+        async function selectPatient(patientId, element) {
+            // For synthetic, try to use old API; for others, use local data
+            if (datasetId === 'synthetic') {
+                try {
+                    const res = await fetch(`${API_BASE}/api/patients/${patientId}`);
+                    const data = await res.json();
+                    // Convert to sample format
+                    selectedSample = {
+                        id: patientId,
+                        index: parseInt(patientId.replace('P', '')) - 1,
+                        features: data.patient.features,
+                        target: data.patient.outcome,
+                        split: data.patient.split,
+                        name: data.patient.name,
+                        predictions: data.predictions
+                    };
+                    renderSampleDetail();
+                } catch (e) {
+                    console.error('Failed to load patient:', e);
+                }
+            }
+        }
+
+        function renderSampleDetail() {
+            if (!selectedSample) return;
+
+            const s = selectedSample;
+            const entityName = datasetId === 'synthetic' ? 'Patient' : 'Sample';
+            const displayName = s.name || `${entityName} ${s.index + 1}`;
+
+            // Format target display
+            let targetHtml;
+            if (taskType === 'classification') {
+                const isPositive = s.target === 1;
+                let outcomeText;
+                if (datasetId === 'synthetic') {
+                    outcomeText = isPositive ? 'OD Occurred' : 'No OD';
+                } else if (datasetId === 'breast_cancer') {
+                    outcomeText = isPositive ? 'Benign' : 'Malignant';
+                } else {
+                    outcomeText = isPositive ? 'Positive' : 'Negative';
+                }
+                targetHtml = `
+                    <span style="color: ${isPositive ? 'var(--accent-green)' : 'var(--accent-red)'}; font-weight: bold;">
+                        ${outcomeText}
+                    </span>
+                `;
+            } else {
+                // Regression
+                targetHtml = `<span style="font-weight: bold;">${s.target.toFixed(2)}</span>`;
+            }
+
+            const container = document.getElementById('patientDetail');
+            container.innerHTML = `
+                <h3>${displayName} (${s.id})</h3>
+                <div class="patient-meta">
+                    <strong>${s.split.toUpperCase()}</strong> set |
+                    ${datasetConfig.target_name}: ${targetHtml}
+                </div>
+
+                <div class="patient-features">
+                    <table>
+                        <tr><th>Feature</th><th>Value</th><th>Description</th></tr>
+                        ${Object.entries(s.features).map(([k, v]) => `
+                            <tr>
+                                <td><strong>${k}</strong></td>
+                                <td>${typeof v === 'number' ? v.toFixed(4) : v}</td>
+                                <td style="color: var(--text-secondary); font-size: 0.85rem;">${featureDescriptions[k] || ''}</td>
+                            </tr>
+                        `).join('')}
+                    </table>
+                </div>
+
+                ${s.predictions && Object.keys(s.predictions).length > 0 ? `
+                    <div class="patient-predictions">
+                        <h4>Model Predictions</h4>
+                        ${Object.entries(s.predictions).map(([id, pred]) => `
+                            <div class="prediction-item">
+                                <span>${pred.model_name} (${pred.model_type})</span>
+                                <span class="prob ${pred.probability >= 0.5 ? 'high' : 'low'}">
+                                    ${(pred.probability * 100).toFixed(1)}% risk
+                                </span>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : '<div style="color: var(--text-secondary); margin-top: 1rem;">Train models in the Training tab to see predictions.</div>'}
+            `;
+        }
+
+        // Legacy alias
+        function renderPatientDetail() { renderSampleDetail(); }
+
+        // Chat functions
+        async function sendChat(inputId, messagesId, contextBuilder) {
+            const input = document.getElementById(inputId);
+            const message = input.value.trim();
+            if (!message) return;
+
+            const messagesDiv = document.getElementById(messagesId);
+            messagesDiv.innerHTML += `<div class="chat-message user">${message}</div>`;
+            input.value = '';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            try {
+                const context = contextBuilder();
+                const res = await fetch(`${API_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message, context })
+                });
+                const data = await res.json();
+                messagesDiv.innerHTML += `<div class="chat-message assistant">${data.response}</div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            } catch (e) {
+                messagesDiv.innerHTML += `<div class="chat-message assistant" style="color: var(--accent-red)">Error: ${e.message}</div>`;
+            }
+        }
+
+        function sendModelChat() {
+            sendChat('modelChatInput', 'modelChat', () => ({
+                type: 'model_query',
+                models: models,
+                feature_descriptions: featureDescriptions
+            }));
+        }
+
+        function sendPatientChat() {
+            sendChat('patientChatInput', 'patientChat', () => ({
+                type: 'patient_query',
+                patient: selectedSample?.patient,
+                predictions: selectedSample?.predictions,
+                feature_descriptions: featureDescriptions
+            }));
+        }
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (e.target.id === 'modelChatInput') sendModelChat();
+                if (e.target.id === 'patientChatInput') sendPatientChat();
+                if (e.target.id === 'analysisChatInput') sendAnalysisChat();
+            }
+        });
+
+        // ============== Training Status Tab (Job Monitoring) ==============
+
+        let selectedJobId = null;
+        let jobPollingInterval = null;
+        let jobTrainingChart = null;
+        let allJobs = [];  // Store all jobs for filtering
+
+        async function refreshJobList() {
+            try {
+                const res = await fetch(`${API_BASE}/api/jobs`);
+                if (!res.ok) throw new Error('Failed to fetch jobs');
+                const data = await res.json();
+                allJobs = data.jobs || [];
+                renderJobList(getFilteredJobs());
+                updateRunningJobBadge(allJobs);
+            } catch (e) {
+                console.error('Failed to refresh job list:', e);
+                document.getElementById('jobList').innerHTML = `
+                    <div style="color: var(--accent-red); padding: 1rem;">
+                        Error loading jobs: ${e.message}
+                    </div>
+                `;
+            }
+        }
+
+        function getFilteredJobs() {
+            const searchQuery = (document.getElementById('jobSearch')?.value || '').toLowerCase();
+            const filterByDataset = document.getElementById('filterJobsByDataset')?.checked ?? true;
+
+            return allJobs.filter(job => {
+                // Filter by current dataset if checkbox is checked
+                if (filterByDataset && job.dataset_id && job.dataset_id !== datasetId) {
+                    return false;
+                }
+                // Filter by search query
+                if (searchQuery) {
+                    const searchable = `${job.model_name || ''} ${job.model_type} ${job.job_id}`.toLowerCase();
+                    return searchable.includes(searchQuery);
+                }
+                return true;
+            });
+        }
+
+        function filterJobsDisplay() {
+            renderJobList(getFilteredJobs());
+        }
+
+        function renderJobList(jobs) {
+            const container = document.getElementById('jobList');
+
+            if (jobs.length === 0) {
+                const msg = allJobs.length === 0
+                    ? 'No jobs found. Submit a training job from the Training tab.'
+                    : 'No jobs match your filter.';
+                container.innerHTML = `
+                    <div style="color: var(--text-secondary); padding: 1rem;">
+                        ${msg}
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = jobs.map(job => {
+                const statusColor = {
+                    'queued': 'var(--text-secondary)',
+                    'running': 'var(--accent-yellow)',
+                    'completed': 'var(--accent-green)',
+                    'failed': 'var(--accent-red)'
+                }[job.status] || 'var(--text-secondary)';
+
+                const statusIcon = {
+                    'queued': '⏳',
+                    'running': '🔄',
+                    'completed': '✅',
+                    'failed': '❌'
+                }[job.status] || '•';
+
+                const isSelected = selectedJobId === job.job_id;
+
+                return `
+                    <div class="job-item" onclick="selectJob('${job.job_id}')"
+                         style="padding: 0.8rem; cursor: pointer; border-bottom: 1px solid var(--border-color);
+                                background: ${isSelected ? 'var(--bg-hover)' : 'transparent'};
+                                border-left: 3px solid ${isSelected ? 'var(--accent-blue)' : 'transparent'};">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 500;">${job.model_name || job.job_id}</span>
+                                <span style="font-size: 0.75rem; color: var(--text-secondary); margin-left: 0.5rem;">
+                                    ${job.model_type.toUpperCase()}
+                                </span>
+                            </div>
+                            <span style="color: ${statusColor}; font-size: 0.85rem;">
+                                ${statusIcon} ${job.status}
+                            </span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.3rem;">
+                            ${job.created_at ? new Date(job.created_at).toLocaleString() : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateRunningJobBadge(jobs) {
+            const runningCount = jobs.filter(j => j.status === 'running' || j.status === 'queued').length;
+            const badge = document.getElementById('runningJobCount');
+            if (runningCount > 0) {
+                badge.textContent = runningCount;
+                badge.style.display = 'inline';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        async function selectJob(jobId) {
+            selectedJobId = jobId;
+
+            // Refresh to show selection
+            await refreshJobList();
+
+            // Update info display
+            document.getElementById('selectedJobInfo').textContent = `Selected: ${jobId}`;
+
+            // Start polling for this job
+            startJobPolling(jobId);
+        }
+
+        function startJobPolling(jobId) {
+            // Clear any existing polling
+            if (jobPollingInterval) {
+                clearInterval(jobPollingInterval);
+            }
+
+            // Initial fetch
+            pollJobStatus(jobId);
+            pollJobLog(jobId);
+            pollTrainingCurves(jobId);
+
+            // Set up polling interval (every 2 seconds)
+            jobPollingInterval = setInterval(() => {
+                pollJobStatus(jobId);
+                pollJobLog(jobId);
+                pollTrainingCurves(jobId);
+            }, 2000);
+        }
+
+        async function pollJobStatus(jobId) {
+            try {
+                const res = await fetch(`${API_BASE}/api/jobs/${jobId}/status`);
+                if (!res.ok) return;
+                const data = await res.json();
+
+                // Stop polling if job is completed or failed
+                if (data.status === 'completed' || data.status === 'failed') {
+                    if (jobPollingInterval) {
+                        clearInterval(jobPollingInterval);
+                        jobPollingInterval = null;
+                    }
+                    // Final refresh of the job list
+                    refreshJobList();
+                }
+            } catch (e) {
+                console.error('Failed to poll job status:', e);
+            }
+        }
+
+        async function pollJobLog(jobId) {
+            try {
+                const res = await fetch(`${API_BASE}/api/jobs/${jobId}/log?lines=100`);
+                if (!res.ok) return;
+                const data = await res.json();
+
+                const logViewer = document.getElementById('jobLogViewer');
+                if (data.log) {
+                    logViewer.textContent = data.log;
+                    // Auto-scroll to bottom
+                    logViewer.scrollTop = logViewer.scrollHeight;
+                } else if (data.error) {
+                    logViewer.textContent = `Error: ${data.error}`;
+                }
+            } catch (e) {
+                console.error('Failed to poll job log:', e);
+            }
+        }
+
+        async function pollTrainingCurves(jobId) {
+            try {
+                const res = await fetch(`${API_BASE}/api/jobs/${jobId}/training_curves`);
+                if (!res.ok) return;
+                const data = await res.json();
+
+                if (data.train && data.train.length > 0) {
+                    updateJobTrainingChart(data);
+                }
+            } catch (e) {
+                console.error('Failed to poll training curves:', e);
+            }
+        }
+
+        function initJobTrainingChart() {
+            const ctx = document.getElementById('jobTrainingChart');
+            if (!ctx) return;
+
+            if (jobTrainingChart) {
+                jobTrainingChart.destroy();
+            }
+
+            jobTrainingChart = new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Train Loss',
+                            data: [],
+                            borderColor: '#3fb950',
+                            backgroundColor: 'rgba(63, 185, 80, 0.1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Val Loss',
+                            data: [],
+                            borderColor: '#58a6ff',
+                            backgroundColor: 'rgba(88, 166, 255, 0.1)',
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#8b949e' }
+                        },
+                        x: {
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#8b949e' }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#c9d1d9' } }
+                    }
+                }
+            });
+        }
+
+        function updateJobTrainingChart(data) {
+            if (!jobTrainingChart) {
+                initJobTrainingChart();
+            }
+
+            const trainData = data.train || [];
+            const valData = data.val || [];
+
+            // Use epoch or step as x-axis
+            const epochs = trainData.map(d => d.epoch || d.step || 0);
+
+            // Try to find loss metric
+            const trainLoss = trainData.map(d => d.loss || d.value || 0);
+            const valLoss = valData.map(d => d.loss || d.value || 0);
+
+            jobTrainingChart.data.labels = epochs;
+            jobTrainingChart.data.datasets[0].data = trainLoss;
+            jobTrainingChart.data.datasets[1].data = valLoss;
+            jobTrainingChart.update('none');
+        }
+
+        // Initialize chart when switching to job status tab
+        const originalSwitchTab = switchTab;
+        switchTab = function(tabName) {
+            originalSwitchTab(tabName);
+            if (tabName === 'jobstatus') {
+                initJobTrainingChart();
+                refreshJobList();
+            }
+        };
+
+        init();
+    </script>
+</body>
+</html>

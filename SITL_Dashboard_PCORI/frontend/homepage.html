@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Dashboard - Dataset Selection</title>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --bg-hover: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --accent-purple: #a371f7;
+            --border-color: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        .dataset-count {
+            background: var(--accent-green);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .dataset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dataset-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .dataset-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .dataset-card h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dataset-card .description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .dataset-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            background: var(--bg-dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .meta-item .label {
+            color: var(--text-secondary);
+        }
+
+        .meta-item .value {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-left: 0.3rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: lowercase;
+        }
+
+        .tag.healthcare { background: rgba(163, 113, 247, 0.2); color: var(--accent-purple); }
+        .tag.synthetic { background: rgba(88, 166, 255, 0.2); color: var(--accent-blue); }
+        .tag.benchmark { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); }
+        .tag.classification { background: rgba(210, 153, 34, 0.2); color: var(--accent-yellow); }
+        .tag.regression { background: rgba(248, 81, 73, 0.2); color: var(--accent-red); }
+
+        .task-badge {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: auto;
+        }
+
+        .task-badge.classification {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+
+        .task-badge.regression {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-secondary);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--accent-red);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dataset-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div></div>
+            <div style="text-align: center;">
+                <h1>ML Dashboard</h1>
+                <div class="subtitle">Select a dataset to explore, train models, and analyze predictions</div>
+            </div>
+            <div id="userInfo" style="font-size: 0.9rem; text-align: right;">
+                <span id="currentUsername" style="color: var(--accent-green);"></span>
+                <a href="/logout" style="color: var(--text-secondary); margin-left: 0.5rem; text-decoration: none;">[Logout]</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Available Datasets</h2>
+            <span class="dataset-count" id="datasetCount">Loading...</span>
+        </div>
+
+        <div id="datasetGrid" class="dataset-grid">
+            <div class="loading">
+                <div class="spinner"></div>
+                <div>Loading datasets...</div>
+            </div>
+        </div>
+
+        <!-- Specialized Tools Section -->
+        <div class="section-header" style="margin-top: 3rem;">
+            <h2>Specialized Tools</h2>
+            <span class="dataset-count" style="background: var(--accent-purple);">Advanced</span>
+        </div>
+
+        <div class="dataset-grid">
+            <a href="/sequential" class="dataset-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3>Health Facts Sequential</h3>
+                    <span class="task-badge classification">LSTM/GRU</span>
+                </div>
+                <div class="description">Train sequential models (LSTM, GRU with attention) on Health Facts temporal data for OUD/Overdose prediction.</div>
+                <div class="dataset-meta">
+                    <div class="meta-item">
+                        <span class="label">Type:</span>
+                        <span class="value">Sequence Modeling</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Features:</span>
+                        <span class="value">Temporal</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Data:</span>
+                        <span class="value">13.8M patients</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag healthcare">healthcare</span>
+                    <span class="tag classification">classification</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        PCORI ML Dashboard | Phase 2.4
+    </div>
+
+    <script src="/static/tracker.js"></script>
+    <script>
+        const API_BASE = window.location.origin;
+
+        async function loadDatasets() {
+            const grid = document.getElementById('datasetGrid');
+            const countBadge = document.getElementById('datasetCount');
+
+            try {
+                const res = await fetch(`${API_BASE}/api/datasets`);
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                }
+
+                const data = await res.json();
+                const datasets = data.datasets || [];
+
+                countBadge.textContent = `${datasets.length} datasets`;
+
+                if (datasets.length === 0) {
+                    grid.innerHTML = `
+                        <div class="error">
+                            No datasets available. Check the backend configuration.
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = datasets.map(ds => `
+                    <a href="/dataset/${ds.dataset_id}" class="dataset-card">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <h3>${ds.display_name}</h3>
+                            <span class="task-badge ${ds.task_type}">${ds.task_type}</span>
+                        </div>
+                        <div class="description">${ds.description}</div>
+                        <div class="dataset-meta">
+                            <div class="meta-item">
+                                <span class="label">Samples:</span>
+                                <span class="value">${ds.sample_count.toLocaleString()}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="label">Features:</span>
+                                <span class="value">${ds.feature_count}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="label">Source:</span>
+                                <span class="value">${ds.source || 'unknown'}</span>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            ${(ds.tags || []).map(tag => `<span class="tag ${tag}">${tag}</span>`).join('')}
+                        </div>
+                    </a>
+                `).join('');
+
+            } catch (e) {
+                console.error('Failed to load datasets:', e);
+                grid.innerHTML = `
+                    <div class="error">
+                        Failed to load datasets: ${e.message}<br>
+                        <small>Make sure the backend server is running.</small>
+                    </div>
+                `;
+                countBadge.textContent = 'Error';
+            }
+        }
+
+        async function loadCurrentUser() {
+            try {
+                const res = await fetch(`${API_BASE}/api/me`);
+                if (res.ok) {
+                    const data = await res.json();
+                    document.getElementById('currentUsername').textContent = data.username;
+                    // Initialize tracker with user info
+                    Tracker.init({ userId: data.username });
+                }
+            } catch (e) {
+                console.error('Failed to load user info:', e);
+            }
+        }
+
+        // Track dataset selection when clicking a card
+        function trackDatasetClick(datasetId, datasetName) {
+            Tracker.track(EventTypes.SELECT_DATASET, {
+                context: { page: 'homepage' },
+                data: { dataset_id: datasetId, dataset_name: datasetName }
+            });
+        }
+
+        // Override dataset card click to track before navigating
+        document.addEventListener('click', function(e) {
+            const card = e.target.closest('.dataset-card');
+            if (card) {
+                const href = card.getAttribute('href');
+                const datasetId = href.replace('/dataset/', '');
+                const datasetName = card.querySelector('h3')?.textContent || datasetId;
+                trackDatasetClick(datasetId, datasetName);
+            }
+        });
+
+        // Load user info and datasets on page load
+        loadCurrentUser();
+        loadDatasets();
+    </script>
+</body>
+</html>

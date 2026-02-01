@@ -1,0 +1,130 @@
+<svg viewBox="0 0 1200 650" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#30363d"/>
+        </marker>
+        <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#1f6feb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1158c7;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#238636;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#196c2e;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#9a6700;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#7d5200;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#6e40c9;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#553098;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect width="1200" height="650" fill="#0d1117"/>
+
+    <!-- Title -->
+    <text x="600" y="45" text-anchor="middle" fill="#58a6ff" font-size="28" font-weight="bold" font-family="system-ui, sans-serif">PCORI SITL System Architecture</text>
+    <text x="600" y="75" text-anchor="middle" fill="#8b949e" font-size="16" font-family="system-ui, sans-serif">Stakeholder-in-the-Loop ML Platform for OUD/OD Risk Prediction</text>
+
+    <!-- Layer 1: Frontend -->
+    <rect x="50" y="100" width="1100" height="120" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
+    <text x="80" y="130" fill="#58a6ff" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">FRONTEND LAYER</text>
+    <text x="80" y="152" fill="#8b949e" font-size="13" font-family="system-ui, sans-serif">HTML + JavaScript + Chart.js</text>
+
+    <!-- Frontend components -->
+    <rect x="80" y="165" width="150" height="45" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="155" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">Cohort Builder</text>
+
+    <rect x="250" y="165" width="150" height="45" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="325" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">Training UI</text>
+
+    <rect x="420" y="165" width="150" height="45" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="495" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">Patient Explorer</text>
+
+    <rect x="590" y="165" width="150" height="45" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="665" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">Sequential UI</text>
+
+    <rect x="760" y="165" width="150" height="45" rx="8" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <text x="835" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">AI Chat</text>
+
+    <rect x="930" y="165" width="100" height="45" rx="8" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+    <text x="980" y="193" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="system-ui, sans-serif">Auth</text>
+
+    <rect x="1050" y="165" width="80" height="45" rx="8" fill="#21262d" stroke="#30363d"/>
+    <text x="1090" y="185" text-anchor="middle" fill="#8b949e" font-size="11" font-family="system-ui, sans-serif">Analytics</text>
+    <text x="1090" y="200" text-anchor="middle" fill="#8b949e" font-size="10" font-family="system-ui, sans-serif">Tracker</text>
+
+    <!-- Arrow 1 -->
+    <path d="M600 225 L600 255" stroke="#30363d" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+    <!-- Layer 2: Backend API -->
+    <rect x="50" y="265" width="1100" height="140" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
+    <text x="80" y="295" fill="#58a6ff" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">BACKEND API</text>
+    <text x="80" y="317" fill="#8b949e" font-size="13" font-family="system-ui, sans-serif">FastAPI + Uvicorn (Python 3.10) with integrated ML training</text>
+
+    <!-- API endpoints -->
+    <rect x="80" y="330" width="190" height="65" rx="8" fill="#21262d" stroke="#30363d"/>
+    <text x="175" y="355" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/api/cohort/filter</text>
+    <text x="175" y="373" text-anchor="middle" fill="#8b949e" font-size="11" font-family="system-ui, sans-serif">Patient filtering</text>
+    <text x="175" y="390" text-anchor="middle" fill="#3fb950" font-size="10" font-family="system-ui, sans-serif">POST</text>
+
+    <rect x="290" y="330" width="190" height="65" rx="8" fill="url(#orangeGrad)" stroke="#d29922"/>
+    <text x="385" y="355" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/api/train/quick</text>
+    <text x="385" y="373" text-anchor="middle" fill="#ffd33d" font-size="11" font-family="system-ui, sans-serif">LightGBM + SHAP</text>
+    <text x="385" y="390" text-anchor="middle" fill="#ffd33d" font-size="10" font-family="system-ui, sans-serif">Sub-second training</text>
+
+    <rect x="500" y="330" width="220" height="65" rx="8" fill="url(#orangeGrad)" stroke="#d29922"/>
+    <text x="610" y="355" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/api/train/sequential</text>
+    <text x="610" y="373" text-anchor="middle" fill="#ffd33d" font-size="11" font-family="system-ui, sans-serif">LSTM/GRU Training</text>
+    <text x="610" y="390" text-anchor="middle" fill="#ffd33d" font-size="10" font-family="system-ui, sans-serif">Background thread</text>
+
+    <rect x="740" y="330" width="150" height="65" rx="8" fill="#21262d" stroke="#30363d"/>
+    <text x="815" y="355" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/api/chat</text>
+    <text x="815" y="373" text-anchor="middle" fill="#8b949e" font-size="11" font-family="system-ui, sans-serif">GPT/Claude</text>
+    <text x="815" y="390" text-anchor="middle" fill="#3fb950" font-size="10" font-family="system-ui, sans-serif">POST</text>
+
+    <rect x="910" y="330" width="220" height="65" rx="8" fill="#21262d" stroke="#30363d"/>
+    <text x="1020" y="355" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/api/model/.../explain</text>
+    <text x="1020" y="373" text-anchor="middle" fill="#8b949e" font-size="11" font-family="system-ui, sans-serif">Per-patient SHAP</text>
+    <text x="1020" y="390" text-anchor="middle" fill="#58a6ff" font-size="10" font-family="system-ui, sans-serif">GET</text>
+
+    <!-- Arrow 2 -->
+    <path d="M400 410 L400 440" stroke="#30363d" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <path d="M800 410 L800 440" stroke="#30363d" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+    <!-- Layer 3: External Services -->
+    <rect x="650" y="450" width="500" height="80" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
+    <text x="680" y="478" fill="#a371f7" font-size="16" font-weight="bold" font-family="system-ui, sans-serif">EXTERNAL SERVICES</text>
+
+    <rect x="680" y="495" width="140" height="30" rx="6" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <text x="750" y="515" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" font-family="system-ui, sans-serif">OpenAI API</text>
+
+    <rect x="840" y="495" width="140" height="30" rx="6" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+    <text x="910" y="515" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" font-family="system-ui, sans-serif">Anthropic API</text>
+
+    <rect x="1000" y="495" width="130" height="30" rx="6" fill="#21262d" stroke="#30363d"/>
+    <text x="1065" y="515" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="system-ui, sans-serif">Analytics DB</text>
+
+    <!-- Layer 4: Data Layer -->
+    <rect x="50" y="450" width="580" height="180" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
+    <text x="80" y="478" fill="#58a6ff" font-size="16" font-weight="bold" font-family="system-ui, sans-serif">DATA LAYER</text>
+    <text x="80" y="498" fill="#8b949e" font-size="12" font-family="system-ui, sans-serif">Supports interactive + batch access</text>
+
+    <!-- Data boxes -->
+    <rect x="80" y="515" width="240" height="100" rx="10" fill="#0d419d" stroke="#1f6feb" stroke-width="2" filter="url(#shadow)"/>
+    <text x="200" y="545" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold" font-family="system-ui, sans-serif">Batch Data Store</text>
+    <text x="200" y="565" text-anchor="middle" fill="#a5d6ff" font-size="11" font-family="system-ui, sans-serif">Sequential/bulk reads</text>
+    <text x="200" y="582" text-anchor="middle" fill="#a5d6ff" font-size="11" font-family="system-ui, sans-serif">Large-scale training</text>
+    <text x="200" y="599" text-anchor="middle" fill="#a5d6ff" font-size="10" font-family="system-ui, sans-serif">Time-series sequences</text>
+
+    <rect x="340" y="515" width="270" height="100" rx="10" fill="#238636" stroke="#3fb950" stroke-width="2" filter="url(#shadow)"/>
+    <text x="475" y="545" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold" font-family="system-ui, sans-serif">Queryable Data Store</text>
+    <text x="475" y="565" text-anchor="middle" fill="#aff5b4" font-size="11" font-family="system-ui, sans-serif">Filter + search access</text>
+    <text x="475" y="582" text-anchor="middle" fill="#aff5b4" font-size="11" font-family="system-ui, sans-serif">Cohort selection</text>
+    <text x="475" y="599" text-anchor="middle" fill="#aff5b4" font-size="10" font-family="system-ui, sans-serif">Rapid iteration</text>
+</svg>

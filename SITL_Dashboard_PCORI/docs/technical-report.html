@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCORI SITL - Technical Report v2</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --bg-card: #161b22;
+            --bg-code: #1c2128;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --green: #3fb950;
+            --orange: #d29922;
+            --purple: #a371f7;
+            --red: #f85149;
+            --border: #30363d;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 100;
+        }
+        nav a { color: var(--text-muted); text-decoration: none; margin-right: 1.5rem; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent); }
+
+        h1 { color: var(--accent); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        h2 { color: var(--green); font-size: 1.6rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        h3 { color: var(--orange); font-size: 1.25rem; margin: 2rem 0 1rem; }
+        h4 { color: var(--purple); font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+
+        .meta { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+        .meta strong { color: var(--text); }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        .card.highlight { border-left: 4px solid var(--accent); }
+        .card.warning { border-left: 4px solid var(--orange); }
+        .card.success { border-left: 4px solid var(--green); }
+
+        code {
+            background: var(--bg-code);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: var(--bg-code);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+        }
+        pre code { padding: 0; background: none; font-size: 0.85em; line-height: 1.5; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { text-align: left; padding: 0.75rem 1rem; border: 1px solid var(--border); }
+        th { background: var(--bg-card); color: var(--text-muted); font-weight: 600; }
+        td { background: var(--bg); }
+
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin: 0.4rem 0; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .svg-container {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        .svg-container svg {
+            width: 100%;
+            height: auto;
+            min-width: 800px;
+        }
+        .svg-container.full-width svg {
+            min-width: 900px;
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0; }
+
+        .tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .tag.get { background: #1f6feb33; color: var(--accent); }
+        .tag.post { background: #23863633; color: var(--green); }
+
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .toc h3 { margin-top: 0; margin-bottom: 1rem; }
+        .toc ul { list-style: none; margin: 0; columns: 2; }
+        .toc li { margin: 0.3rem 0; break-inside: avoid; }
+
+        .updated { color: var(--text-muted); font-size: 0.9rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-style: italic; }
+
+        @media (max-width: 900px) {
+            .toc ul { columns: 1; }
+            .svg-container svg { min-width: 600px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">&larr; Back to Docs</a>
+        <a href="#executive-summary">Summary</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#data-model">Data Model</a>
+        <a href="#api-reference">API</a>
+        <a href="#caching">Caching</a>
+        <a href="#deployment">Deployment</a>
+        <a href="architecture.svg" target="_blank">Arch SVG</a>
+        <a href="dataflow.svg" target="_blank">Flow SVG</a>
+    </nav>
+
+    <div class="container">
+        <h1>PCORI SITL Dashboard: Technical Report</h1>
+        <p class="meta">
+            <strong>Version:</strong> 2.0 (commit <code>8516354</code>) &nbsp;|&nbsp;
+            <strong>Date:</strong> January 30, 2026 &nbsp;|&nbsp;
+            <strong>Repository:</strong> github.com/elinaliu-stony/pcori-consolidated (private)
+        </p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#executive-summary">1. Executive Summary</a></li>
+                <li><a href="#architecture">2. System Architecture</a></li>
+                <li><a href="#data-flow">3. Data Flow</a></li>
+                <li><a href="#data-model">4. Data Model</a></li>
+                <li><a href="#api-reference">5. API Reference</a></li>
+                <li><a href="#caching">6. Caching System</a></li>
+                <li><a href="#machine-config">7. Machine Configuration</a></li>
+                <li><a href="#deployment">8. Deployment</a></li>
+                <li><a href="#security">9. Security</a></li>
+                <li><a href="#testing">10. Testing</a></li>
+                <li><a href="#appendix">Appendices</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <!-- Executive Summary -->
+        <h2 id="executive-summary">1. Executive Summary</h2>
+
+        <h3>What is PCORI SITL?</h3>
+        <div class="card highlight">
+            <p>The <strong>PCORI Stakeholder-in-the-Loop (SITL) Dashboard</strong> is an interactive machine learning platform for healthcare researchers and clinicians to build, evaluate, and interpret predictive models for <strong>Opioid Use Disorder (OUD) and Overdose (OD) risk prediction</strong>.</p>
+        </div>
+
+        <h3>The Problem</h3>
+        <div class="card warning">
+            <p>Healthcare ML models often fail in clinical practice due to:</p>
+            <ol>
+                <li><strong>Black Box Problem</strong>: Clinicians cannot trust predictions they don't understand</li>
+                <li><strong>Data Disconnect</strong>: Models trained on data clinicians never see or verify</li>
+                <li><strong>Iteration Gap</strong>: Weeks to retrain models vs. minutes of clinician availability</li>
+                <li><strong>Deployment Barrier</strong>: Production ML requires specialized engineering skills</li>
+            </ol>
+        </div>
+
+        <h3>The Solution</h3>
+        <table>
+            <thead><tr><th>Principle</th><th>Implementation</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Transparency</strong></td><td>Every prediction comes with SHAP feature explanations</td></tr>
+                <tr><td><strong>Interactivity</strong></td><td>Adjust cohorts, retrain, see results in seconds</td></tr>
+                <tr><td><strong>Interpretability</strong></td><td>AI-powered natural language explanations (GPT/Claude)</td></tr>
+                <tr><td><strong>Trust</strong></td><td>Validate models against clinical intuition before deployment</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Key Metrics</h3>
+        <div class="grid">
+            <div class="card"><h4>Training Time</h4><p>&lt;1 second for LightGBM + SHAP</p></div>
+            <div class="card"><h4>Patient Database</h4><p>2K synthetic / ~2M Health Facts</p></div>
+            <div class="card"><h4>API Endpoints</h4><p>35+ RESTful endpoints</p></div>
+            <div class="card"><h4>Model Types</h4><p>LightGBM, LogReg, LSTM, GRU</p></div>
+        </div>
+
+        <hr>
+
+        <!-- System Architecture -->
+        <h2 id="architecture">2. System Architecture</h2>
+
+        <h3>High-Level Overview</h3>
+        <div class="svg-container full-width">
+            <object type="image/svg+xml" data="architecture.svg" width="100%">
+                <img src="architecture.svg" alt="System Architecture">
+            </object>
+        </div>
+        <p><a href="architecture.svg" target="_blank">Open full-size diagram</a></p>
+
+        <h3>Architecture Layers</h3>
+        <table>
+            <thead><tr><th>Layer</th><th>Technology</th><th>Components</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Frontend</strong></td><td>HTML + JS + Chart.js</td><td>Cohort Builder, Training UI, Patient Explorer, Sequential UI, AI Chat</td></tr>
+                <tr><td><strong>Backend API</strong></td><td>FastAPI + Uvicorn</td><td>REST endpoints, integrated ML training (LightGBM, LSTM/GRU), auth middleware</td></tr>
+                <tr><td><strong>External</strong></td><td>Cloud APIs</td><td>OpenAI (GPT), Anthropic (Claude)</td></tr>
+                <tr><td><strong>Data Layer</strong></td><td>Parquet + SQLite</td><td>EHR data, Patient database</td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <!-- Data Flow -->
+        <h2 id="data-flow">3. Data Flow</h2>
+
+        <h3>Quick Training Pipeline</h3>
+        <div class="svg-container full-width">
+            <object type="image/svg+xml" data="dataflow.svg" width="100%">
+                <img src="dataflow.svg" alt="Data Flow Diagram">
+            </object>
+        </div>
+        <p><a href="dataflow.svg" target="_blank">Open full-size diagram</a></p>
+
+        <h3>Sequential Training Flow</h3>
+        <div class="card">
+            <ol>
+                <li><strong>User selects parameters</strong>: T (sequence length), feature set, normalization</li>
+                <li><strong>API checks cache</strong>: If sequences are pre-computed, load from Parquet</li>
+                <li><strong>Chunked loading</strong>: Load 50k samples at a time (memory efficient)</li>
+                <li><strong>Train LSTM/GRU</strong>: PyTorch model with progress callbacks</li>
+                <li><strong>Return metrics</strong>: AUROC, loss curves, per-epoch progress</li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <!-- Data Model -->
+        <h2 id="data-model">4. Data Model</h2>
+
+        <h3>Data Architecture Overview</h3>
+        <div class="card highlight">
+            <p>The system is designed to work with <strong>any tabular patient data</strong> containing clinical features and a binary outcome. The data layer supports multiple data sources through a unified adapter pattern.</p>
+        </div>
+
+        <h3>Supported Data Formats</h3>
+        <table>
+            <thead><tr><th>Data Source</th><th>Format</th><th>Use Case</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Development Data</strong></td><td>SQLite</td><td>Rapid prototyping and UI testing with representative patient cohorts</td></tr>
+                <tr><td><strong>Production EHR Data</strong></td><td>Parquet</td><td>Large-scale Health Facts data with millions of patient records</td></tr>
+                <tr><td><strong>Sequential Data</strong></td><td>NumPy arrays via Parquet cache</td><td>Time-series patient trajectories for LSTM/GRU models</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Data Abstraction Layer</h3>
+        <p>The system abstracts data access through configurable adapters, allowing the same UI and training pipelines to work with different underlying data sources:</p>
+        <div class="grid">
+            <div class="card">
+                <h4>Cohort Selection</h4>
+                <p>Users define patient cohorts through intuitive filters. The system translates these into efficient database queries regardless of the underlying storage format.</p>
+            </div>
+            <div class="card">
+                <h4>Feature Engineering</h4>
+                <p>Features are loaded dynamically based on the selected dataset. The adapter handles normalization, missing value imputation, and train/validation splits.</p>
+            </div>
+        </div>
+
+        <h3>Sequential Data Pipeline</h3>
+        <p>For temporal modeling, the system provides a high-level API that handles the complexity of loading and preprocessing sequential patient data:</p>
+        <pre><code># Load pre-processed sequential data
+# Returns tensors ready for LSTM/GRU training
+
+data = get_sequences(
+    T=10,                      # Sequence length (time steps)
+    feature_set="core",        # Feature subset to use
+    normalization="standard",  # Data normalization method
+)
+
+# X_train shape: (N_patients, T_timesteps, D_features)
+# y_train shape: (N_patients,) - binary outcome</code></pre>
+
+        <div class="card success">
+            <h4>Key Design Principle</h4>
+            <p>The data model is intentionally <strong>feature-agnostic</strong>. The same infrastructure supports any clinical features relevant to the prediction task, whether demographic, diagnostic, procedural, or medication-based.</p>
+        </div>
+
+        <hr>
+
+        <!-- API Reference -->
+        <h2 id="api-reference">5. API Reference</h2>
+
+        <h3>Authentication</h3>
+        <table>
+            <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><span class="tag get">GET</span></td><td><code>/login</code></td><td>Login page</td></tr>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/login</code></td><td>Authenticate (form: username, password)</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/logout</code></td><td>End session</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/me</code></td><td>Current user</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Patient & Cohort</h3>
+        <table>
+            <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/patients</code></td><td>List patients</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/patients/{id}</code></td><td>Patient details</td></tr>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/cohort/filter</code></td><td>Filter by criteria</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Training</h3>
+        <table>
+            <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/train/quick</code></td><td>LightGBM/LogReg + SHAP (&lt;1s)</td></tr>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/train</code></td><td>Async training job</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/training/{job_id}</code></td><td>Job status</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Health Facts Sequential</h3>
+        <table>
+            <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/dataset/health_facts_seq/config</code></td><td>Feature sets & options</td></tr>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/dataset/health_facts_seq/train</code></td><td>LSTM/GRU training</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/dataset/health_facts_seq/training/{job_id}</code></td><td>Training progress</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/dataset/health_facts_seq/jobs</code></td><td>List jobs</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Explanation & Models</h3>
+        <table>
+            <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/models</code></td><td>List trained models</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/models/{id}</code></td><td>Model details</td></tr>
+                <tr><td><span class="tag get">GET</span></td><td><code>/api/model/{id}/explain/patient/{pid}</code></td><td>Per-patient SHAP</td></tr>
+                <tr><td><span class="tag post">POST</span></td><td><code>/api/chat</code></td><td>GPT/Claude interpretation</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Example: Quick Train</h4>
+        <pre><code>// Request
+POST /api/train/quick
+{
+  "model_type": "lightgbm",
+  "patient_ids": ["P001", "P002", ...],
+  "features": ["feature_1", "feature_2", "feature_3", ...]  // selected from available features
+}
+
+// Response
+{
+  "model_id": "m_abc123",
+  "metrics": { "auroc": 0.823, "auprc": 0.612, "accuracy": 0.784 },
+  "feature_importance": { "feature_1": 0.42, "feature_2": 0.31, "feature_3": 0.15, ... },
+  "training_time_ms": 287
+}</code></pre>
+
+        <hr>
+
+        <!-- Data Loading -->
+        <h2 id="caching">6. Data Loading</h2>
+
+        <h3>Pre-processed Data</h3>
+        <div class="card">
+            <p>Sequential EHR data is pre-processed into numpy arrays for efficient loading during training. The system loads data directly from pre-computed files:</p>
+        </div>
+
+        <h3>Implementation</h3>
+        <pre><code>from backend.data_loader import get_health_facts_sequences
+
+# Load pre-processed sequential data
+data = get_health_facts_sequences(
+    T=10,                      # Sequence length (time steps)
+    feature_set="core",        # Feature subset
+    normalization="standard",  # Normalization method
+)
+
+# Returns dict with numpy arrays:
+# - X_train: (N, T, D) training sequences
+# - y_train: (N,) training labels
+# - X_val, y_val: validation data</code></pre>
+
+        <h3>Storage Format</h3>
+        <table>
+            <thead><tr><th>Data Type</th><th>Format</th><th>Notes</th></tr></thead>
+            <tbody>
+                <tr><td>Sequential data</td><td>NumPy (.npy)</td><td>Pre-processed arrays</td></tr>
+                <tr><td>Patient records</td><td>SQLite</td><td>Tabular patient data</td></tr>
+                <tr><td>Feature configs</td><td>CSV/JSON</td><td>Feature definitions</td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <!-- Configuration -->
+        <h2 id="machine-config">7. Configuration</h2>
+
+        <h3>Environment Variables</h3>
+        <pre><code># Required environment variables
+export DATA_ROOT="/path/to/data"           # Pre-processed data location
+export OPENAI_API_KEY="sk-..."             # For AI chat (optional)
+export ANTHROPIC_API_KEY="..."             # For AI chat (optional)</code></pre>
+
+        <h3>Configuration File</h3>
+        <pre><code># backend/config.py - Key settings
+SUPPORTED_T = [5, 10, 20]                  # Sequence lengths
+SUPPORTED_NORMALIZATIONS = ["standard", "minmax", "none"]
+DEFAULT_LABEL = "oud_od"                   # Outcome variable</code></pre>
+
+        <hr>
+
+        <!-- Deployment -->
+        <h2 id="deployment">8. Deployment</h2>
+
+        <h3>Production Setup (bmidb0)</h3>
+        <table>
+            <thead><tr><th>Port</th><th>Source</th><th>Purpose</th></tr></thead>
+            <tbody>
+                <tr><td>8501</td><td><code>~/pcori_prototype_backups/...</code></td><td>Backup (fallback)</td></tr>
+                <tr><td>8502</td><td><code>~/pcori_prototype</code></td><td>Current prototype</td></tr>
+                <tr><td>8503</td><td><code>~/checkouts/v1/apps/sitl_dashboard</code></td><td>Full production</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Starting a Service</h3>
+        <pre><code>cd ~/checkouts/v1/apps/sitl_dashboard
+
+export PYTHONPATH="/home/yinan/checkouts/v1/packages:$PYTHONPATH"
+export CACHE_ROOT="/data4/yinan/caches"
+export OPENAI_API_KEY="sk-..."
+
+# Initialize database (first time)
+python backend/init_db.py
+
+# Start server
+nohup /data4/yinan/envs/eliu3/bin/python -m uvicorn backend.main:app \
+  --host 0.0.0.0 --port 8503 > /tmp/pcori_8503.log 2>&1 &</code></pre>
+
+        <hr>
+
+        <!-- Security -->
+        <h2 id="security">9. Security Considerations</h2>
+
+        <div class="grid">
+            <div class="card warning">
+                <h4>Current State (Prototype)</h4>
+                <ul>
+                    <li>Simple username/password in code</li>
+                    <li>Cookie sessions (30-day expiry)</li>
+                    <li>Permissive CORS</li>
+                </ul>
+            </div>
+            <div class="card success">
+                <h4>Production Recommendations</h4>
+                <ul>
+                    <li>Environment variables for secrets</li>
+                    <li>Password hashing (bcrypt)</li>
+                    <li>HTTPS + rate limiting</li>
+                    <li>RBAC + audit logging</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Testing -->
+        <h2 id="testing">10. Testing</h2>
+
+        <pre><code># Smoke tests
+cd ~/checkouts/v1/apps/sitl_dashboard
+python -m pytest tests/ -v
+
+# Manual testing
+curl http://localhost:8503/health
+curl -c cookies.txt -d "username=yinan&password=yinan" http://localhost:8503/api/login
+curl -b cookies.txt -X POST http://localhost:8503/api/cohort/filter \
+  -H "Content-Type: application/json" -d '{"age_min": 30, "age_max": 60}'</code></pre>
+
+        <hr>
+
+        <!-- Appendix -->
+        <h2 id="appendix">Appendices</h2>
+
+        <h3>A. Directory Structure</h3>
+        <pre><code>sitl_dashboard/
+├── backend/
+│   ├── main.py              # FastAPI application
+│   ├── config.py            # Configuration and constants
+│   ├── data_loader.py       # Data loading utilities
+│   ├── database.py          # SQLite patient database
+│   ├── analytics.py         # Session tracking
+│   ├── sequential_endpoints.py  # LSTM/GRU training
+│   └── job_integration.py   # Background training
+├── frontend/
+│   ├── index.html           # Main dashboard
+│   └── sequential.html      # Sequential training UI
+├── data/
+│   ├── patients.db          # SQLite database
+│   └── analytics.db         # Session analytics
+└── tests/
+    └── test_api_behavior.py # API behavior tests</code></pre>
+
+        <h3>B. Version History</h3>
+        <table>
+            <thead><tr><th>Commit</th><th>Date</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td><code>8516354</code></td><td>Jan 4, 2026</td><td>Health Facts Sequential training API</td></tr>
+                <tr><td><code>a6a2e3d</code></td><td>Jan 3, 2026</td><td>Add /sequential endpoint</td></tr>
+                <tr><td><code>ae2ee29</code></td><td>Jan 2, 2026</td><td>Merge auth and analytics</td></tr>
+                <tr><td><code>a74ae57</code></td><td>Dec 30, 2025</td><td>Session replay system</td></tr>
+                <tr><td><code>708a93f</code></td><td>Dec 28, 2025</td><td>Session-based auth</td></tr>
+            </tbody>
+        </table>
+
+        <p class="updated">Technical Report v2 - Generated January 30, 2026 | Commit 8516354</p>
+    </div>
+</body>
+</html>
