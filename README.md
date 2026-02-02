@@ -543,3 +543,68 @@ The PCORI system operates within a defined security boundary:
 6. All operations logged to Audit system
 
 All data flows encrypted in transit (TLS 1.3) and at rest (AES-256).
+
+## Program Management
+
+### Project Information
+
+| Field | Value |
+|-------|-------|
+| **Contract ID** | PCORI 23C3 |
+| **Principal Investigator** | Fusheng Wang, PhD |
+| **Institution** | Stony Brook University |
+| **Project Start** | February 1, 2025 |
+| **Reporting Cadence** | Interim Progress Reports every 6 months |
+
+### Key Milestones
+
+| ID | Milestone | Due Date |
+|----|-----------|----------|
+| A | Project Effective Date | 2025-02-01 |
+| B1 | Study Protocol Submission | 2025-03-01 |
+| B2 | IRB Documentation Submission | 2025-03-01 |
+| B5 | Cohort & Data Element Identification | 2025-05-15 |
+| B8 | Quarterly Engagement Survey #1 | 2025-06-30 |
+| B9 | Initial OUD Predictive Model Design | 2025-07-15 |
+| B | Interim Progress Report #1 | 2025-07-31 |
+| C2 | OUD Model Release 1 (GitHub) | 2025-08-31 |
+| C4 | Quarterly Engagement Survey #2 | 2025-09-30 |
+| C6 | Interpretability Methods Design | 2025-10-31 |
+
+### Governance
+
+- **AHDT Meetings**: All Hands Design Team meetings held bi-monthly for stakeholder feedback
+- **Quarterly Surveys**: Qualitative engagement surveys with stakeholders
+- **PCORI Oversight**: Regular reporting via PCORI Online portal
+- **IRB**: Annual continuing approval required
+
+## Evidence & Validation
+
+### Dataset Information
+
+| Dataset | Records | Features | Use |
+|---------|---------|----------|-----|
+| Health Facts (Cerner) | ~70M encounters | 500+ | Production training |
+| Synthetic Data | 10,000 patients | 50 | Development/testing |
+
+### Model Performance (Validation Set)
+
+| Model | AUROC | AUPRC | Accuracy |
+|-------|-------|-------|----------|
+| LightGBM | 0.82 | 0.61 | 0.78 |
+| LSTM (T=10) | 0.79 | 0.58 | 0.75 |
+| Logistic Regression | 0.75 | 0.52 | 0.72 |
+
+*Note: Metrics from internal validation. External validation planned.*
+
+### Fairness & Bias
+
+- Subgroup analysis by age, gender, race/ethnicity
+- Calibration curves reviewed across demographic groups
+- Disparate impact monitoring planned for deployment
+
+### Model Monitoring
+
+- Performance drift detection via scheduled re-evaluation
+- Feature importance stability tracking
+- Alert thresholds for metric degradation
