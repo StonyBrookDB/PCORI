@@ -387,3 +387,159 @@ Evaluated on held-out test set (20% of data):
 | Audit Logging | All data access logged with timestamps | HIPAA |
 | Data Retention | Per institutional policy | IRB |
 | Incident Response | 72-hour breach notification | HIPAA |
+
+## Project Controls
+
+### RACI Matrix
+
+| Activity | PI (Wang) | Tech Lead | Clinical Advisors | PCORI |
+|----------|-----------|-----------|-------------------|-------|
+| Architecture decisions | A | R | C | I |
+| Model development | A | R | C | I |
+| Clinical validation | A | C | R | I |
+| Data access requests | R | C | I | A |
+| Quarterly reporting | R | C | I | A |
+| Publication review | A | R | C | I |
+
+*R=Responsible, A=Accountable, C=Consulted, I=Informed*
+
+### Risk Register Summary
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Model performance degradation | Medium | High | Continuous monitoring, quarterly recalibration |
+| Data access interruption | Low | High | Local caches, synthetic fallback data |
+| Key personnel departure | Medium | Medium | Documentation, knowledge transfer protocols |
+| Regulatory changes | Low | Medium | Compliance monitoring, flexible architecture |
+
+### Change Control
+
+- **Minor changes** (bug fixes, documentation): Direct commit with review
+- **Moderate changes** (new features, model updates): PR with technical review
+- **Major changes** (architecture, data sources): PI approval + stakeholder review
+
+## Validation Results Detail
+
+### Subgroup Performance (AUROC with 95% CI)
+
+| Subgroup | N | LightGBM | Logistic Regression |
+|----------|---|----------|---------------------|
+| Overall | 25,000 | 0.82 (0.80-0.84) | 0.76 (0.74-0.78) |
+| Age 18-34 | 5,200 | 0.79 (0.75-0.83) | 0.73 (0.69-0.77) |
+| Age 35-54 | 12,100 | 0.83 (0.80-0.86) | 0.77 (0.74-0.80) |
+| Age 55+ | 7,700 | 0.81 (0.77-0.85) | 0.75 (0.71-0.79) |
+| Male | 11,200 | 0.81 (0.78-0.84) | 0.75 (0.72-0.78) |
+| Female | 13,800 | 0.83 (0.80-0.86) | 0.77 (0.74-0.80) |
+
+### Calibration Summary
+
+- Hosmer-Lemeshow p-value: 0.23 (acceptable calibration)
+- Brier score: 0.142
+- Calibration slope: 0.97 (95% CI: 0.91-1.03)
+
+*Full validation report available in  (internal access)*
+
+## Security Architecture
+
+### System Boundary
+
+
+
+### NIST 800-53 Control Mapping
+
+| Family | Controls | Implementation |
+|--------|----------|----------------|
+| **AC** (Access Control) | AC-2, AC-3, AC-6 | Role-based access, least privilege |
+| **AU** (Audit) | AU-2, AU-3, AU-6 | Comprehensive logging, log review |
+| **SC** (System & Comm) | SC-8, SC-13, SC-28 | TLS 1.3, AES-256 encryption |
+| **SI** (System & Info) | SI-4, SI-10 | Input validation, monitoring |
+| **CM** (Config Mgmt) | CM-2, CM-6 | Baseline configs, version control |
+
+### Data Flow
+
+
+
+All data flows encrypted in transit (TLS 1.3) and at rest (AES-256).
+
+
+## Project Controls
+
+### RACI Matrix
+
+| Activity | PI (Wang) | Tech Lead | Clinical Advisors | PCORI |
+|----------|-----------|-----------|-------------------|-------|
+| Architecture decisions | A | R | C | I |
+| Model development | A | R | C | I |
+| Clinical validation | A | C | R | I |
+| Data access requests | R | C | I | A |
+| Quarterly reporting | R | C | I | A |
+| Publication review | A | R | C | I |
+
+*R=Responsible, A=Accountable, C=Consulted, I=Informed*
+
+### Risk Register Summary
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Model performance degradation | Medium | High | Continuous monitoring, quarterly recalibration |
+| Data access interruption | Low | High | Local caches, synthetic fallback data |
+| Key personnel departure | Medium | Medium | Documentation, knowledge transfer protocols |
+| Regulatory changes | Low | Medium | Compliance monitoring, flexible architecture |
+
+### Change Control
+
+- **Minor changes** (bug fixes, documentation): Direct commit with review
+- **Moderate changes** (new features, model updates): PR with technical review
+- **Major changes** (architecture, data sources): PI approval + stakeholder review
+
+## Validation Results Detail
+
+### Subgroup Performance (AUROC with 95% CI)
+
+| Subgroup | N | LightGBM | Logistic Regression |
+|----------|---|----------|---------------------|
+| Overall | 25,000 | 0.82 (0.80-0.84) | 0.76 (0.74-0.78) |
+| Age 18-34 | 5,200 | 0.79 (0.75-0.83) | 0.73 (0.69-0.77) |
+| Age 35-54 | 12,100 | 0.83 (0.80-0.86) | 0.77 (0.74-0.80) |
+| Age 55+ | 7,700 | 0.81 (0.77-0.85) | 0.75 (0.71-0.79) |
+| Male | 11,200 | 0.81 (0.78-0.84) | 0.75 (0.72-0.78) |
+| Female | 13,800 | 0.83 (0.80-0.86) | 0.77 (0.74-0.80) |
+
+### Calibration Summary
+
+- Hosmer-Lemeshow p-value: 0.23 (acceptable calibration)
+- Brier score: 0.142
+- Calibration slope: 0.97 (95% CI: 0.91-1.03)
+
+*Full validation report: see docs/validation/ directory*
+
+## Security Architecture
+
+### System Boundary
+
+The PCORI system operates within a defined security boundary:
+
+- **Hosting**: Stony Brook University on-premises server (bmidb0)
+- **Network**: University firewall, VPN required for external access
+- **Components**: SITL Dashboard, Training Pipeline, Feature Store, Patient DB
+
+### NIST 800-53 Control Mapping
+
+| Family | Controls | Implementation |
+|--------|----------|----------------|
+| **AC** (Access Control) | AC-2, AC-3, AC-6 | Role-based access, least privilege |
+| **AU** (Audit) | AU-2, AU-3, AU-6 | Comprehensive logging, log review |
+| **SC** (System Comm) | SC-8, SC-13, SC-28 | TLS 1.3, AES-256 encryption |
+| **SI** (System Info) | SI-4, SI-10 | Input validation, monitoring |
+| **CM** (Config Mgmt) | CM-2, CM-6 | Baseline configs, version control |
+
+### Data Flow Summary
+
+1. External EHR data undergoes de-identification before ingestion
+2. De-identified data stored in Feature Store (Parquet format)
+3. Training Pipeline reads from Feature Store, produces models
+4. Models generate predictions stored in Patient DB
+5. SITL Dashboard queries Patient DB for clinician review
+6. All operations logged to Audit system
+
+All data flows encrypted in transit (TLS 1.3) and at rest (AES-256).
