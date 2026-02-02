@@ -12,8 +12,58 @@ Preventable opioid overdose deaths remain a critical public health challenge. Th
 
 - **Transparent Models**: Interpretable predictions with SHAP-based explanations
 - **Clinician-in-the-Loop Validation**: Interactive dashboards for clinical review
-- **Production-Ready Pipeline**: Scalable data processing for large EHR datasets
+- **Scalable Pipeline**: Data processing for large EHR datasets
 - **Multi-Model Support**: Traditional ML (LightGBM, Random Forest) and deep learning (LSTM, GRU)
+
+## Research Compliance & Governance
+
+### Institutional Review
+
+- **IRB Status**: This research is conducted under IRB-approved protocols at Stony Brook University
+- **Data Use Agreement**: Health Facts data accessed under executed DUA with Cerner Corporation
+
+### Data Governance
+
+- **De-identification**: All patient data is de-identified per HIPAA Safe Harbor guidelines
+- **Access Control**: Data access restricted to approved research personnel
+- **Audit Logging**: All data access and model training activities are logged
+- **Date Shifting**: Temporal data shifted to prevent re-identification
+
+### Privacy Safeguards
+
+- No direct identifiers (names, SSN, addresses) in any dataset
+- Minimum cell size of 10 enforced for aggregated statistics
+- Model outputs do not expose individual patient records
+- Synthetic data provided for development (no real patient data)
+
+### Model Governance
+
+- All models validated on held-out test sets before deployment
+- SHAP explanations required for clinical-facing predictions
+- Model performance monitored for drift and bias
+- Version control for all model artifacts
+
+## Limitations & Intended Use
+
+### Intended Use
+
+This software is designed for:
+- **Research**: Developing and validating clinical risk models
+- **Education**: Training on ML methods for healthcare
+- **Prototyping**: Exploring stakeholder-in-the-loop validation approaches
+
+### Limitations
+
+- **Not for Clinical Decision-Making**: Models have not been validated for direct patient care
+- **Population Specificity**: Models trained on specific patient populations may not generalize
+- **Temporal Validity**: Performance may degrade as clinical practices evolve
+- **Explanation Fidelity**: SHAP values are approximations; LLM explanations are for illustration only
+
+### Regulatory Status
+
+- This software has **not** received FDA clearance or approval
+- Not intended for diagnosis, treatment, or prevention of disease
+- Clinical deployment requires separate validation and regulatory review
 
 ## Architecture
 
@@ -41,7 +91,7 @@ Preventable opioid overdose deaths remain a critical public health challenge. Th
 │  ┌──────────────────────────────────────────────────────────────┐   │
 │  │                 Explainability Layer (SHAP)                   │   │
 │  │  • Global feature importance  • Per-patient explanations      │   │
-│  │  • LLM-generated summaries    • Audit logging                 │   │
+│  │  • AI-assisted summaries      • Audit logging                 │   │
 │  └──────────────────────────────────────────────────────────────┘   │
 │                           │                                          │
 │                           ▼                                          │
@@ -93,7 +143,7 @@ cd SITL_Dashboard_PCORI
 # Install dashboard dependencies
 pip install -r requirements.txt
 
-# Initialize the database (if using synthetic data)
+# Initialize the database (synthetic data for testing)
 python backend/init_db.py
 
 # Start the server
@@ -171,7 +221,7 @@ PCORI/
 
 This project is designed to work with:
 
-- **Cerner Health Facts**: De-identified EHR data (requires license)
+- **Cerner Health Facts**: De-identified EHR data (requires license and DUA)
 - **Synthetic Data**: Included for development and testing
 - **Custom Data**: Any tabular patient data with compatible schema
 
@@ -181,6 +231,8 @@ This project is designed to work with:
 - [Installation Guide](docs/INSTALLATION.md)
 - [Data Pipeline](docs/DATA_PIPELINE.md)
 - [API Reference](docs/API.md)
+- [Feature Selection Methods](docs/FEATURE_SELECTION.md)
+- [Model Documentation](docs/MODELS.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 
 ## Testing
@@ -201,17 +253,33 @@ If you use this software in your research, please cite:
 ```bibtex
 @software{pcori_sitl_2026,
   title = {PCORI: Human-Centered AI for Clinical Decision Support},
-  author = {Stony Brook University},
+  author = {Wang, Fusheng and Liu, Yinan and Ding, Zihan and others},
   year = {2026},
-  url = {https://github.com/StonyBrookDB/PCORI}
+  publisher = {Stony Brook University},
+  url = {https://github.com/StonyBrookDB/PCORI},
+  note = {Funded by PCORI}
 }
 ```
 
 ## Acknowledgments
 
+### Funding
+
 This project is funded by the [Patient-Centered Outcomes Research Institute (PCORI)](https://www.pcori.org/).
 
-**Research Team**: Stony Brook University Department of Biomedical Informatics
+### Research Team
+
+**Principal Investigator:**
+- Fusheng Wang, PhD - Department of Biomedical Informatics, Stony Brook University
+
+**Research Team:**
+- Department of Biomedical Informatics, Stony Brook University
+- Department of Computer Science, Stony Brook University
+- Stony Brook Medicine
+
+### Data Partners
+
+- Cerner Corporation (Health Facts database)
 
 ## License
 
@@ -219,8 +287,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions about this project, please contact the research team at Stony Brook University.
+For questions about this project:
+- **Technical Issues**: Open an issue on GitHub
+- **Research Inquiries**: Contact the PI at Stony Brook University
 
 ---
 
-*Disclaimer: This software is intended for research purposes. Clinical deployment requires appropriate validation and regulatory approval.*
+**Disclaimer**: This software is provided for research and educational purposes only. It has not been validated for clinical decision-making and should not be used for direct patient care without appropriate regulatory approval and clinical validation. Users are responsible for ensuring compliance with all applicable regulations when using this software.
