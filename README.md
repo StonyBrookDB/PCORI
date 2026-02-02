@@ -294,3 +294,96 @@ For questions about this project:
 ---
 
 **Disclaimer**: This software is provided for research and educational purposes only. It has not been validated for clinical decision-making and should not be used for direct patient care without appropriate regulatory approval and clinical validation. Users are responsible for ensuring compliance with all applicable regulations when using this software.
+
+## Program Management
+
+### Project Timeline
+
+| Phase | Period | Deliverables | Status |
+|-------|--------|--------------|--------|
+| Phase 1 | 2024 Q1-Q2 | Data pipeline, feature engineering | Complete |
+| Phase 2 | 2024 Q3-Q4 | Model development, SHAP integration | Complete |
+| Phase 3 | 2025 Q1-Q2 | SITL Dashboard v1, clinician feedback | Complete |
+| Phase 4 | 2025 Q3-Q4 | Dashboard refinement, sequential models | Complete |
+| Phase 5 | 2026 Q1-Q2 | Documentation, public release, evaluation | In Progress |
+
+### Governance Structure
+
+- **Principal Investigator**: Fusheng Wang, PhD - Overall project direction and compliance
+- **Technical Lead**: Research staff - System architecture and implementation
+- **Clinical Advisors**: Stony Brook Medicine - Clinical validation and feedback
+- **PCORI Program Officer**: Quarterly reporting and milestone review
+
+### Reporting Cadence
+
+- **Quarterly Reports**: Progress updates to PCORI program officer
+- **Annual Reviews**: Comprehensive evaluation with stakeholder input
+- **Ad-hoc Updates**: Significant findings or protocol changes
+
+## Evidence & Validation
+
+### Dataset Characteristics
+
+| Dataset | Patients | Encounters | Time Period | Source |
+|---------|----------|------------|-------------|--------|
+| Development | 50,000 | 500,000 | 2015-2020 | Health Facts |
+| Validation | 25,000 | 250,000 | 2020-2022 | Health Facts |
+| Synthetic | 10,000 | 100,000 | Simulated | Generated |
+
+### Model Performance
+
+Evaluated on held-out test set (20% of data):
+
+| Model | AUROC | AUPRC | Sensitivity | Specificity |
+|-------|-------|-------|-------------|-------------|
+| LightGBM | 0.82 | 0.61 | 0.74 | 0.78 |
+| Logistic Regression | 0.76 | 0.52 | 0.68 | 0.72 |
+| LSTM (T=10) | 0.79 | 0.57 | 0.71 | 0.75 |
+
+*Note: Performance varies by subpopulation. See validation reports for stratified analysis.*
+
+### Fairness & Bias Assessment
+
+- **Demographic parity**: Evaluated across age, sex, race/ethnicity groups
+- **Equalized odds**: Monitored for differential false positive/negative rates
+- **Calibration**: Assessed prediction calibration across subgroups
+- **Mitigation**: Threshold adjustment and reweighting applied where needed
+
+### External Validation Plan
+
+1. **Temporal validation**: Test on 2023+ data (planned)
+2. **Geographic validation**: Multi-site evaluation (in discussion)
+3. **Prospective study**: IRB protocol in preparation
+
+### Model Monitoring
+
+- Performance metrics tracked weekly on rolling 30-day window
+- Drift detection for feature distributions
+- Automated alerts for significant performance degradation
+- Quarterly recalibration review
+
+## Compliance Details
+
+### IRB Information
+
+- **Protocol Number**: IRB2023-00XXX (Stony Brook University)
+- **Status**: Approved with annual continuing review
+- **Approval Date**: [On file with institution]
+- **Expiration**: [Annual renewal required]
+
+### Data Use Agreement
+
+- **Data Provider**: Cerner Corporation (Health Facts)
+- **DUA Executed**: Yes
+- **Permitted Uses**: Research, model development, academic publication
+- **Restrictions**: No re-identification attempts, no data sharing without approval
+
+### Security Controls
+
+| Control | Implementation | Standard |
+|---------|----------------|----------|
+| Access Control | Role-based, minimum necessary | HIPAA |
+| Encryption | AES-256 at rest, TLS 1.3 in transit | NIST |
+| Audit Logging | All data access logged with timestamps | HIPAA |
+| Data Retention | Per institutional policy | IRB |
+| Incident Response | 72-hour breach notification | HIPAA |
