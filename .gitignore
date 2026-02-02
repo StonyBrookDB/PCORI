@@ -1,42 +1,83 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*.so
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# VS Code and system files
-.vscode/
-.DS_Store
-
-# Python virtual environments
+# Virtual Environments
+venv/
+env/
 .env/
 .venv/
-env/
-venv/
+ENV/
+env.bak/
+venv.bak/
 tabpy_env/
+*_env/
 
-# Log and database files
-*.log
-*.sqlite3
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# OS or IDE metadata
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
 *.swp
 *.swo
-*.zip
-*.tar.gz
+*~
 
-# Notebook outputs or temp files
-*.nbconvert.ipynb
-Untitled*.ipynb
+# OS
+.DS_Store
+Thumbs.db
 
-# Any other download files
-*.app.zip
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
 
-# Ignore personal configuration files (zsh, kube, docker etc.)
-../../.*
+# Model artifacts (large files)
+*.pkl
+*.h5
+*.pt
+*.pth
+!model/README.md
 
-# Mac OS Spotlight or indexing files
-*.Spotlight-V100
-*.Trashes
+# Data (sensitive)
+*.csv
+!**/sample_*.csv
+!**/example_*.csv
+data/*.db
+!data/schema.sql
+
+# Logs
+*.log
+logs/
+
+# Credentials
+.env
+.env.local
+*.key
+credentials.json
+
+# Build
+*.pyc
+*.pyo
+*.pyd

@@ -1,128 +1,226 @@
-Human Centered AI for Clinical Decision Support
-# Patient Risk Score Dashboard using Tableau, TabPy & MySQL
+# PCORI: Human-Centered AI for Clinical Decision Support
 
-This project visualizes patient risk scores (e.g., OUD/OD prediction) using mock data from a MySQL database. Tableau connects to Python (TabPy) running on a remote server to get real-time model predictions.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PCORI Funded](https://img.shields.io/badge/PCORI-Funded-green.svg)](https://www.pcori.org/)
 
+A comprehensive machine learning infrastructure for **Opioid Use Disorder (OUD) and Overdose (OD) risk prediction**, developed as part of a PCORI-funded research initiative at Stony Brook University. This project provides end-to-end tools for clinical risk modeling, from data preprocessing and feature selection to interactive dashboards for clinician validation.
 
-# What It Does
+## Project Overview
 
-- Loads patient feature data from MySQL
-- Trains a Random Forest model on the features
-- Runs a Python Flask server to provide predictions
-- Connects Tableau to the model via TabPy
-- Displays risk score, level (Low/Medium/High), and key features
+Preventable opioid overdose deaths remain a critical public health challenge. This project addresses the gap between ML model development and clinical adoption through:
 
+- **Transparent Models**: Interpretable predictions with SHAP-based explanations
+- **Clinician-in-the-Loop Validation**: Interactive dashboards for clinical review
+- **Production-Ready Pipeline**: Scalable data processing for large EHR datasets
+- **Multi-Model Support**: Traditional ML (LightGBM, Random Forest) and deep learning (LSTM, GRU)
 
-# Project Files
+## Architecture
 
-- `train_model.py`: Trains and saves the ML model
-- `model_server.py`: Flask server that fetches from MySQL and returns predictions
-- `random_forest_model.pkl`: Saved trained model
-- `tabpy_env/`: Python virtual environment (not required to upload)
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        PCORI ML Infrastructure                       │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────────────────┐ │
+│  │   Raw EHR    │──▶│  Pipeline    │──▶│   Feature Store          │ │
+│  │   Data       │   │  (ETL)       │   │   (Parquet/SQLite)       │ │
+│  └──────────────┘   └──────────────┘   └──────────────────────────┘ │
+│                                                  │                   │
+│                           ┌──────────────────────┘                   │
+│                           ▼                                          │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                    Model Training Layer                       │   │
+│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐              │   │
+│  │  │ LightGBM   │  │   LSTM     │  │ Logistic   │  ...         │   │
+│  │  │            │  │   GRU      │  │ Regression │              │   │
+│  │  └────────────┘  └────────────┘  └────────────┘              │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                           │                                          │
+│                           ▼                                          │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                 Explainability Layer (SHAP)                   │   │
+│  │  • Global feature importance  • Per-patient explanations      │   │
+│  │  • LLM-generated summaries    • Audit logging                 │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                           │                                          │
+│                           ▼                                          │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │              SITL Dashboard (Clinician Interface)             │   │
+│  │  • Cohort Builder     • Training UI      • Patient Explorer   │   │
+│  │  • Risk Scores        • AI Chat          • Export Tools       │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
+## Components
 
-# Setup
+| Component | Description | Documentation |
+|-----------|-------------|---------------|
+| **[SITL Dashboard](SITL_Dashboard_PCORI/)** | Interactive web platform for clinician-in-the-loop model validation | [README](SITL_Dashboard_PCORI/README.md) |
+| **[Pipeline](pipeline-pcori/)** | Data preprocessing, feature engineering, and model training pipeline | [README](pipeline-pcori/README.md) |
+| **[Feature Selection](feature_selection/)** | Multiple feature selection methods (NTK, LightGBM, Elastic Net, LLM) | [docs/FEATURE_SELECTION.md](docs/FEATURE_SELECTION.md) |
+| **[Model](model/)** | Trained model artifacts and evaluation results | [docs/MODELS.md](docs/MODELS.md) |
 
-### On Remote Server (`bmidb0`)
-bash
-# SSH into remote
-ssh -p 130 username@bmidb0.cs.stonybrook.edu
+## Quick Start
 
-# Activate environment
-cd ~/pcori_sample_project
-source tabpy_env/bin/activate
+### Prerequisites
 
-# Train the model
-python train_model.py
+- Python 3.8+
+- pip or conda
 
-# Start TabPy model server
-python model_server.py
+### Installation
 
-# On Local Machine (for Tableau)
-bash
-# Set up SSH tunnel to TabPy
-ssh -N -L 9004:localhost:9004 -p 130 reddy@bmidb0.cs.stonybrook.edu
+```bash
+# Clone the repository
+git clone https://github.com/StonyBrookDB/PCORI.git
+cd PCORI
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Running the SITL Dashboard
+
+```bash
+cd SITL_Dashboard_PCORI
+
+# Install dashboard dependencies
+pip install -r requirements.txt
+
+# Initialize the database (if using synthetic data)
+python backend/init_db.py
+
+# Start the server
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8503
+
+# Open http://localhost:8503 in your browser
+```
+
+### Running the Training Pipeline
+
+```bash
+cd pipeline-pcori
+
+# Train with synthetic data
+python train.py \
+  --dataset ./data/synth \
+  --spec ./data/synth/FeatureSpec.json \
+  --model lightgbm
+
+# Available models: logreg, lightgbm, rf, dt, lstm, gru, bilstm
+```
+
+## Supported Models
+
+| Model | Type | Use Case | Training Time |
+|-------|------|----------|---------------|
+| LightGBM | Gradient Boosting | Tabular data, fast iteration | <1 second |
+| Logistic Regression | Linear | Baseline, interpretability | <1 second |
+| Random Forest | Ensemble | Feature importance | ~seconds |
+| Decision Tree | Tree | Explainable rules | <1 second |
+| LSTM | Deep Learning | Temporal sequences | Minutes |
+| GRU | Deep Learning | Temporal sequences | Minutes |
+| BiLSTM | Deep Learning | Bidirectional patterns | Minutes |
+
+## Feature Selection Methods
+
+This project implements multiple feature selection approaches for identifying predictive clinical features:
+
+| Method | Description |
+|--------|-------------|
+| **NTK-Inspired** | Neural Tangent Kernel sensitivity analysis |
+| **LightGBM** | Gradient boosting feature importance |
+| **Elastic Net** | L1/L2 regularized coefficients |
+| **Recurrence Enrichment** | Condition recurrence patterns |
+| **LLM-Guided** | Large language model feature ranking |
+
+Results are combined using ensemble voting (features appearing in 3+ methods).
+
+## Project Structure
+
+```
+PCORI/
+├── SITL_Dashboard_PCORI/    # Stakeholder-in-the-Loop web dashboard
+│   ├── backend/             # FastAPI server
+│   ├── frontend/            # Web interface
+│   ├── data/                # Local database
+│   └── tests/               # API tests
+├── pipeline-pcori/          # ML training pipeline
+│   ├── models/              # Model implementations
+│   ├── datasets/            # Data loaders
+│   ├── configs/             # Training configurations
+│   └── tools/               # Evaluation utilities
+├── feature_selection/       # Feature selection methods
+│   ├── diagnosis/           # Diagnosis-based features
+│   └── labs/                # Lab-based features
+├── docs/                    # Documentation
+│   ├── ARCHITECTURE.md      # System architecture
+│   ├── INSTALLATION.md      # Detailed setup guide
+│   ├── DATA_PIPELINE.md     # Data processing details
+│   └── API.md               # API reference
+└── model/                   # Trained model artifacts
+```
+
+## Data Sources
+
+This project is designed to work with:
+
+- **Cerner Health Facts**: De-identified EHR data (requires license)
+- **Synthetic Data**: Included for development and testing
+- **Custom Data**: Any tabular patient data with compatible schema
+
+## Documentation
+
+- [Architecture Overview](docs/ARCHITECTURE.md)
+- [Installation Guide](docs/INSTALLATION.md)
+- [Data Pipeline](docs/DATA_PIPELINE.md)
+- [API Reference](docs/API.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+
+## Testing
+
+```bash
+# Run all tests
+pytest tests/ -v
+
+# Run specific component tests
+pytest SITL_Dashboard_PCORI/tests/ -v
+pytest pipeline-pcori/tests/ -v
+```
+
+## Citation
+
+If you use this software in your research, please cite:
+
+```bibtex
+@software{pcori_sitl_2026,
+  title = {PCORI: Human-Centered AI for Clinical Decision Support},
+  author = {Stony Brook University},
+  year = {2026},
+  url = {https://github.com/StonyBrookDB/PCORI}
+}
+```
+
+## Acknowledgments
+
+This project is funded by the [Patient-Centered Outcomes Research Institute (PCORI)](https://www.pcori.org/).
+
+**Research Team**: Stony Brook University Department of Biomedical Informatics
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions about this project, please contact the research team at Stony Brook University.
 
 ---
 
-# Tableau Setup
-
-1. Connect Tableau to remote MySQL DB (`pcori_dashboard.t_topfeature`) (optional) or use the excel data and upload the file.
-2. Go to `Help → Settings → Manage Analytics Extension Connection`
-3. Connect to `localhost:9004` (TabPy)
-4. Use calculated field with:
-
-python
-
-Risk Explanation:-
-
-
-SCRIPT_STR(
-"
-import requests
-r = requests.post(
-    'http://localhost:5006/risk_score',
-    json={'patient_id': int(_arg1[0])}
-)
-return [r.json()['explanation']]
-", 
-ATTR([Patient])
-)
-
-
-Risk Level:-
-
-SCRIPT_STR(
-"
-import requests
-r = requests.post(
-    'http://localhost:5006/risk_score',
-    json={'patient_id': int(_arg1[0])}
-)
-return [r.json()['risk_level']]
-", 
-ATTR([Patient])
-)
-
-
-Risk Score:- 
-
-SCRIPT_REAL(
-"
-import requests
-r = requests.post(
-    'http://localhost:5006/risk_score',
-    json={'patient_id': int(_arg1[0])}
-)
-return [r.json()['risk_score']]
-", 
-ATTR([Patient])
-)
-
-
-Top Feature:- 
-
-SCRIPT_REAL(
-"
-import requests
-r = requests.post(
-    'http://localhost:5006/risk_score',
-    json={'patient_id': int(_arg1[0])}
-)
-return [r.json()['top_features'][0]['score']]
-", 
-ATTR([Patient])
-)
-
-
-# Output
-
-- Risk Score (0–1)
-- Risk Level: Low (<0.4), Medium (0.4–0.7), High (>0.7)
-- Top Features (ranked by importance)
-
-
-# Notes
-
-- Entire pipeline runs remotely on bmidb0 server.
-- Tableau fetches results via TabPy API.
+*Disclaimer: This software is intended for research purposes. Clinical deployment requires appropriate validation and regulatory approval.*
