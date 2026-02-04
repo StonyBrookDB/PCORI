@@ -1,11 +1,13 @@
-# PCORI: Human-Centered AI for Clinical Decision Support
+# PCORI: Improving Deep Learning for Clinical Prediction Model Development and Interpretability
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PCORI Funded](https://img.shields.io/badge/PCORI-Funded-green.svg)](https://www.pcori.org/)
 [![CI](https://github.com/StonyBrookDB/PCORI/actions/workflows/ci.yml/badge.svg)](https://github.com/StonyBrookDB/PCORI/actions)
 
-A machine learning infrastructure for **Opioid Use Disorder (OUD) and Overdose (OD) risk prediction**, developed under PCORI Contract 23C3 at Stony Brook University.
+This project aims to develop, validate and interpret a predictive deep learning (DL) model for use in patient-centered CER, leveraging methods that specifically incorporate patient partner and clinical stakeholder perspectives throughout model development. The primary focus is developing  on Human-Centered AI for Clinical Decision Support
+ The project will develop early opioid risk prediction models for **Opioid Use Disorder (OUD) and Overdose (OD)**, and generalize the framework for other diseases such as heart failure.
+ [PCORI Project Website](https://www.pcori.org/research-results/2024/improving-deep-learning-clinical-prediction-model-development-and-interpretability)
 
 ## Project Overview
 
@@ -21,7 +23,7 @@ This project addresses the gap between ML model development and clinical adoptio
 | Field | Value |
 |-------|-------|
 | **Contract** | PCORI 23C3 |
-| **PI** | Fusheng Wang, PhD |
+| **PI** | Fusheng Wang, PhD and Richard Rosenthal, MD |
 | **Institution** | Stony Brook University |
 | **Start Date** | February 1, 2025 |
 | **Reporting** | Interim reports every 6 months |
