@@ -1,0 +1,170 @@
+=========================================================
+exp_calib_july — proper train/calibration/test split
+=========================================================
+Added: 2026-07-27
+Code:  src/08_calibration_split_eval.py
+Run:   scripts/run_exp_calib_july.sh
+
+What this fixes
+----------------
+Both existing pipelines pick their operating threshold on the SAME data
+used to report final metrics:
+  - src/03_train_eval.py's f1_best scans the PR curve on the test fold
+    itself (_best_f1_from_pr_curve) — flagged as an optimistic estimate
+    in note/threshold_sweep.txt.
+  - src/05_calibration_eval.py's f1_swept / prevalence_matched do the
+    same thing on each 10-fold CV test fold — see note/calibration.txt.
+Neither pipeline does any probability calibration (isotonic/Platt) —
+raw model scores are used directly. Because every model is trained with
+class_weight="balanced" / 1:10 downsampling, those raw scores are pushed
+toward 0.5 and do not reflect the true ~1.16% prevalence.
+
+exp_calib_july fixes this with a proper 3-way split:
+
+  train        — fit the model, 1:10 downsampled (same as 03/05).
+  calibration  — independent of train and test. Used to fit isotonic and
+                 Platt probability calibrators, AND to select operating
+                 thresholds. Never touches final metrics.
+  test         — touched exactly once, only to compute final metrics.
+                 Never used to fit the model, fit a calibrator, or select
+                 a threshold.
+
+Split scheme
+------------
+70% train / 15% calibration / 15% test, stratified by label, generated
+once via two-stage StratifiedShuffleSplit(seed=42):
+  1. peel off test_idx (test_size=0.15) from the full 11,791,858 rows.
+  2. split the remainder into train_idx/calib_idx (test_size=0.15/0.85).
+
+The result is persisted to experiments/exp_calib_july/split_indices.npz
+(+ a human-readable split_indices.meta.json) and loaded, not
+regenerated, on every subsequent invocation — for ANY model or feature
+set — because the split only depends on labels.npy, and every
+matrix_*.npz / sequences_*.npy / labels.npy file shares the same row
+order. This guarantees every model is compared on identical patients.
+Written atomically (temp file + os.replace) so two invocations launched
+in parallel can't race into a half-written split file.
+
+15%/15% was sized against N=11,791,858, prevalence 1.1636%: each slice
+still has ~20K positive patients, far more than needed for a stable
+isotonic/Platt fit or stable test-set metrics (binomial SE on prevalence
+≈ 0.00008 at this size).
+
+Why the calibration split is NOT downsampled
+---------------------------------------------
+Isotonic regression / Platt scaling must be fit on data with realistic
+class balance — that's the entire point of the split. Fitting a
+calibrator on the artificially 1:10-balanced training distribution would
+just reproduce the same miscalibration under a different name (the
+calibrated probabilities would reflect the downsampled prior, not the
+true ~1.16% prevalence). So X_calib/y_calib are sliced straight from the
+native-prevalence calibration index, no downsample_train() call.
+
+Calibration methods
+--------------------
+Both fit from scratch on (raw_calib_score, y_calib):
+  - isotonic  sklearn.isotonic.IsotonicRegression(out_of_bounds="clip")
+              non-parametric, no assumed shape — safe default for
+              tree/deep model score distributions.
+  - platt     sklearn.linear_model.LogisticRegression on the raw score
+              reshaped to one feature — classic from-scratch Platt
+              scaling. Deliberately NOT sklearn.calibration.
+              CalibratedClassifierCV, which wraps its own internal CV
+              around model fitting and would fight the explicit 3-way
+              split built here.
+  - raw       identity transform, included as the baseline everything
+              else is compared against.
+
+AUROC is computed once per (model, features) on raw test scores — it's
+rank-based, and both calibrators are monotonic, so it's identical under
+any of the three methods; not recomputed per method.
+
+Threshold strategies (unchanged definitions from 05_calibration_eval.py)
+--------------------------------------------------------------------------
+  1. default            threshold = 0.5
+  2. f1_swept            F1-optimal threshold from the PR curve — now
+                         swept on the CALIBRATION split, not the test set
+  3. prevalence_matched  threshold = quantile of scores at (1 - prevalence);
+                         prevalence defaults to the calibration split's
+                         own rate (y_calib.mean()), never the test split's
+
+Every (calibration_method x strategy) threshold is selected using only
+(y_calib, calibrated_calib_score), then applied exactly once to the
+untouched test split. 3 methods x 3 strategies = 9 rows per (model,
+features) run.
+
+Also recorded per calibration method, on the test set: Brier score
+(sklearn.metrics.brier_score_loss) and a quantile-binned reliability
+table (mean_predicted vs. frac_positive per bin — uniform [0,1] bins are
+useless at 1.16% prevalence) — the direct evidence that calibration
+worked, independent of any threshold choice.
+
+Explicitly out of scope (this run)
+------------------------------------
+- No 10-fold CV — single split only.
+- No bootstrap / confidence intervals — planned for a later iteration
+  once this single-split baseline is verified correct. Nothing in this
+  script's design should make wrapping it in a bootstrap loop awkward
+  (the split-generation and per-model logic are already separable), but
+  it is NOT implemented yet.
+
+Outputs (do NOT overwrite any existing result)
+-------------------------------------------------
+  experiments/exp_calib_july/split_indices.npz
+  experiments/exp_calib_july/split_indices.meta.json
+  experiments/exp_calib_july/{model_slug}_{fs}/summary_calib_split.json
+      { split: {...}, auroc_test, brier_test: {raw/isotonic/platt},
+        reliability_curve_test: {raw/isotonic/platt: [...]},
+        methods: { raw/isotonic/platt: {
+            default/f1_swept/prevalence_matched: {
+                threshold, precision, recall, f1, pred_pos_rate } } } }
+  experiments/exp_calib_july/{model_slug}_{fs}/calib_split_metrics.csv
+      9 rows (3 methods x 3 strategies), no fold column
+  experiments/exp_calib_july/{model_slug}_{fs}/predictions.npz
+      test_idx / y_true / raw_score / isotonic_score / platt_score
+      (float16) — lets any future threshold be recomputed with zero
+      retraining, for any of the three score types
+  results/exp_calib_july/{fs}.csv
+      cross-model wide table
+
+experiments/{model}_{features}/summary.json (03), summary_calibration.json
+(05), and results/calibration_{fs}.csv / table2_{fs}.csv are never
+touched — this entire experiment lives under experiments/exp_calib_july/
+and results/exp_calib_july/*.csv, paths that can never collide with any
+{model}_{features} slug combination.
+
+Pilot scope
+-----------
+First run covers Logistic Regression (tabular/matrix data path) and
+Transformer (deep/sequence data path), each on the three curation
+families used elsewhere in this repo (see plot_kelly_rick_full299_by_model.py,
+export_latex.py's table_curation_comparison): kelly (48 codes),
+rick_top251 (Rick's expanded 251-code list), top300 (the inclusive
+"Full" list). Run via:
+
+  bash scripts/run_exp_calib_july.sh \
+      --models "Logistic Regression" "Transformer" \
+      --features kelly rick_top251 top300
+
+This is enough to validate both data-loading code paths (matrix vs.
+sequence) end-to-end, across the three curation levels the rest of the
+paper already compares, before deciding whether to expand further via
+--models/--features (e.g. to the full 8-model x 5-feature-set grid, or
+the rick_top50/100/150/200 scaling sweep).
+
+Reading the comparison
+-----------------------
+In results/exp_calib_july/{fs}.csv each model has 9 rows. Expected
+pattern:
+  - raw + default(0.5):     high recall, very low precision — same
+                            failure mode as the main pipeline's 0.5
+                            threshold, since raw scores are uncalibrated
+  - isotonic/platt Brier   should each be <= raw's Brier on the test set
+  - isotonic/platt         reliability curve bins should track close to
+                            the diagonal (mean_predicted ~= frac_positive);
+                            raw should show a visible gap
+  - prevalence_matched     pred_pos_rate should be nearly identical
+                            across raw/isotonic/platt for the same model
+                            (it's a rank-based top-k selection, invariant
+                            to monotonic rescaling) — a structural check
+                            that calibration isn't corrupting score order
